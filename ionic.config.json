@@ -1,0 +1,7 @@
+{
+  "name": "cali_aires",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

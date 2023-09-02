@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Cargar Actas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div id="outer-container">
+    <div id="container">
+      <strong>Cargar Actas</strong>
+      
+      <div class="custom-ion-item">
+        
+        <div class="inputGroup">
+          <div class="custom-ion-item">
+            <form (ngSubmit)="uploadFile()" #fileForm="ngForm">
+              <div class="inputGroup">
+                <label for="fileInput" class="input-icon">📂</label>
+                <input type="file" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx" id="fileInput" />
+              </div>
+              <button class="custom-button2" expand="full" type="submit" [disabled]="!selectedFile">Cargar Archivo</button>
+            </form>
+          </div>
+          
+          
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</ion-content>
+
