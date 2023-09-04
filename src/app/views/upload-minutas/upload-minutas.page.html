@@ -17,7 +17,8 @@
                 <label for="fileInput" class="input-icon">📂</label>
                 <input type="file" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx" id="fileInput" />
               </div>
-              <button class="custom-button2" expand="full" type="submit" [disabled]="!selectedFile">Cargar Archivo</button>
+              <button class="custom-button" expand="full" type="submit" [disabled]="!selectedFile"><ion-icon name="cloud-download-outline" size="default" color="primary"></ion-icon>  Cargar Archivo</button>
+              <button class="custom-button" expand="full" type="submit" (click)="navigateHome()"> <ion-icon name="home-outline" color="primary" ></ion-icon>   Volver </button>
             </form>
           </div>
           

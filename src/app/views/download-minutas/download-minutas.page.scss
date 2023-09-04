@@ -43,6 +43,7 @@
     transition: 0.3s;
     width: 100%; /* Asegura que el campo de texto ocupe todo el ancho disponible */
     font-size: 16px; /* Ajusta el tamaño de fuente según sea necesario */
+    margin-top: 20px;
    }
    
    .input:focus {
@@ -57,9 +58,10 @@
    /* Estilos para el botón */
  
    .custom-button2 {
-    border: 1px solid  black !important; /* Agrega un borde sólido de 1 píxel de grosor en color negro */
+    display: inline-block; /* Cambiamos a display inline-block */
+    border: 1px solid black !important;
     padding: 1.3em 3em;
-    font-size: 12px; /* Ajusta el tamaño de fuente según sea necesario */
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
@@ -72,22 +74,37 @@
     cursor: pointer;
     outline: none;
     margin-top: 25px;
-    width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
-    
-  }
-  
-  .custom-button2:hover {
+    margin-right: 10px; /* Agrega un espacio entre los botones si es necesario */
+}
+
+.custom-button2:hover {
     background-color: #c4dcfd;
     box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
     color: #000;
     transform: translateY(-7px);
-  }
-  
-  .custom-button2:active {
+}
+
+.custom-button2:active {
     transform: translateY(-1px);
-  }
+}
+  /* organizar los iconos */
 
-
+  .inputGroup {
+      position: relative;
+      margin-left: 40px;
+      margin-right: 40px;
+      
+    }
+    
+    .input-icon {
+      position: absolute;
+      left: -40px;
+      top: 70%;
+      transform: translateY(-50%);
+      font-size: 24px; /* Ajusta el tamaño según tus necesidades */
+      color: var(--ion-color-primary); /* Elige el color deseado */
+    }
+    
 
   
   

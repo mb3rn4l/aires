@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-upload-minutas',
@@ -9,7 +10,10 @@ export class UploadMinutasPage implements OnInit {
 
   selectedFile: File | null = null;
 
-  constructor() {}
+  constructor(private router: Router) {}
+  navigateHome(){
+    this.router.navigate(["home"])
+  }
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];

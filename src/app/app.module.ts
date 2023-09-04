@@ -9,11 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Importa el módulo FormsModule desde '@angular/forms'
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+// animacion
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule, ReactiveFormsModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule, ReactiveFormsModule,BrowserAnimationsModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   

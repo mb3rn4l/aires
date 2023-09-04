@@ -24,6 +24,10 @@ const routes: Routes = [
     path: 'upload-minutas',
     loadChildren: () => import('./views/upload-minutas/upload-minutas.module').then( m => m.UploadMinutasPageModule)
   },
+  {
+    path: 'form',
+    loadChildren: () => import('./views/form/form.module').then( m => m.FormPageModule)
+  },
 ];
 
 @NgModule({
