@@ -6,6 +6,8 @@
     margin: 0 auto; /* Centra el contenedor en la página */
     background-color: white;
     
+    overflow: hidden; /* Evita que el contenido desborde el contenedor */
+    
   }
   /* Estilos para el #container */
   
@@ -29,9 +31,9 @@
 }
 
 #container-infoE img {
-  width: 15%; /* Tamaño de la imagen */
-  margin-right: 30px; /* Espacio entre la imagen y el párrafo */
-  float: left; /* Hacer que la imagen flote a la izquierda */
+  width: 140px; /* Tamaño de la imagen */
+  margin-right:90px; /* Espacio entre la imagen y el párrafo */
+ 
 }
 
 #container-Code {
@@ -73,112 +75,83 @@
 // CONTENEDOR 2
 
 #container2 {
-  position: absolute;
-  top: 37%;
+  top: 33%;
   left: 20.5%;
-  padding: 1px;
-  border: 1px solid #000000;
-  text-align: left; /* Alinea el texto a la izquierda */
-  color: #000000;
-  font-size: 20px;
-  line-height: 16px;
-  display: block;
-  margin-bottom: 20px;
 }
-
-
 
 // CONTENEDOR 3
-
 #container3 {
-  position: absolute;
-  top: 97%;
+  top: 62%;
   left: 20.5%;
-  padding: 1px;
-  border: 1px solid #000000;
-  text-align: left; /* Alinea el texto a la izquierda */
-  color: #000000;
-  font-size: 20px;
-  line-height: 16px;
-  display: block;
-  margin-bottom: 20px;
 }
-
-
-
 
  // CONTENEDOR4
-
-#container4 {
-  position: absolute;
-  top: 130%;
+#container4 { 
+  top: 115%;
   left: 20.5%;
-  padding: 1px;
-  border: 1px solid #000000;
-  text-align: left; /* Alinea el texto a la izquierda */
-  color: #000000;
-  font-size: 20px;
-  line-height: 16px;
-  display: block;
-  margin-bottom: 20px;
 }
-
-
 
 // CONTENEDOR5
 
 #container5 {
-  position: absolute;
-  top: 37%;
-  left: 47%;
-  padding: 1px;
-  border: 1px solid #000000;
-  text-align: left; /* Alinea el texto a la izquierda */
-  color: #000000;
-  font-size: 20px;
-  line-height: 16px;
-  display: block;
-  margin-bottom: 20px;
+  top: 33%;
+  left: 42%;
 }
-
-
-
-
 
 // CONTENEDOR6
 
 #container6 {
-  position: absolute;
-  top: 97%;
-  left: 47%;
-  padding: 1px;
-  border: 1px solid #000000;
-  text-align: left; /* Alinea el texto a la izquierda */
-  color: #000000;
-  font-size: 20px;
-  line-height: 16px;
-  display: block;
-  margin-bottom: 20px;
+  top: 92%;
+  left: 42%;
 }
-
-
 
 // CONTENEDOR7
+
 #container7 {
-  position: absolute;
-  top: 137%;
-  left: 47%;
-  padding: 1px;
-  border: 1px solid #000000;
-  text-align: left; /* Alinea el texto a la izquierda */
-  color: #000000;
-  font-size: 20px;
-  line-height: 16px;
-  display: block;
-  margin-bottom: 20px;
+  top: 126%;
+  left: 42%;
 }
 
+// CONTENEDOR8
+#container8 {
+  top: 143.5%;
+  left: 42%;
+}
 
+// CONTENEDOR9
+#container9 { 
+  top: 153.5%;
+  left: 42%;
+}
+
+// CONTENEDOR10
+#container10 {
+  top: 160%;
+  left: 42%;
+}
+
+// CONTENEDOR11
+#container11 {
+  top: 143.5%;
+  left: 60%;
+}
+
+// CONTENEDOR12
+#container12 {
+  top: 160%;
+  left: 60%;
+}
+// CONTENEDOR13
+#container13 {
+  top: 174%;
+  left: 42%;
+}
+
+// CONTENEDOR13
+#container14 {
+  top: 174%;
+  left: 32%;
+}
 //estilo letra
 p {
   font-family: 'Calibri Light', sans-serif;
@@ -191,7 +164,8 @@ table {
 
 #container-infoE p {
   
-  text-align: left;
+  text-align: right;
+  margin-top: -70px;
 }
 
 // ESTILO TABLA
@@ -209,6 +183,51 @@ table {
 
 #tablege th {
   background-color: #f2f2f2; /* Agrega un fondo gris claro a las celdas de encabezado */
+}
+
+// estilo de las tablas de fromularios
+.stylec{
+
+    position: absolute;
+    padding: 1px;
+    border: 1px solid #000000;
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: #000000;
+    font-size: 20px;
+    line-height: 16px;
+    display: block;
+    margin-bottom: 20px;
+
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1024px) {
+  /* Agrega estilos específicos para pantallas grandes aquí */
+}
+
+/* Estilos para pantallas medianas */
+@media (max-width: 1023px) {
+  /* Agrega estilos específicos para pantallas medianas aquí */
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  /* Agrega estilos específicos para pantallas pequeñas aquí */
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1024px) {
+  /* Agrega estilos específicos para pantallas grandes aquí */
+}
+
+/* Estilos para pantallas medianas */
+@media (max-width: 1023px) {
+  /* Agrega estilos específicos para pantallas medianas aquí */
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  /* Agrega estilos específicos para pantallas pequeñas aquí */
 }
 
 
