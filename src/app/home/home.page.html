@@ -6,15 +6,24 @@
     </ion-toolbar>
   </ion-header>
   <div id="outer-container">
-    <div id="container">
+
+    <app-container-card>
+      <strong title>Bienvenido a cali aires</strong>
+
+        <button button-section type="submit" class="custom-button2" (click)="navigateUpload()"> Cargar Actas</button>
+      
+      
+    </app-container-card>
+    
+    <!-- <div id="container">
       <strong>Bienvenido</strong>
       
-      <div class="custom-ion-item">
+     
         
               
         <button type="submit" class="custom-button2" (click)="navigateUpload()"><ion-icon name="cloud-upload-outline" size="default" color="primary"></ion-icon>   Cargar Actas</button>
         <button type="submit" class="custom-button2" ><ion-icon name="document-text-outline" size="default" color="primary"></ion-icon>   Digilenciar Actas</button>
-      </div>
-    </div>
+      
+    </div> -->
   </div>
 </ion-content>

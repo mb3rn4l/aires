@@ -11,12 +11,11 @@
   }
   /* Estilos para el #container */
   
-
 /* Estilos para el #container-infoE */
 #container-infoE {
   position: absolute;
-  top: 30px;
-  left: 20.5%;
+  top: 15px;
+  left: 15px;
   padding: 5px;
   background-color: white;
  
@@ -39,7 +38,7 @@
 #container-Code {
   position: absolute;
   top: 30px;
-  left: 66.8%;
+  left: 500px;
   padding: 5px;
   background-color: white;
   
@@ -55,102 +54,92 @@
 // CONTENEDOR 1
 
 #container1 {
-  position: absolute;
-  top: 23%;
-  left: 20.5%;
-  padding: 1px;
-  border: 1px solid #000000;
-  text-align: left; /* Alinea el texto a la izquierda */
-  color: #000000;
-  font-size: 20px;
-  line-height: 16px;
-  display: block;
-  margin-bottom: 20px;
+  
+  top: 100px;
+  left: 15px;
+ 
 }
-/* Estilo para los elementos <p> dentro de #container1 con la clase .espacio */
-#container1 .espacio {
-  text-align: left; /* Alinea el texto a la izquierda */
-}
+
 
 // CONTENEDOR 2
 
 #container2 {
-  top: 33%;
-  left: 20.5%;
+  top: 180px;
+  left: 15px;
 }
 
 // CONTENEDOR 3
 #container3 {
-  top: 62%;
-  left: 20.5%;
+  top: 350px;
+  left: 15px;
 }
 
  // CONTENEDOR4
 #container4 { 
-  top: 115%;
-  left: 20.5%;
+  top: 650px;
+  left: 15px;
 }
 
 // CONTENEDOR5
 
 #container5 {
-  top: 33%;
-  left: 42%;
+  top: 180px;
+  left: 230px;
 }
 
 // CONTENEDOR6
 
 #container6 {
-  top: 92%;
-  left: 42%;
+  top: 510px;
+  left: 230px;
 }
 
 // CONTENEDOR7
 
 #container7 {
-  top: 126%;
-  left: 42%;
+  top: 700px;
+  left: 230px;
 }
 
 // CONTENEDOR8
 #container8 {
-  top: 143.5%;
-  left: 42%;
+  top: 800px;
+  left: 230px;
 }
 
 // CONTENEDOR9
 #container9 { 
-  top: 153.5%;
-  left: 42%;
+  top: 858px;
+  left: 230px;
 }
 
 // CONTENEDOR10
 #container10 {
-  top: 160%;
-  left: 42%;
+  top: 897px;
+  left: 230px;
 }
 
 // CONTENEDOR11
 #container11 {
-  top: 143.5%;
-  left: 60%;
+  top: 800px;
+  left: 370px;
 }
 
 // CONTENEDOR12
 #container12 {
-  top: 160%;
-  left: 60%;
+  top: 897px;
+  left: 450px;
 }
 // CONTENEDOR13
 #container13 {
-  top: 174%;
-  left: 42%;
+  top: 980px;
+  left: 230px;
 }
 
-// CONTENEDOR13
+// CONTENEDOR14
 #container14 {
-  top: 174%;
-  left: 32%;
+  top: 1060px;
+  left: 15px;
 }
 //estilo letra
 p {
@@ -200,34 +189,15 @@ table {
 
 }
 
-/* Estilos para pantallas grandes */
-@media (min-width: 1024px) {
-  /* Agrega estilos específicos para pantallas grandes aquí */
+
+
+
+
+//
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
-
-/* Estilos para pantallas medianas */
-@media (max-width: 1023px) {
-  /* Agrega estilos específicos para pantallas medianas aquí */
-}
-
-/* Estilos para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
-  /* Agrega estilos específicos para pantallas pequeñas aquí */
-}
-
-/* Estilos para pantallas grandes */
-@media (min-width: 1024px) {
-  /* Agrega estilos específicos para pantallas grandes aquí */
-}
-
-/* Estilos para pantallas medianas */
-@media (max-width: 1023px) {
-  /* Agrega estilos específicos para pantallas medianas aquí */
-}
-
-/* Estilos para pantallas pequeñas (móviles) */
-@media (max-width: 768px) {
-  /* Agrega estilos específicos para pantallas pequeñas aquí */
-}
-
-
