@@ -5,8 +5,36 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="outer-container">
-    <div id="container">
+    
+  <app-container-card>
+      <strong title>LOGIN</strong>
+      <div form-section >
+        <ion-input 
+          type="email"
+          fill="outline"
+          label="Email"
+          labelPlacement="floating"
+          helperText="Enter a valid email"
+          errorText="Invalid email"
+          ngModel
+          email>
+        </ion-input>
+        <br>
+        <ion-input 
+          type="password"
+          fill="outline"
+          label="Password"
+          labelPlacement="floating"
+          placeholder="Password">
+        </ion-input>
+      </div>
+     
+
+      <button button-section type="submit" ><ion-icon  name="log-in-outline" size="default" color="primary"></ion-icon>   Ingresar</button>
+    </app-container-card>
+
+
+    <!-- <div id="container">
       <strong>Login</strong>
 
       <div class="custom-ion-item">
@@ -24,9 +52,7 @@
             class="input"
             placeholder="Email..."
           >
-         <!--  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
-            Please enter a valid email address.
-          </div> -->
+        
         </div>
         
         <div class="inputGroup">
@@ -37,6 +63,6 @@
         <button type="submit" class="custom-button2"><ion-icon name="log-in-outline" color="primary" size="small"></ion-icon></button>
       </form>
       </div>
-    </div>
-  </div>
+    </div> -->
+
 </ion-content>

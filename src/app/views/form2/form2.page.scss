@@ -29,31 +29,45 @@
     
 /* Estilos para el #container-infoE */
 #container-infoE {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    padding: 5px;
-    background-color: white;
-   
-    border: 1px solid #000000;
-    text-align: center;
-    color: #000000;
-    font-size: 20px;
-    line-height: 15px;
-    display: block;
-    margin-bottom: 20px;
-    
-  }
-  
-  #container-infoE img {
-    width: 140px; /* Tamaño de la imagen */
-    margin-right:90px; /* Espacio entre la imagen y el párrafo */
-   
-  }
+  position: absolute;
+  top: 3px;
+  left: 15px;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #000000;
+  color: #000000; /* Cambiar el color del texto a negro o cualquier otro color legible */
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.image-container img {
+  width: 70px; /* Establece un ancho fijo para la imagen */
+  height: auto; /* Mantiene la proporción original de la imagen */
+  margin-right: 10px;
+}
+
+.text-container {
+  line-height: 16px; /* Ajusta la altura de línea solo para los párrafos */
+}
+
+.text-container p {
+  margin: 0; /* Elimina el margen predeterminado del párrafo */
+}
+
+
+///
+
+
+.text-container {
+  line-height: 10px;
+}
   
   #container-Code {
     position: absolute;
-    top: 30px;
+    top: 10px;
     left: 500px;
     padding: 5px;
     background-color: white;
@@ -71,8 +85,17 @@
   
   #container1 {
     
-    top: 100px;
+    top: 80px;
     left: 15px;
+    position: absolute;
+    padding: 1px;
+   /*  border: 1px solid #000000; */
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: #000000;
+    font-size: 20px;
+    line-height: 16px;
+    display: block;
+  
    
   }
  
@@ -80,19 +103,19 @@
   // CONTENEDOR 2
   
   #container2 {
-    top: 180px;
+    top: 160px;
     left: 15px;
   }
   
   // CONTENEDOR 3
   #container3 {
-    top: 350px;
+    top: 370px;
     left: 15px;
   }
   
    // CONTENEDOR4
   #container4 { 
-    top: 650px;
+    top: 700px;
     left: 15px;
   }
   
@@ -106,32 +129,32 @@
   // CONTENEDOR6
   
   #container6 {
-    top: 510px;
+    top: 520px;
     left: 230px;
   }
   
   // CONTENEDOR7
   
   #container7 {
-    top: 700px;
+    top: 740px;
     left: 230px;
   }
   
   // CONTENEDOR8
   #container8 {
-    top: 800px;
+    top: 864px;
     left: 230px;
   }
   
   // CONTENEDOR9
   #container9 { 
-    top: 858px;
+    top: 917px;
     left: 230px;
   }
   
   // CONTENEDOR10
   #container10 {
-    top: 897px;
+    top: 947px;
     left: 230px;
   }
   
@@ -148,7 +171,7 @@
   }
   // CONTENEDOR13
   #container13 {
-    top: 980px;
+    top: 1000px;
     left: 230px;
   }
   
@@ -190,12 +213,13 @@
     background-color: #f2f2f2; /* Agrega un fondo gris claro a las celdas de encabezado */
   }
   
+  
   // estilo de las tablas de fromularios
   .stylec{
   
       position: absolute;
       padding: 1px;
-      border: 1px solid #000000;
+     /*  border: 1px solid #000000; */
       text-align: left; /* Alinea el texto a la izquierda */
       color: #000000;
       font-size: 20px;
@@ -204,7 +228,13 @@
       margin-bottom: 20px;
   
   }
-  
+
+  .tam{
+    width: 30%; /* Asegura que la tabla ocupe todo el ancho del contenedor */ 
+  }
+  .tam2{
+    width: 5%;
+  }
 
 
   

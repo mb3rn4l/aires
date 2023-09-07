@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './upload-minutas.page.html',
   styleUrls: ['./upload-minutas.page.scss'],
 })
+
 export class UploadMinutasPage implements OnInit {
 
   selectedFile: File | null = null;

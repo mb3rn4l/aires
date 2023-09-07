@@ -32,6 +32,10 @@ const routes: Routes = [
     path: 'form2',
     loadChildren: () => import('./views/form2/form2.module').then( m => m.Form2PageModule)
   },
+  {
+    path: 'share',
+    loadChildren: () => import('./share/share.module').then( m => m.SharePageModule)
+  },
 ];
 
 @NgModule({

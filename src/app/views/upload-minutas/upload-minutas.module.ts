@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { UploadMinutasPageRoutingModule } from './upload-minutas-routing.module';
 
 import { UploadMinutasPage } from './upload-minutas.page';
+import { SharePageModule } from 'src/app/share/share.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    UploadMinutasPageRoutingModule
+    UploadMinutasPageRoutingModule,
+    SharePageModule
   ],
   declarations: [UploadMinutasPage]
 })

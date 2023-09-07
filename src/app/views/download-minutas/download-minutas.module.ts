@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DownloadMinutasPageRoutingModule } from './download-minutas-routing.module';
 
 import { DownloadMinutasPage } from './download-minutas.page';
+import { SharePageModule } from 'src/app/share/share.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DownloadMinutasPageRoutingModule
+    DownloadMinutasPageRoutingModule,
+    SharePageModule
   ],
   declarations: [DownloadMinutasPage]
 })
