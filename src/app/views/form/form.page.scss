@@ -60,6 +60,7 @@
 }
 
 
+
 ///
 
 
@@ -97,9 +98,28 @@
     font-size: 20px;
     line-height: 16px;
     display: block;
-  
+    
+    
    
   }
+
+  /* Estilo para el subrayado */
+  .sub {
+    
+    text-decoration: underline;
+    text-transform: uppercase; /* Convierte el texto en mayúsculas */
+    display: inline-block;
+    margin-right: 30px;
+
+  }
+  .boll{
+    font-weight: bold;
+    
+  }
+  .space{
+    margin-right: 10px; /* Ajusta el valor según tus necesidades */
+  }
+  
  
   
   // CONTENEDOR 2
@@ -150,7 +170,7 @@
   
   // CONTENEDOR9
   #container9 { 
-    top: 892px;
+    top: 899px;
     left: 230px;
   }
   
@@ -163,13 +183,13 @@
   // CONTENEDOR11
   #container11 {
     top: 837px;
-    left: 370px;
+    left: 420px;
   }
   
   // CONTENEDOR12
   #container12 {
     top: 923px;
-    left: 450px;
+    left: 500px;
   }
   // CONTENEDOR13
   #container13 {

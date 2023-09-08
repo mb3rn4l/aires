@@ -1,123 +1,128 @@
-export const data = {
-    "equipment_code":"dsadsa",
-    "date": "12-2-1221",
-    "client":"jorge",
-    "maintenance_type":"sdasdasd",
-    "brand":"sdasd",
-    "model":"sadsd",
-    "equipment_name":"dsadsa",
-    "capacity":"ffff333",
-    "equipment_type":"2323",
+import { Minute } from "./interfaceData";
+
+export const data: Minute = {
+    "equipment_code":"CODIGO",
+    "date": "14 Diciembre 2022",
+    "client":"NGB",
+    "maintenance_type":"Preventivo",
+    "brand":"carrier",
+    "model":"modelo",
+    "equipment_name":"logistica #1",
+    "capacity":"1800 o BTU",
+    "equipment_type":"mini split",
     "observations":"",
   
     "technical_data_and_measurements":{
-      "drive_unit":{
-        "plate_data":{
+      "handling_unit":{
+        "motor_data_plane":{
           "w":"20",
-          "vol":"sa",
-          "amp":"sas",
-          "rpm":"wqw"
+          "vol":"220",
+          "amp":"0.25",
+          "rpm":"100"
         },
         "voltage_measurements":{
-          "val_1":"",
-          "val_2":"",
-          "val_3":""
+          "val_1":"219",
+          "val_2":"208",
+          "val_3":"#"
         },
         "amperage":{
-          "l1":"",
-          "l2":"",
-          "l3":""
+          "l1":"0.025",
+          "l2":"0.025",
+          "l3":"#"
         }
-      }
-    },
+      },
+    
     "compressor_unit":{
       "plate_data":{
-        "1":{
-          "hp":"",
-          "vol":"",
-          "amp":""
+        "_1":{
+          "hp":"2",
+          "vol":"220",
+          "amp":"20"
         },
-        "2":{
-          "hp":"",
-          "vol":"",
-          "amp":""
+        "_2":{
+          "hp":"0",
+          "vol":"0",
+          "amp":"0"
         }
       },
       "voltage_measurements":{
-        "1":{
-          "vl1_l2":"",
-          "vl2_l3":"",
-          "vl3_l1":""
+        "_1":{
+          "vl1_l2":"219",
+          "vl2_l3":"208",
+          "vl3_l1":"0"
         },
-        "2":{
-          "vl1_l2":"",
-          "vl2_l3":"",
-          "vl3_l1":""
+        "_2":{
+          "vl1_l2":"0",
+          "vl2_l3":"0",
+          "vl3_l1":"0"
         }
       },
       "amperage":{
-        "1":{
-          "l1":"",
-          "l2":"",
-          "l3":""
+        "_1":{
+          "l1":"9.0",
+          "l2":"9.0",
+          "l3":"0"
         },
-        "2":{
-          "l1":"",
-          "l2":"",
-          "l3":""
+        "_2":{
+          "l1":"0",
+          "l2":"0",
+          "l3":"0"
         }
       },
       "pressures":{
-        "1":{
-          "tall":"",
-          "low":""
+        "_1":{
+          "tall":"350",
+          "low":"50"
         },
-        "2":{
-          "tall":"",
-          "low":""
+        "_2":{
+          "tall":"0",
+          "low":"0"
         }
       }
     },
-    "capacitor motor":{
+    
+    "capacitor_motor":{
       "plate_data":{
-        "1":{
-          "hp":"",
-          "vol":"",
-          "amp":"",
-          "rpm":""
+        "_1":{
+          "hp":"70w",
+          "vol":"220",
+          "amp":"0.80",
+          "rpm":"1000"
         },
-        "2":{
-          "hp":"",
-          "vol":"",
-          "amp":"",
-          "rpm":""
+        "_2":{
+          "hp":"0",
+          "vol":"0",
+          "amp":"0",
+          "rpm":"0"
         }
       },
       "measurements":{
-        "1":{
-          "vl1_l2":"",
-          "vl2_l3":"",
-          "vl3_l1":""
+        "_1":{
+          "vl1_l2":"219",
+          "vl2_l3":"208",
+          "vl3_l1":"0"
         },
-        "2":{
-          "vl1_l2":"",
-          "vl2_l3":"",
-          "vl3_l1":""
+        "_2":{
+          "vl1_l2":"0",
+          "vl2_l3":"0",
+          "vl3_l1":"0"
         }
       },
       "amperage":{
-        "1":{
-          "l1":"",
-          "l2":"",
-          "l3":""
+        "_1":{
+          "l1":"0.39",
+          "l2":"0.39",
+          "l3":"0"
         },
-        "2":{
-          "l1":"",
-          "l2":"",
-          "l3":""
+        "_2":{
+          "l1":"0",
+          "l2":"0",
+          "l3":"0"
         }
       }
-    },
+    }
+    
+  },
     "work_and_revisions_carried_out":{
       "drive_unit":{
         "interior_exterior_cleaning":{
@@ -126,9 +131,9 @@ export const data = {
           "n_a":false
         },
         "coil_serpentines":{
-          "ef":false,
-          "com":false,
-          "n_a":false
+          "ef":true,
+          "com":true,
+          "n_a":true
         },
          "adjust_prisoners_of_chumaceras":{
           "ef":false,
@@ -136,9 +141,9 @@ export const data = {
           "n_a":false
         },
         "air_filter_wash":{
-          "ef":false,
-          "com":false,
-          "n_a":false
+          "ef":true,
+          "com":true,
+          "n_a":true
         },
         "belt_tension":{
           "ef":false,
@@ -146,9 +151,9 @@ export const data = {
           "n_a":false
         },
         "changing_straps":{
-          "ef":false,
-          "com":false,
-          "n_a":false
+          "ef":true,
+          "com":true,
+          "n_a":true
         },
         "bearing_review":{
           "ef":false,
@@ -156,9 +161,9 @@ export const data = {
           "n_a":false
         },
         "internal_insulation_review":{
-          "ef":false,
-          "com":false,
-          "n_a":false
+          "ef":true,
+          "com":true,
+          "n_a":true
         },
         "Filter_change":{
           "ef":false,
@@ -166,9 +171,9 @@ export const data = {
           "n_a":false
         },
         "overall_screw_adjustment":{
-          "ef":false,
-          "com":false,
-          "n_a":false
+          "ef":true,
+          "com":true,
+          "n_a":true
         },
         "revision_of_expansion_valves":{
           "ef":false,
@@ -176,14 +181,14 @@ export const data = {
           "n_a":false
         },
         "review_electrical_accessories":{
-          "ef":false,
-          "com":false,
-          "n_a":false
+          "ef":true,
+          "com":true,
+          "n_a":true
         },
         "bimetallic_relay_revision":{
-          "ef":false,
-          "com":false,
-          "n_a":false
+          "ef":true,
+          "com":true,
+          "n_a":true
         },
         "electronic_board_cleaning":{
           "ef":false,
@@ -191,9 +196,9 @@ export const data = {
           "n_a":false
         },
         "thermostat_check":{
-          "ef":false,
-          "com":false,
-          "n_a":false
+          "ef":true,
+          "com":true,
+          "n_a":true
         },
         "engine_inspection":{
           "ef":false,
@@ -201,9 +206,9 @@ export const data = {
           "n_a":false
         },
         "drain_cleaning":{
-          "ef":false,
-          "com":false,
-          "n_a":false
+          "ef":true,
+          "com":true,
+          "n_a":true
         }
       },
       "condensing_unit":{
@@ -279,10 +284,11 @@ export const data = {
     },
     "air_outlet_dampers":{
       "temperature":{
-        "c":"21"
+        "_c":"21"
       },
       "type_of_refrigerant":"not",
-      "equipment delivery conditions":{
+      
+      "equipment_delivery_conditions":{
         "ef":false,
         "com":false
       },
@@ -293,16 +299,16 @@ export const data = {
     },
     "pressure_uma_pre_mtto":{
       "parameter":{
-        "35":false,
-        "65":false,
-        "95":false
+        "_35":false,
+        "_65":false,
+        "_95":false
       }
     },
     "pressure_uma_pos_mtto":{
       "parameter":{
-        "35":false,
-        "65":false,
-        "95":false
+        "_35":false,
+        "_65":false,
+        "_95":false
       }
     }
   }
