@@ -9,13 +9,15 @@ import { SharePageModule } from 'src/app/share/share.module';
 
 import { FormPage } from './form.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     FormPageRoutingModule,
-    SharePageModule
+    SharePageModule,
+    
   ],
   declarations: [FormPage]
 })
