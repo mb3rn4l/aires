@@ -1,0 +1,10 @@
+<ion-content [fullscreen]="true">
+  <app-container-card>
+        <strong title>CARGAR ACTAS</strong>
+        <label for="fileInput" class="input-icon">📂</label>
+        <input title type="file" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx" id="fileInput" />
+        <button button-section expand="full" type="submit" [disabled]="!selectedFile"><ion-icon name="cloud-download-outline" size="default" color="primary"></ion-icon>  Cargar Archivo</button>
+        <button button-section expand="full" type="submit" (click)="navigateHome()"> <ion-icon name="home-outline" color="primary" ></ion-icon>   Volver </button>
+  </app-container-card>   
+</ion-content>
+

@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
+import { Form2PageRoutingModule } from './form2-routing.module';
 
-import { LoginPage } from './login.page';
+import { Form2Page } from './form2.page';
 import { SharePageModule } from 'src/app/share/share.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { SharePageModule } from 'src/app/share/share.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule,
-    SharePageModule
+    Form2PageRoutingModule,
+    SharePageModule 
   ],
-  declarations: [LoginPage]
+  declarations: [Form2Page]
 })
-export class LoginPageModule {}
+export class Form2PageModule {}

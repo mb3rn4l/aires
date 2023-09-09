@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UploadMinutasPage } from './upload-minutas.page';
+import { UploadMinutesPage } from './upload-minutes.page';
 
 describe('UploadMinutasPage', () => {
-  let component: UploadMinutasPage;
-  let fixture: ComponentFixture<UploadMinutasPage>;
+  let component: UploadMinutesPage;
+  let fixture: ComponentFixture<UploadMinutesPage>;
 
   beforeEach(async(() => {
-    fixture = TestBed.createComponent(UploadMinutasPage);
+    fixture = TestBed.createComponent(UploadMinutesPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
