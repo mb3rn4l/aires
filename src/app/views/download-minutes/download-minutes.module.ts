@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { DownloadMinutasPageRoutingModule } from './download-minutas-routing.module';
+import { DownloadMinutesPageRoutingModule } from './download-minutes-routing.module';
 
-import { DownloadMinutasPage } from './download-minutas.page';
+import { DownloadMinutesPage } from './download-minutes.page';
 import { SharePageModule } from 'src/app/share/share.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { SharePageModule } from 'src/app/share/share.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    DownloadMinutasPageRoutingModule,
+    DownloadMinutesPageRoutingModule,
     SharePageModule
   ],
-  declarations: [DownloadMinutasPage]
+  declarations: [DownloadMinutesPage]
 })
-export class DownloadMinutasPageModule {}
+export class DownloadMinutesPageModule {}

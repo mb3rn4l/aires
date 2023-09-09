@@ -1,30 +1,10 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Cargar Actas</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
   <app-container-card>
         <strong title>CARGAR ACTAS</strong>
         <label for="fileInput" class="input-icon">📂</label>
         <input title type="file" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx" id="fileInput" />
         <button button-section expand="full" type="submit" [disabled]="!selectedFile"><ion-icon name="cloud-download-outline" size="default" color="primary"></ion-icon>  Cargar Archivo</button>
         <button button-section expand="full" type="submit" (click)="navigateHome()"> <ion-icon name="home-outline" color="primary" ></ion-icon>   Volver </button>
-  </app-container-card> 
-
-      
-        <!-- <div class="inputGroup">
-          <div class="custom-ion-item">
-            <form (ngSubmit)="uploadFile()" #fileForm="ngForm">
-              <div class="inputGroup">
-                <label for="fileInput" class="input-icon">📂</label>
-                <input type="file" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx" id="fileInput" />
-              </div>
-              
-            </form>
-          </div>       
-        </div> -->    
-
+  </app-container-card>   
 </ion-content>
 

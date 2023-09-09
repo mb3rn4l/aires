@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-upload-minutas',
-  templateUrl: './upload-minutas.page.html',
-  styleUrls: ['./upload-minutas.page.scss'],
+  selector: 'app-upload-minutes',
+  templateUrl: './upload-minutes.page.html',
+  styleUrls: ['./upload-minutes.page.scss'],
 })
 
-export class UploadMinutasPage implements OnInit {
+export class UploadMinutesPage implements OnInit {
 
   selectedFile: File | null = null;
 

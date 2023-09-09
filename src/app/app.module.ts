@@ -7,7 +7,6 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-// Importa el módulo FormsModule desde '@angular/forms'
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 // animacion
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

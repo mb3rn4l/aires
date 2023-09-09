@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './download-minutas.page.html',
   styleUrls: ['./download-minutas.page.scss'],
 })
-export class DownloadMinutasPage implements OnInit {
+export class DownloadMinutesPage implements OnInit {
 
   constructor(private router: Router) { }
 

@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UploadMinutasPageRoutingModule } from './upload-minutas-routing.module';
+import { UploadMinutesPageRoutingModule } from './upload-minutes-routing.module';
 
-import { UploadMinutasPage } from './upload-minutas.page';
+import { UploadMinutesPage } from './upload-minutes.page';
 import { SharePageModule } from 'src/app/share/share.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { SharePageModule } from 'src/app/share/share.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    UploadMinutasPageRoutingModule,
+    UploadMinutesPageRoutingModule,
     SharePageModule
   ],
-  declarations: [UploadMinutasPage]
+  declarations: [UploadMinutesPage]
 })
-export class UploadMinutasPageModule {}
+export class UploadMinutesPageModule {}
