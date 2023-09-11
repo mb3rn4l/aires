@@ -13,8 +13,8 @@ const routes: Routes = [
   },
   
   {
-    path: 'download-minutas',
-    loadChildren: () => import('./views/download-minutas/download-minutas.module').then( m => m.DownloadMinutasPageModule)
+    path: 'download-minute',
+    loadChildren: () => import('./views/download-minutes/download-minutes.module').then( m => m.DownloadMinutesPageModule)
   },
   {
     path: 'login',
@@ -22,7 +22,19 @@ const routes: Routes = [
   },
   {
     path: 'upload-minutas',
-    loadChildren: () => import('./views/upload-minutas/upload-minutas.module').then( m => m.UploadMinutasPageModule)
+    loadChildren: () => import('./views/upload-minutes/upload-minutes.module').then( m => m.UploadMinutesPageModule)
+  },
+  {
+    path: 'form',
+    loadChildren: () => import('./views/form/form.module').then( m => m.FormPageModule)
+  },
+  {
+    path: 'form2',
+    loadChildren: () => import('./views/form2/form2.module').then( m => m.Form2PageModule)
+  },
+  {
+    path: 'share',
+    loadChildren: () => import('./share/share.module').then( m => m.SharePageModule)
   },
   {
     path: 'form',
