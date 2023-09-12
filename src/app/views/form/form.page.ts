@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Minute } from 'src/app/interfaceData';
 import { MinuteService } from 'src/app/service/minute-servce';
+import { PdfService } from 'src/app/service/pdf.service';
 
 @Component({
   selector: 'app-form',
@@ -11,7 +12,9 @@ export class FormPage implements OnInit {
 
   minuteData: Minute | null = null; // Inicializa con null
 
-  constructor(private minuteService: MinuteService) {}
+  constructor(private minuteService: MinuteService, private pdfService: PdfService) {
+
+  }
 
   getSymbol(value: boolean): string {
     return value ? "✓" : "";
@@ -27,4 +30,11 @@ export class FormPage implements OnInit {
     }
   }
 
+  generatePDF() {
+    const DATA = document.querySelector("#container");
+    
+    this.pdfService.generatePDF(DATA);
+  }
+
+  
 }
