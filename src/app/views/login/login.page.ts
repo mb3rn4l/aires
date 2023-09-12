@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { LoginForm } from 'src/app/share/models/loginForm';
 
 @Component({
   selector: 'app-login',
@@ -6,23 +13,46 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  email: string = '';
-  password: string = '';
+   public model : LoginForm = {email:"", password: ""};
+   @ViewChild('loginForm') loginForm: NgForm;
 
- submitForm() {
-  if (!this.email) {
-    console.log('El campo de correo electrónico no puede estar vacío.');
-  } else {
-    console.log('Formulario enviado con éxito.');
-  }
-}
-
-  constructor() {}
+  constructor(
+    private router: Router,
+    private loadingCtrl: LoadingController,
+    private alertController: AlertController,
+    private authService: AuthService) {}
 
   ngOnInit() {}
 
-  login() {
-    console.log('Correo Electrónico:', this.email)
+  async onClickSubmit() {
+    console.log(this.model)
+    console.log(this.loginForm.valid)
+    console.log(this.loginForm.value)
+    if (this.loginForm.valid) {
+
+      let loading = await this.loadingCtrl.create();
+			loading.present();
+      
+      try {
+
+				await this.authService.signIn(this.loginForm.value)
+				this.router.navigate(["/home"]);
+				await loading.dismiss();
+        
+			} catch (error) {
+				
+        await loading.dismiss();
+        // mensaje de error 
+        const alert = await this.alertController.create({
+          message: 'Datos invalidos',
+          buttons: ['OK'],
+        });
+    
+        await alert.present();
+			}
+      
+    }
+    
   }
 }
 

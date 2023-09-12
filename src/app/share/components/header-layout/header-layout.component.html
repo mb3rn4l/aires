@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true"  >
+<ion-header>
+    <ion-toolbar>
+        <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item lines="none">
+                    <ion-thumbnail slot="start">
+                        <img alt="logo" src="assets/logo_cali_airesrm.png" />
+                    </ion-thumbnail>
+                    <ion-label>Cali Aires</ion-label>
+                </ion-item>
+              </ion-col>
+              <ion-col *ngIf="checkUser()">
+                <ion-item lines="none" class="ion-float-right">
+                    <ion-label>
+                        <h2>usuario</h2>
+                        <ion-button (click)="onClickSignOut()">salir</ion-button>
+                    </ion-label>
+                </ion-item>
+
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+
+         
+    </ion-toolbar>
+</ion-header>
+
+<router-outlet></router-outlet>
+</ion-content>

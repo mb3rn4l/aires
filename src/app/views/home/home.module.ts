@@ -7,7 +7,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
-import { SharePageModule } from '../share/share.module';
+import { SharePageModule } from '../../share/share.module';
 
 
 @NgModule({
