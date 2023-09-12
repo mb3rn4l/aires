@@ -1,5 +1,60 @@
-<ion-content >
-  <ion-grid id="container">
+<ion-content  >
+  <ion-grid  #child1>
+    <ion-row>
+      <ion-col size="3">
+           <!-- CONTENEDOR INFO DE LA EMPRESA -->
+       
+        <div id="container-infoE" class="containeSB">
+          <div class="image-container">
+            <img src="assets/logo_cali_airesrm.png" />
+          </div>
+          <div class="text-container">
+            <p>CALI-AIRES S.A.S <br>NIT. 901 055 034 - 5 <br>INFORME TECNICO </p>
+          </div>
+        </div>
+      </ion-col>
+       
+      <ion-col size="2">
+
+      </ion-col>
+      <ion-col size="3">
+         <!-- CONTENEDOR DEL CODIGO -->
+         <div id="container-Code">
+          <P><span class="boll">CODIGO DE EQUIPO N°.</span> <span class="space"></span><span class="sub">{{ minuteData?.equipment_code}}</span> </P>
+        </div>
+      </ion-col>
+
+    </ion-row>
+
+    <!--  -->
+    <ion-row>
+        <ion-col size="12">
+            <!-- CONTENEDOR1 -->
+        <div id="container1" >
+          <table>
+              <tr>
+                  <td ><span class="boll" >FECHA:</span><span class="space"></span> <span class="sub">{{ minuteData?.date }}</span></td>
+                  <td ><span class="boll">MARCA:</span> <span class="space"></span><span class="sub">{{ minuteData?.brand }}</span></td>
+                  <td ><span class="boll">CAPACIDAD:</span> <span class="space"></span> <span class="sub">{{ minuteData?.capacity }}</span></td>
+              </tr>
+              <tr>
+                  <td ><span class="boll">CLIENTE:</span> <span class="space"></span><span class="sub">{{ minuteData?.client }}</span></td>
+                  <td ><span class="boll">MODELO:</span> <span class="space"></span> <span class="sub">{{ minuteData?.model }}</span></td>
+                  <td ><span class="boll">TIPO DE EQUIPO:</span><span class="space"></span>  <span class="sub">{{ minuteData?.equipment_type }}</span></td>
+              </tr>
+              <tr>
+                  <td ><span class="boll">TIPO MNTTO:</span> <span class="space"></span> <span class="sub">{{ minuteData?.maintenance_type }}</span></td>
+                  <td colspan="2"><span class="boll">NOMBRE DE EQUIPO:</span><span class="space"></span>  <span class="sub">{{ minuteData?.equipment_name }}</span></td>
+                  
+              </tr>
+   
+          </table>
+        </div>
+        </ion-col>
+
+    </ion-row>
+    <!--  -->
+
     <ion-row >
       <ion-col size="4">       
             <!-- CONTENEDOR2 -->
@@ -250,7 +305,7 @@
           <!--  -->
           </ion-col>
           <ion-col size="8" >
-              <ion-row>
+              
                 
                   <ion-col size="12">
                       <!-- CONTENEDOR6 -->
@@ -329,13 +384,13 @@
                     </tr>
                     <tr>
                       <td></td>
-                      <td class="tam2">EF</td>
-                      <td class="tam2">COM</td>
-                      <td class="tam2">N/A</td>
+                      <td >EF</td>
+                      <td >COM</td>
+                      <td >N/A</td>
                       <td></td>
-                      <td class="tam2">EF</td>
-                      <td class="tam2">COM</td>
-                      <td class="tam2">N/A</td>
+                      <td >EF</td>
+                      <td >COM</td>
+                      <td >N/A</td>
                     </tr>
                     <tr>
                       <td>REVISION DAMPERS</td>
@@ -360,7 +415,7 @@
                   </table>   
                 </div>
                   </ion-col>
-                </ion-row>
+                
               
 
           </ion-col> 
@@ -436,15 +491,15 @@
           </div> 
           </ion-col>
           <!--  -->
-          <ion-col size="8">
+          <ion-col>
             <ion-row>
-              <ion-col size="4">
+              
                    <!-- CONTENEDOR8 -->
                   <div id="container8" class="stylec" >
                     <table >
                       <tr>
                         <td class="boll">DAMPERS SALIDA DE AIRE</td>
-                        <td class="tam2"> °C&nbsp;&nbsp; </td>
+                        <td > °C</td>
                       </tr>
                       <tr>
                         <td>TEMPERATURA</td>
@@ -453,7 +508,7 @@
                           
                     </table>   
                   </div>
-              </ion-col>
+              
               <ion-col size="4">
                   <!-- CONTENEDOR11 -->
                 <div id="container11" class="stylec">
@@ -476,7 +531,7 @@
             </ion-row>
             <!--  -->
             <ion-row size="8">
-                <ion-col size="4">
+                
                     <!-- CONTENEDOR9 -->
                     <div id="container9" class="stylec">
                       <table >
@@ -486,13 +541,13 @@
                         </tr>     
                       </table>   
                     </div>
-                </ion-col>
+               
 
                 <ion-col size="4">
                   
                 </ion-col>
 
-                <ion-row >
+                <ion-row size="8">
                     <ion-col size="">
                       <!-- CONTENEDOR10 -->
                       <div id="container10" class="stylec">
@@ -542,7 +597,7 @@
                 <ion-row>
                   <ion-col>
                     <!-- CONTENEDOR13 -->
-                    <div id="container13" class="stylec">
+                    <div id="container13">
                       <table>
                           <tr>
                               <td>OBSERVACIONES:</td>
@@ -560,6 +615,26 @@
 
           </ion-col>
         </ion-row>
+
+        <!-- otra fila -->
+        <br>
+        <ion-row size="12">
+            <!-- CONTENEDOR14 -->
+        <div id="container14" >
+          <table>
+              <tr>
+                  <td>________________________________________&nbsp;&nbsp;</td>
+                  <td>________________________________________&nbsp;&nbsp;</td>
+                  <td>________________________________________</td>
+              </tr>
+              <tr>
+                <td>FIRMA EJECUTOR</td>
+                <td>FIRMA RECIBE</td>
+                <td>SELLO</td>
+              </tr>
+          </table>
+        </div>
+        </ion-row> 
      
     <button  class="ff"  (click)="generatePDF()">Generar PDF</button>
   </ion-grid>

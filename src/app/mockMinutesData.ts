@@ -1,7 +1,7 @@
 import { Minute } from "./interfaceData";
 
-export const data: Minute = {
-    "equipment_code":"CODIGO",
+export const data: Minute[] = [{
+    "equipment_code":"1111",
     "date": "14 Diciembre 2022",
     "client":"NGB",
     "maintenance_type":"Preventivo",
@@ -311,6 +311,6 @@ export const data: Minute = {
         "_95":false
       }
     }
-  }
+  }];
   
   

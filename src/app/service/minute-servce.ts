@@ -1,6 +1,7 @@
+import { DownloadMinutesPageModule } from './../views/download-minutes/download-minutes.module';
+import { Minute } from './../interfaceData';
 
 import { data } from '../mockMinutesData';
-import { Minute } from '../interfaceData';
 import { Injectable } from '@angular/core';
 
 
@@ -11,8 +12,8 @@ import { Injectable } from '@angular/core';
 export class MinuteService {
 
   // Método que devuelve los datos del JSON
-  getMinuteData(): Minute {
-    return data; // Retorna el objeto JSON importado desde 'mockMinutesData'
+  getMinuteData(minuteId :string) {
+    return data.find((item => item.equipment_code === minuteId));
   }
 
   constructor() { }
