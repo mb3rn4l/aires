@@ -1,16 +1,10 @@
-<ion-content [fullscreen]="true">
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">form2</ion-title>
-      </ion-toolbar>
-    </ion-header>
-  
-    <div id="outer-container">
-      <div id="container">
-        
-        <!-- CONTENEDOR INFO DE LA EMPRESA -->
-              
-        <div id="container-infoE">
+<ion-content  >
+  <ion-grid  #child1>
+    <ion-row>
+      <ion-col size="3">
+           <!-- CONTENEDOR INFO DE LA EMPRESA -->
+       
+        <div id="container-infoE" class="containeSB">
           <div class="image-container">
             <img src="assets/logo_cali_airesrm.png" />
           </div>
@@ -18,118 +12,247 @@
             <p>CALI-AIRES S.A.S <br>NIT. 901 055 034 - 5 <br>INFORME TECNICO </p>
           </div>
         </div>
-        <!-- CONTENEDOR DEL CODIGO -->
-        <div id="container-Code">
-          <P>CODIGO DE EQUIPO N°.  __________ </P>
+      </ion-col>
+       
+      <ion-col size="2">
+
+      </ion-col>
+      <ion-col size="3">
+         <!-- CONTENEDOR DEL CODIGO -->
+         <div id="container-Code">
+          <P><span class="boll">CODIGO DE EQUIPO N°.</span> <span class="space"></span><span class="sub">{{ minuteData?.equipment_code}}</span> </P>
         </div>
-  
-        
-        <!-- CONTENEDOR1 -->
+      </ion-col>
+
+    </ion-row>
+
+    <!--  -->
+    <ion-row>
+        <ion-col size="12">
+            <!-- CONTENEDOR1 -->
         <div id="container1" >
           <table>
               <tr>
-                  <td >FECHA  ________________________ </td>
-                  <td >MARCA  ________________________ </td>
-                  <td >CAPACIDAD  ________________________</td>
+                  <td ><span class="boll" >FECHA:</span><span class="space"></span> <span class="sub">{{ minuteData?.date }}</span></td>
+                  <td ><span class="boll">MARCA:</span> <span class="space"></span><span class="sub">{{ minuteData?.brand }}</span></td>
+                  <td ><span class="boll">CAPACIDAD:</span> <span class="space"></span> <span class="sub">{{ minuteData?.capacity }}</span></td>
               </tr>
               <tr>
-                  <td >CLIENTE _______________________</td>
-                  <td >MODELO  _______________________</td>
-                  <td >TIPO DE EQUIPO  ____________________</td>
+                  <td ><span class="boll">CLIENTE:</span> <span class="space"></span><span class="sub">{{ minuteData?.client }}</span></td>
+                  <td ><span class="boll">MODELO:</span> <span class="space"></span> <span class="sub">{{ minuteData?.model }}</span></td>
+                  <td ><span class="boll">TIPO DE EQUIPO:</span><span class="space"></span>  <span class="sub">{{ minuteData?.equipment_type }}</span></td>
               </tr>
               <tr>
-                  <td >TIPO MNTTO  ___________________ </td>
-                  <td colspan="2">NOMBRE DE EQUIPO  _________________________________________________</td>
+                  <td ><span class="boll">TIPO MNTTO:</span> <span class="space"></span> <span class="sub">{{ minuteData?.maintenance_type }}</span></td>
+                  <td colspan="2"><span class="boll">NOMBRE DE EQUIPO:</span><span class="space"></span>  <span class="sub">{{ minuteData?.equipment_name }}</span></td>
                   
               </tr>
+   
           </table>
         </div>
-  
-        <!-- tablas -->
-        <div id="tablege">
-          
-        <!-- CONTENEDOR2 -->
-          <div id="container2" class="stylec" >
-            <table >
-              <tr>
-                <td colspan="3">DATOS TECNICOS Y MEDICONES </td>
-              </tr>
-              <tr>
-                <td colspan="3">UNIDAD MANEJADORA</td>
-              </tr>
-              <tr>
-                <td rowspan="4">MOTOR DATOS DE PLACA</td>
-                <td  class="tam2">&nbsp;</td>
-                <td class="tam2"></td>
-              </tr>
-              <tr>
-                <td >VOL</td>
-                <td ></td>
-              </tr>
-              <tr>
-                <td>AMP</td>
-                <td></td>     
-              </tr>
-              <tr>
-                <td>RPM</td>
-                <td></td>        
-              </tr>
-              <tr>
-                <td rowspan="3">MEDICIONES VOLTAJE</td>
-                <td >&nbsp;</td>
-                <td >&nbsp;</td>      
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>       
-              </tr>
-              <tr>
-                <td rowspan="3">AMPERAJE</td>
-                <td  class="tam"> &nbsp;</td>
-                <td class="tam"></td>     
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>     
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>    
-              </tr>
-            </table>   
-          </div>
-      
-  
-         <!-- CONTENEDOR3 -->
+        </ion-col>
+
+    </ion-row>
+    <!--  -->
+
+    <ion-row >
+      <ion-col size="4">       
+            <!-- CONTENEDOR2 -->
+            <div id="container2"  >
+              <table  class="stylec">
+                <tr>
+                  <td colspan="3" class="boll">DATOS TECNICOS Y MEDICONES </td>
+                </tr>
+                <tr>
+                  <td colspan="3" class="boll">UNIDAD MANEJADORA</td>
+                </tr>
+                <tr>
+                  <td rowspan="4" class="boll">MOTOR DATOS DE PLACA</td>
+                  <td  >W</td>
+                  <td >{{ minuteData?.technical_data_and_measurements?.handling_unit?.motor_data_plane?.w }}</td>
+                </tr>
+                <tr>
+                  <td >VOL</td>
+                  <td >{{ minuteData?.technical_data_and_measurements?.handling_unit?.motor_data_plane?.vol }}</td>
+                </tr>
+                <tr>
+                  <td>AMP</td>
+                  <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.motor_data_plane?.amp }}</td>     
+                </tr>
+                <tr>
+                  <td>RPM</td>
+                  <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.motor_data_plane?.rpm }}</td>        
+                </tr>
+                <tr>
+                  <td rowspan="3" class="boll">MEDICIONES VOLTAJE</td>
+                  <td>&nbsp;</td>
+                  <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.voltage_measurements?.val_1 }}</td>      
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.voltage_measurements?.val_2 }}</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.voltage_measurements?.val_3 }}</td>       
+                </tr>
+                <tr>
+                  <td rowspan="3" class="boll">AMPERAJE</td>
+                  <td>L1</td>
+                  <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.voltage_measurements?.val_1 }}</td>      
+                </tr>
+                <tr>
+                  <td>L2</td>
+                  <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.voltage_measurements?.val_2 }}</td>
+                </tr>
+                <tr>
+                  <td>L3</td>
+                  <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.voltage_measurements?.val_3 }}</td>       
+                </tr>
+               </table>   
+              </div>
+           </ion-col>
+           <!-- CONTENEDOR5 -->
+          <ion-col size="8">    
+        <div id="container5" class="stylec">
+          <table  >
+            <tr>
+              <td colspan="8">LABORES Y REVISIONES REALIZADAS </td>
+            </tr>
+            <tr>
+              <td colspan="8" >UNIDAD DE MANEJO</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td >EF</td>
+              <td >COM</td>
+              <td >N/A</td>
+              <td></td>
+              <td >EF</td>
+              <td >COM</td>
+              <td >N/A</td>
+            </tr>
+            <tr>
+              <td>LIMPIEZA INTERIOR-EXTERIOR</td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning?.ef}}</td>
+              <td></td>
+              <td></td>
+              <td>AJUSTE GENERAL DE TORNILOS</td>
+              <td>{{ getSymbol(minuteData?.work_and_revisions_carried_out?.drive_unit?.overall_screw_adjustment?.ef ?? false) }}</td>
+              <td></td>
+              <td></td>
+                
+            </tr>
+            <tr>
+              <td>LAVADO DE SERPENTINES</td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.coil_serpentines?.ef}}</td>
+              <td></td>
+              <td></td>
+              <td>REVISION VALVULAS<br> DE TORNILLOS</td>
+              <td></td>
+              <td></td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.revision_of_expansion_valves?.n_a}}</td>
+            </tr>
+            <tr>
+              <td>AJUSTES PRIONEROS DE CHUMAREJAS</td>
+              <td></td>
+              <td></td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.adjust_prisoners_of_chumaceras?.n_a}}</td>
+              <td>REVISION ACCESORIOS<br>ELECTRICOS Y AJUSTES DE<br>TORNILLERIA TAB. DE CONTROL </td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.review_electrical_accessories?.ef}}</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>LAVADO FILTRO DE AIRE</td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.air_filter_wash?.ef}}</td>
+              <td></td>
+              <td></td>
+              <td>REVISION RELE BIOMETALICO </td>
+              <td></td>
+              <td></td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.bimetallic_relay_revision?.n_a}}</td>
+            </tr>
+            <tr>
+              <td>TENSION DE CORREAS</td>
+              <td></td>
+              <td></td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.belt_tension?.n_a}}</td>
+              <td>LIMPIEZA TABLERO ELECTRONICO </td>
+              <td></td>
+              <td></td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.electronic_board_cleaning?.n_a}}</td>
+            </tr>
+            <tr>
+              <td>CAMBIO DE CORREAS</td>
+              <td></td>
+              <td></td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.changing_straps?.n_a}}</td>
+              <td>REVISION TERMOSTATO </td>
+              <td></td>
+              <td></td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.thermostat_check?.ef}}</td>
+            </tr>
+            <tr>
+              <td>REVISION RODAMIENTOS</td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.bearing_review?.ef}}</td>
+              <td></td>
+              <td></td>
+              <td>INSPECCION MOTOR </td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.engine_inspection?.ef}}</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>REVISION AISLAMIENTO INTERIOR</td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.internal_insulation_review?.ef}}</td>
+              <td></td>
+              <td></td>
+              <td>LIMPIEZA DE DESAGUES </td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.drain_cleaning?.ef}}</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>CAMBIO FILTRO</td>
+              <td></td>
+              <td></td>
+              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.Filter_change?.n_a}}</td>
+            </tr>
+          </table>   
+        </div>
+          </ion-col>
+        </ion-row>
+
+        <!-- SEGUNDA FILA -->
+        <ion-row>
+          <!-- CONTENEDOR3 -->
+          <ion-col size="4">      
           <div id="container3" class="stylec">
             <table >
               <tr>
-                <td colspan="4">UNIDAD COMPRESORA </td>
+                <td colspan="4" >UNIDAD COMPRESORA </td>
               </tr>
               <tr>
                 <td colspan="2"></td>          
-                <td  class="tam">1</td>
-                <td  class="tam">2</td>
+                <td>1</td>
+                <td>2</td>
               </tr>
               <tr>
                 <td rowspan="4">DATOS DE PLACA</td>
                 <td >HP</td>
-                <td></td>
-                <td></td>
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._1?.hp}}</td>
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._2?.hp}}</td>
               </tr>
               <tr>
                 <td>VOL</td>
-                <td></td>
-                <td></td>
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._1?.vol}}</td>
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._2?.vol}}</td>
               </tr>
               <tr>
                 <td>AMP</td>
-                <td></td>    
-                <td></td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._1?.amp}}</td>    
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._2?.amp}}</td> 
               </tr>
               <tr>
                        
@@ -137,51 +260,170 @@
               <tr>
                 <td rowspan="3">MEDICIONES VOLTAJE</td>
                 <td>VL1-L2</td>
-                <td></td>  
-                <td></td>     
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._1?.vl1_l2}}</td>  
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._2?.vl1_l2}}</td>     
               </tr>
               <tr>
                 <td>VL2-L3</td>
-                <td></td>
-                <td></td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._1?.vl2_l3}}</td>
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._2?.vl2_l3}}</td> 
               </tr>
               <tr>
                 <td>VL3-L1</td>
-                <td></td>  
-                <td></td>      
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._1?.vl3_l1}}</td>  
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._2?.vl3_l1}}</td>      
               </tr>
               <tr>
                 <td rowspan="3">AMPERAJE</td>
                 <td>L1</td>
-                <td></td>
-                <td></td>      
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._1?.l1}}</td>
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._2?.l1}}</td>      
               </tr>
               <tr>
                 <td>L2</td>
-                <td></td> 
-                <td></td>     
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._1?.l2}}</td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._2?.l2}}</td>     
               </tr>
               <tr>
                 <td>L3</td>
-                <td></td>   
-                <td></td>  
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._1?.l3}}</td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._2?.l3}}</td>  
               </tr>
               <tr>
                 <td rowspan="2">PRESIONES (ESTADOS)</td>
                 <td>ALTA</td>
-                <td></td>  
-                <td></td>     
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.pressures?._1?.tall}}</td>   
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.pressures?._2?.tall}}</td>     
               </tr>
               <tr>
                 <td>BAJA</td>
-                <td></td>
-                <td></td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.pressures?._1?.low}}</td>   
+                <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.pressures?._2?.low}}</td> 
               </tr>
             </table>   
-          </div>  
-        
-  
-        <!-- CONTENEDOR4 -->
+          </div>
+          <!--  -->
+          </ion-col>
+          <ion-col size="8" >
+              
+                
+                  <ion-col size="12">
+                      <!-- CONTENEDOR6 -->
+                <div id="container6" class="stylec">
+                  <table >          
+                    <tr>
+                      <td colspan="8" class="boll">UNIDAD CONDENSADORA</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td class="tam2">EF</td>
+                      <td class="tam2">COM</td>
+                      <td class="tam2">N/A</td>
+                      <td></td>
+                      <td class="tam2">EF</td>
+                      <td class="tam2">COM</td>
+                      <td class="tam2">N/A</td>
+                    </tr>
+                    <tr>
+                      <td>LIMPIEZA INTERIOR-EXTERIOR</td>
+                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.interior_exterior_cleaning?.ef}}</td>
+                      <td></td>
+                      <td></td>
+                      <td>AJUSTE GENERAL DE TORNILOS</td>
+                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.overall_screw_adjustment?.n_a}}</td>
+                      <td></td>
+                      <td></td>
+                        
+                    </tr>
+                    <tr>
+                      <td>LAVADO DE SERPENTINES</td>
+                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.coil_serpentines?.ef}}</td>
+                      <td></td>
+                      <td></td>
+                      <td>REVISION ACCESORIOS<br>ELECTRICOS Y AJUSTES DE<br>TORNILLERIA TAB. DE CONTROL </td>
+                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.review_electrical_accessories?.ef}}</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>RODAMIENTOS</td>
+                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearing?.ef}}</td>
+                      <td></td>
+                      <td></td>
+                      <td>REVISION RELE BIOMETALICO </td>
+                      <td></td>
+                      <td></td>
+                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearing?.ef}}</td>
+                    </tr>
+                    <tr>
+                      <td>REVISION DE COMPRESOR</td>
+                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.bimetallic_relay_revision?.ef}}</td>
+                      <td></td>
+                      <td></td>
+                      <td rowspan="2">INSPECCION DE TUBERIA <br>REFIGERANTE </td>
+                      <td rowspan="2">{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearing?.ef}}</td>
+                      <td rowspan="2"></td>
+                      <td rowspan="2"></td>
+                    </tr>
+                    <tr>
+                      <td>ESTADO DE SOPORTE</td>
+                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.refrigerant_pipe_inspection?.ef}}</td>
+                      <td></td>
+                      <td></td>       
+                    </tr>        
+                  </table>   
+                </div>
+                  </ion-col>
+                  <!--  -->
+                  <ion-col size="12">
+                    <!-- CONTENEDOR7 -->
+                <div id="container7" class="stylec">
+                  <table >
+                    <tr>
+                      <td colspan="8" class="boll">SISTEMA DE DISTRIBUCION DE AIRE</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td >EF</td>
+                      <td >COM</td>
+                      <td >N/A</td>
+                      <td></td>
+                      <td >EF</td>
+                      <td >COM</td>
+                      <td >N/A</td>
+                    </tr>
+                    <tr>
+                      <td>REVISION DAMPERS</td>
+                      <td></td>
+                      <td></td>
+                      <td>{{ minuteData?.work_and_revisions_carried_out?.air_distribution_system?.damper_revision?.n_a}}</td>
+                      <td>REVISION TERMOMETRO</td>
+                      <td></td>
+                      <td></td>
+                      <td >{{ minuteData?.work_and_revisions_carried_out?.air_distribution_system?.thermometer_review?.ef}}</td>       
+                    </tr>
+                    <tr>
+                       <td>INSPECCION</td>
+                      <td></td>
+                      <td></td>
+                      <td>{{ minuteData?.work_and_revisions_carried_out?.air_distribution_system?.inspection?.n_a}}</td>
+                      <td>REVISION GENERAL CONDUCTOS </td>
+                      <td></td>
+                      <td></td>
+                      <td>{{ minuteData?.work_and_revisions_carried_out?.air_distribution_system?.general_inspection_ducts?.n_a}}</td>
+                    </tr>        
+                  </table>   
+                </div>
+                  </ion-col>
+                
+              
+
+          </ion-col> 
+        </ion-row> <!-- fin segunda secciin -->
+
+        <ion-row>
+          <ion-col size="4">
+            <!-- CONTENEDOR4 -->
           <div id="container4" class="stylec">
             <table >
               <tr>
@@ -193,395 +435,207 @@
                 <td  class="tam">2</td>
               </tr>
               <tr>
-                <td rowspan="4">DATOS DE PLACA</td>
+                <td rowspan="4" class="boll">DATOS DE PLACA</td>
                 <td>HP</td>
-                <td></td>
-                <td></td>
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._1?.hp}}</td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._2?.hp}}</td> 
               </tr>
               <tr>
                 <td>VOL</td>
-                <td></td>
-                <td></td>
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._1?.vol}}</td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._2?.vol}}</td>
               </tr>
               <tr>
                 <td>AMP</td>
-                <td></td>    
-                <td></td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._1?.amp}}</td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._2?.amp}}</td>
               </tr>
               <tr>
                 <td>RPM</td>
-                <td></td>    
-                <td></td>        
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._1?.rpm}}</td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._2?.rpm}}</td>        
               </tr>
               <tr>
-                <td rowspan="3">MEDICIONES VOLTAJE</td>
+                <td rowspan="3" class="boll">MEDICIONES VOLTAJE</td>
                 <td>VL1-L2</td>
-                <td></td>  
-                <td></td>     
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._1?.vl1_l2}}</td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._2?.vl1_l2}}</td>    
               </tr>
               <tr>
                 <td>VL2-L3</td>
-                <td></td>
-                <td></td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._1?.vl2_l3}}</td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._2?.vl2_l3}}</td>
               </tr>
               <tr>
                 <td>VL3-L1</td>
-                <td></td>  
-                <td></td>      
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._1?.vl3_l1}}</td> 
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._2?.vl3_l1}}</td>     
               </tr>
               <tr>
-                <td rowspan="3">AMPERAJE</td>
+                <td rowspan="3" class="boll">AMPERAJE</td>
                 <td>L1</td>
-                <td></td>
-                <td></td>      
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._1?.l1}}</td>
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._2?.l1}}</td>     
               </tr>
               <tr>
                 <td>L2</td>
-                <td></td> 
-                <td></td>     
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._1?.l2}}</td>
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._2?.l2}}</td>    
               </tr>
               <tr>
                 <td>L3</td>
-                <td></td>   
-                <td></td>  
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._1?.l3}}</td>
+                <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._2?.l3}}</td> 
               </tr>
             </table>  
           </div> 
-  
-        <!-- CONTENEDOR5 -->
-          <div id="container5" class="stylec">
-            <table >
-              <tr>
-                <td colspan="8">LABORES Y REVISIONES REALIZADAS </td>
-              </tr>
-              <tr>
-                <td colspan="8">UNIDAD DE MANEJO</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td  class="tam2">EF</td>
-                <td class="tam2">COM</td>
-                <td class="tam2">N/A</td>
-                <td></td>
-                <td class="tam2">EF</td>
-                <td class="tam2">COM</td>
-                <td class="tam2">N/A</td>
-              </tr>
-              <tr>
-                <td>LIMPIEZA INTERIOR-EXTERIOR</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>AJUSTE GENERAL DE TORNILOS</td>
-                <td></td>
-                <td></td>
-                <td></td>
+          </ion-col>
+          <!--  -->
+          <ion-col>
+            <ion-row>
+              
+                   <!-- CONTENEDOR8 -->
+                  <div id="container8" class="stylec" >
+                    <table >
+                      <tr>
+                        <td class="boll">DAMPERS SALIDA DE AIRE</td>
+                        <td > °C</td>
+                      </tr>
+                      <tr>
+                        <td>TEMPERATURA</td>
+                        <td>{{ minuteData?.air_outlet_dampers?.temperature?._c}}</td>
+                      </tr>
+                          
+                    </table>   
+                  </div>
+              
+              <ion-col size="4">
+                  <!-- CONTENEDOR11 -->
+                <div id="container11" class="stylec">
+                  <table >
+                    <tr>
+                      <td class="boll">DIF. DE PRESION UMA PRE-MTTO</td>
+                      <td>35%</td>
+                      <td>65%</td>
+                      <td>95%</td>
+                    </tr>
+                    <tr>
+                      <td>PARAMETRO(0,2 A 1,5 INCA)</td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>     
+                  </table>   
+                </div>
+              </ion-col>
+            </ion-row>
+            <!--  -->
+            <ion-row size="8">
+                
+                    <!-- CONTENEDOR9 -->
+                    <div id="container9" class="stylec">
+                      <table >
+                        <tr>
+                          <td class="boll">TIPO DE REFIGERANTE</td>
+                          <td>{{ minuteData?.air_outlet_dampers?.type_of_refrigerant}}</td>
+                        </tr>     
+                      </table>   
+                    </div>
+               
+
+                <ion-col size="4">
                   
+                </ion-col>
+
+                <ion-row size="8">
+                    <ion-col size="">
+                      <!-- CONTENEDOR10 -->
+                      <div id="container10" class="stylec">
+                        <table >
+                          <tr>
+                            <td></td>
+                            <td >EF&nbsp;&nbsp;</td>
+                            <td >COM</td>
+                          </tr>
+                          <tr>
+                            <td>CONDICIONES ENTREGA DE EQUIPO</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>ENTREGA DE AREA LIMPIA DE TRABAJO</td>
+                            <td></td>
+                            <td></td>
+                          </tr>       
+                        </table>   
+                      </div>
+
+                    </ion-col>
+
+                    <ion-col size="8">
+                           <!-- CONTENEDOR11 -->
+                    <div id="container11" class="stylec">
+                      <table >
+                        <tr>
+                          <td class="boll">DIF. DE PRESION UMA PRE-MTTO</td>
+                          <td>35%</td>
+                          <td>65%</td>
+                          <td>95%</td>
+                        </tr>
+                        <tr>
+                          <td>PARAMETRO(0,2 A 1,5 INCA)</td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                        </tr>     
+                      </table>   
+                    </div>
+
+                    </ion-col>
+
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <!-- CONTENEDOR13 -->
+                    <div id="container13">
+                      <table>
+                          <tr>
+                              <td>OBSERVACIONES:</td>
+                          </tr>
+                          <tr>
+                            <td>__________________________________________________________________________________<br>__________________________________________________________________________________</td>
+                          </tr>
+                      </table>
+                    </div>
+                  </ion-col>
+                </ion-row>
+            </ion-row>
+
+
+
+          </ion-col>
+        </ion-row>
+
+        <!-- otra fila -->
+        <br>
+        <ion-row size="12">
+            <!-- CONTENEDOR14 -->
+        <div id="container14" >
+          <table>
+              <tr>
+                  <td>________________________________________&nbsp;&nbsp;</td>
+                  <td>________________________________________&nbsp;&nbsp;</td>
+                  <td>________________________________________</td>
               </tr>
               <tr>
-                <td>LAVADO DE SERPENTINES</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>REVISION VALVULAS<br> DE TORNILLOS</td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>FIRMA EJECUTOR</td>
+                <td>FIRMA RECIBE</td>
+                <td>SELLO</td>
               </tr>
-              <tr>
-                <td>AJUSTES PRIONEROS DE CHUMAREJAS</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>REVISION ACCESORIOS<br>ELECTRICOS Y AJUSTES DE<br>TORNILLERIA TAB. DE CONTROL </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>LAVADO FILTRO DE AIRE</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>REVISION RELE BIOMETALICO </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>LAVADO FILTRO DE AIRE</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>REVISION RELE BIOMETALICO </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>TENSION DE CORREAS</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>LIMPIEZA TABLERO ELECTRONICO </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>CAMBIO DE CORREAS</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>REVISION TERMOSTATO </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>REVISION RODAMIENTOS</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>INSPECCION MOTOR </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>REVISION AISLAMIENTO INTERIOR</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>LIMPIEZA DE DESAGUES </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>CAMBIO FILTRO</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>   
-          </div>
-        
-        <!-- CONTENEDOR6 -->
-          <div id="container6" class="stylec">
-            <table >          
-              <tr>
-                <td colspan="8">UNIDAD CONDENSADORA</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td class="tam2">EF</td>
-                <td class="tam2">COM</td>
-                <td class="tam2">N/A</td>
-                <td></td>
-                <td class="tam2">EF</td>
-                <td class="tam2">COM</td>
-                <td class="tam2">N/A</td>
-              </tr>
-              <tr>
-                <td>LIMPIEZA INTERIOR-EXTERIOR</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>AJUSTE GENERAL DE TORNILOS</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                  
-              </tr>
-              <tr>
-                <td>LAVADO DE SERPENTINES</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>REVISION ACCESORIOS<br>ELECTRICOS Y AJUSTES DE<br>TORNILLERIA TAB. DE CONTROL </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>RODAMIENTOS</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>REVISION RELE BIOMETALICO </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>REVISION DE COMPRESOR</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td rowspan="2">INSPECCION DE TUBERIA <br>REFIGERANTE </td>
-                <td rowspan="2"></td>
-                <td rowspan="2"></td>
-                <td rowspan="2"></td>
-              </tr>
-              <tr>
-                <td>ESTADO DE SOPORTE</td>
-                <td></td>
-                <td></td>
-                <td></td>       
-              </tr>        
-            </table>   
-          </div>
-  
-        <!-- CONTENEDOR7 -->
-          <div id="container7" class="stylec">
-            <table >
-              <tr>
-                <td colspan="8">SISTEMA DE DISTRIBUCION DE AIRE</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td class="tam2">EF</td>
-                <td class="tam2">COM</td>
-                <td class="tam2">N/A</td>
-                <td></td>
-                <td class="tam2">EF</td>
-                <td class="tam2">COM</td>
-                <td class="tam2">N/A</td>
-              </tr>
-              <tr>
-                <td>REVISION DAMPERS</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>REVISION TERMOMETRO</td>
-                <td></td>
-                <td></td>
-                <td></td>        
-              </tr>
-              <tr>
-                 <td>INSPECCION</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>REVISION GENERAL CONDUCTOS </td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>        
-            </table>   
-          </div>
-  
-        <!-- CONTENEDOR8 -->
-          <div id="container8" class="stylec" >
-            <table >
-              <tr>
-                <td>DAMPERS SALIDA DE AIRE</td>
-                <td class="tam2"> °C&nbsp;&nbsp; </td>
-              </tr>
-              <tr>
-                <td>TEMPERATURA</td>
-                <td></td>
-              </tr>
-                  
-            </table>   
-          </div>
-  
-        <!-- CONTENEDOR9 -->
-          <div id="container9" class="stylec">
-            <table >
-              <tr>
-                <td>TIPO DE REFIGERANTE</td>
-                <td > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-              </tr>     
-            </table>   
-          </div>
-          <!-- CONTENEDOR10 -->
-          <div id="container10" class="stylec">
-            <table >
-              <tr>
-                <td></td>
-                <td class="tam2">EF&nbsp;&nbsp;</td>
-                <td class="tam2">COM</td>
-              </tr>
-              <tr>
-                <td>CONDICIONES ENTREGA DE EQUIPO</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>ENTREGA DE AREA LIMPIA DE TRABAJO</td>
-                <td></td>
-                <td></td>
-              </tr>       
-            </table>   
-          </div>
-          <!-- CONTENEDOR11 -->
-          <div id="container11" class="stylec">
-            <table >
-              <tr>
-                <td>DIF. DE PRESION UMA PRE-MTTO</td>
-                <td>35%</td>
-                <td>65%</td>
-                <td>95%</td>
-              </tr>
-              <tr>
-                <td>PARAMETRO(0,2 A 1,5 INCA)</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>     
-            </table>   
-          </div>
-           <!-- CONTENEDOR12 -->
-           <div id="container12" class="stylec">
-            <table >
-              <tr>
-                <td>DIF. DE PRESION UMA POS-MTTO</td>
-                <td>35%</td>
-                <td>65%</td>
-                <td>95%</td>
-              </tr>
-              <tr>
-                <td>PARAMETRO(0,2 A 1,5 INCA)</td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>     
-            </table>   
-          </div>
-          <!-- fin tabla -->
+          </table>
         </div>
-          <!-- CONTENEDOR13 -->
-          <div id="container13" class="stylec">
-            <table>
-                <tr>
-                    <td>OBSERVACIONES:</td>
-                </tr>
-                <tr>
-                  <td>__________________________________________________________________________________<br>__________________________________________________________________________________</td>
-                </tr>
-            </table>
-          </div>
-          
-          <!-- CONTENEDOR14 -->
-          <div id="container14" >
-            <table>
-                <tr>
-                    <td>________________________________________&nbsp;&nbsp;</td>
-                    <td>________________________________________&nbsp;&nbsp;</td>
-                    <td>________________________________________</td>
-                </tr>
-                <tr>
-                  <td>FIRMA EJECUTOR</td>
-                  <td>FIRMA RECIBE</td>
-                  <td>SELLO</td>
-                </tr>
-            </table>
-          </div>
-        
-        
-      </div>
-    </div>
-  </ion-content>
-  
+        </ion-row> 
+     
+    <button  class="ff"  (click)="generatePDF()">Generar PDF</button>
+  </ion-grid>
+</ion-content>

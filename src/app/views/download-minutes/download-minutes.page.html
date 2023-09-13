@@ -3,15 +3,13 @@
   <app-container-card>
     <strong title>Consulta tu informe tecnico</strong>
     <div form-section>
-      <ion-input 
-        type="tex"
-        fill="outline"
-        label="#Informe"
-        labelPlacement="floating">
-    </ion-input>
+      <ion-input id="numC" type="text" fill="outline" label="#Informe" labelPlacement="floating" [(ngModel)]="numInforme"></ion-input>
+
     </div>
    
-    <button button-section type="submit" ><ion-icon  name="cloud-download-outline" size="default" color="primary"></ion-icon>   Descargar</button>
+    
+       <button button-section type="button" (click)="descargarM()">  Descargar
+      </button>  
     <!-- <button button-section type="submit"  (click)="navigateHome()"><ion-icon  name="log-in-outline" size="default" color="primary"></ion-icon>   Volver</button> -->
   </app-container-card>
 </ion-content>

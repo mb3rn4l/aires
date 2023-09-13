@@ -28,12 +28,11 @@ const routes: Routes = [
         path: 'download-minute',
         loadChildren: () => import('./views/download-minutes/download-minutes.module').then( m => m.DownloadMinutesPageModule)
       },  
-      
-      {
-        path: 'form2',
-        loadChildren: () => import('./views/form2/form2.module').then( m => m.Form2PageModule)
-      },
     ]
+  },
+  {
+    path: 'form2',
+    loadChildren: () => import('./views/form2/form2.module').then( m => m.Form2PageModule)
   },
   {
     path: 'form',
