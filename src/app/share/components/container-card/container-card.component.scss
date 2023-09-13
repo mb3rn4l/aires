@@ -1,4 +1,4 @@
-    /* Estilos para el fondo */
+/* Estilos para el fondo */
   #container {
     text-align: center;
     position: absolute;
@@ -13,7 +13,7 @@
 
 
 
-  /* Estilos para el titulo */
+/* Estilos para el titulo */
 
   :host ::ng-deep [title]{
     color: #090101;
@@ -23,7 +23,7 @@
     margin-bottom: 20px; /* Agrega espacio inferior */
   }
 
-   /* Estilos para el botón */
+/* Estilos para el botón */
  
    :host ::ng-deep [button-section] {
     border: 1px solid  black !important; /* Agrega un borde sólido de 1 píxel de grosor en color negro */
@@ -56,7 +56,7 @@
     transform: translateY(-1px);
   }
 
-  /* Estilos para el fromulario */
+/* Estilos para el fromulario */
   
   :host ::ng-deep [form-section]{
     color: #090101;
@@ -65,7 +65,7 @@
   }
 
 
-  /* Estilos para los botones */
+/* Estilos para los botones */
   :host ::ng-deep .custom-button {
     width: 50%; /* Asegura que el botón ocupe todo el ancho disponible */
   }

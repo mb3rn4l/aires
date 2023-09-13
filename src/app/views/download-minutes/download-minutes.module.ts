@@ -8,6 +8,8 @@ import { DownloadMinutesPageRoutingModule } from './download-minutes-routing.mod
 
 import { DownloadMinutesPage } from './download-minutes.page';
 import { SharePageModule } from 'src/app/share/share.module';
+import { MinuteService } from 'src/app/service/minute-servce';
+
 
 @NgModule({
   imports: [
@@ -17,6 +19,9 @@ import { SharePageModule } from 'src/app/share/share.module';
     DownloadMinutesPageRoutingModule,
     SharePageModule
   ],
-  declarations: [DownloadMinutesPage]
+  declarations: [DownloadMinutesPage],
+  providers: [
+    MinuteService, // Agrega el servicio aquí
+  ],
 })
 export class DownloadMinutesPageModule {}
