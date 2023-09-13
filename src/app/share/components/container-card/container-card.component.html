@@ -1,5 +1,12 @@
-<div id="container">
-  <ng-content select="[title]"></ng-content>
-  <ng-content select="[form-section]"></ng-content> 
-  <ng-content select="[button-section]"></ng-content>   
-</div>
+<ion-grid>
+  <ion-row>
+    <ion-col id="container" size-md="4"  offset-md="4">
+      <ng-content select="[title]"></ng-content>
+      <ng-content select="[form-section]"></ng-content> 
+      <ng-content select="[button-section]"></ng-content>   
+    </ion-col>
+  </ion-row>
+  <!-- <div id="container">
+    
+  </div> -->
+</ion-grid>
