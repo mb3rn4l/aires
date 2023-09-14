@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { ContainerCardComponent } from './components/container-card/container-card.component';
 import { HeaderLayoutComponent } from './components/header-layout/header-layout.component';
 import { RouterModule } from '@angular/router';
+import { ValidatorPasswordDirective } from './directives/confirm-password/validator-password.directive';
 
 @NgModule({
   imports: [
@@ -11,7 +12,7 @@ import { RouterModule } from '@angular/router';
     IonicModule,
     RouterModule
   ],
-  declarations: [ ContainerCardComponent, HeaderLayoutComponent],
-  exports:[ContainerCardComponent, HeaderLayoutComponent]
+  declarations: [ ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective],
+  exports:[ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective]
 })
 export class SharePageModule {}

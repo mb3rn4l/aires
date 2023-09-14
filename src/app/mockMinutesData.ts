@@ -1,4 +1,4 @@
-import { Minute } from "./interfaceData";
+import { Minute } from "./share/models/minuteData";
 
 export const data: Minute[] = [{
     "equipment_code":"1111",

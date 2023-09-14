@@ -1,7 +1,4 @@
-import { DownloadMinutesPageModule } from './../views/download-minutes/download-minutes.module';
-import { Minute } from './../interfaceData';
-
-import { data } from '../mockMinutesData';
+import { data } from '../../mockMinutesData';
 import { Injectable } from '@angular/core';
 
 

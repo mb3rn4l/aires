@@ -1,14 +1,13 @@
+import { User } from './../../share/models/user';
+import { CreateUserForm } from './../../share/models/createUserForm';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-
-import {
-  AngularFirestore,
-  AngularFirestoreDocument,
-} from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-
-import { User } from 'src/app/share/models/user';
 import { LoginForm } from 'src/app/share/models/loginForm';
+import { DataUserForms } from 'src/app/share/models/dataUserForm';
+import { SaveUserService } from 'src/app/service/save/save-user.service';
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +18,11 @@ export class AuthService {
   
 
   constructor(
-    private angularFirestore: AngularFirestore,
+    public afAuth: AngularFireAuth,
     private angularFireAuth: AngularFireAuth,
-    private router: Router) { 
+    private saveInfoUser: SaveUserService)
+     { 
+
 
       /* Saving user data in localstorage when 
       logged in and setting up null when logged out */
@@ -56,6 +57,33 @@ export class AuthService {
       // }
     }
 
+    
+      // Sign up with email/password
+    async signUp(createForm: CreateUserForm): Promise<any> {
+      
+     try {
+      const originalUser = await this.afAuth.currentUser;
+      
+      const result = await this.afAuth.createUserWithEmailAndPassword(createForm.email,createForm.password)
+      console.log(result.user?.uid)
+      
+      const userDataa: DataUserForms = {
+            id: result.user!.uid!,
+            name: createForm.name,
+            email: createForm.email,
+            password: createForm.password,
+            isAdmin:false
+          } ;
+         
+      await this.saveInfoUser.setUserData(userDataa)
+        
+      await this.afAuth.updateCurrentUser(originalUser) 
+
+     } catch (error: any) {
+      window.alert(error.message);
+     } 
+    }
+    
     // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
@@ -65,22 +93,7 @@ export class AuthService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  setUserData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.angularFirestore.doc(
-      `users/${user.uid}`
-    );
-    const userData: User = {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-    };
-    return userRef.set(userData, {
-      merge: true,
-    });
-  }
-
+ 
   // Sign out
   async signOut() {
     await this.angularFireAuth.signOut();

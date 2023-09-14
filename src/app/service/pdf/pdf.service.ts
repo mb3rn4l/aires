@@ -1,9 +1,6 @@
 import { jsPDF } from 'jspdf';
 import { Injectable } from '@angular/core';
-import { MinuteService } from './minute-servce';
 import html2canvas from 'html2canvas';
-
-
 
 @Injectable({
   providedIn: 'root'

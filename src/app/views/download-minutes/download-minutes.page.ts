@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { MinuteService } from 'src/app/service/minute-servce';
+import { Router, ParamMap } from '@angular/router';
+import { MinuteService } from 'src/app/service/minute/minute-service';
+
 
 
 @Component({
@@ -21,22 +22,19 @@ export class DownloadMinutesPage implements OnInit {
     if (this.numInforme) {
       // Verificar si el valor coincide con un código de equipo válido en el JSON
       const minuteData = this.minuteService.getMinuteData(this.numInforme);
-      
+  
       if (minuteData) {
-        // Pasamos el valor por URL y navegamos a la página 'form'
-        this.router.navigate(['/form'], { queryParams: { equipment_code: this.numInforme } });
+        // Navegamos a la página 'form' y pasamos el valor de numInforme como un parámetro en la URL
+        this.router.navigate([`/form/${this.numInforme}`]); // Utiliza comillas invertidas para incluir el valor en la URL
       } else {
-        console.log('El número de informe no coincide con ningún código de equipo válido.');
         // Mostrar un mensaje de error al usuario
         alert('El número de informe no es válido. Por favor, ingrese un número de informe válido.');
       }
     } else {
-      console.log('Por favor, ingrese un número de informe.');
       // Mostrar un mensaje de error al usuario
       alert('Por favor, ingrese un número de informe válido.');
     }
   }
-
   
   ngOnInit() {
   }
