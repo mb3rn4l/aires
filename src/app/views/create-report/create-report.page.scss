@@ -1,0 +1,60 @@
+
+ // estilo de las tablas de fromularios
+ .stylec table {
+    border-collapse: collapse; /* Colapsa los bordes de la tabla para que se vean mejor */
+   /*  width: 100%; /* Asegura que la tabla ocupe todo el ancho del contenedor */ 
+  }
+  
+  .stylec td, #table th {
+    border: 1px solid black; /* Agrega un borde de 1px a todas las celdas */
+    padding: 2px; /* Agrega espacio entre el contenido de las celdas y los bordes */
+    text-align: center; /* Centra el texto en las celdas */
+  }
+  
+  .stylec th {
+    background-color: black; /* Agrega un fondo gris claro a las celdas de encabezado */
+  }
+  table {
+    font-family: 'Calibri Light', sans-serif;
+    font-size: 13px;
+  }
+  
+  #container-infoE {
+    padding: 5px;
+    border: 1px solid #000000;
+    color: #000000; /* Cambiar el color del texto a negro o cualquier otro color legible */
+    display: flex;
+    align-items: center;
+  }
+  .image-container img {
+    width: 70px; /* Establece un ancho fijo para la imagen */
+    margin-right: 70px;
+  }
+  
+  #container-Code {
+    border: 1px solid #000000;
+    text-align: left;
+    color: #000000;
+    
+  }
+  
+  p{
+    font-family: 'Calibri Light', sans-serif;
+    font-size: 13px;
+  }
+  
+  .sub {
+  
+    text-decoration: underline;
+    text-transform: uppercase; /* Convierte el texto en mayúsculas */
+    display: inline-block;
+    margin-right: 30px;
+  
+  }
+  .boll{
+    font-weight: bold;
+  }
+  .space{
+    margin-right: 10px; /* Ajusta el valor según tus necesidades */
+  }
+  

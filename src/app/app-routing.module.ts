@@ -38,6 +38,11 @@ const routes: Routes = [
         path: 'upload-minute',
          loadChildren: () => import('./views/upload-minutes/upload-minutes.module').then( m => m.UploadMinutesPageModule)
       },
+      {
+        path: 'create-report',
+        loadChildren: () => import('./views/create-report/create-report.module').then( m => m.CreateReportPageModule)
+      },
+    
     ]
   },
   {
@@ -52,6 +57,7 @@ const routes: Routes = [
     path: 'form/:id',
     loadChildren: () => import('./views/form/form.module').then(m => m.FormPageModule),
   },
+ 
 
   
 ];
