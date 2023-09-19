@@ -14,11 +14,11 @@ export class HeaderLayoutComponent  implements OnInit {
 
   ngOnInit() {
     this.userData = this.authService.userData; 
-    console.log(this.authService.userData)
+    /* console.log(this.authService.userData) */
   }
 
   checkUser(){
-    console.log(this.authService.isLoggedIn)
+    /* console.log(this.authService.isLoggedIn) */
     return this.authService.isLoggedIn;
   }
 

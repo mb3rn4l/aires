@@ -197,28 +197,14 @@ export interface Minute {
         };
         type_of_refrigerant:string;
 
-        equipment_delivery_conditions:{
-          ef:boolean;
-          com:boolean;          
-        };
-        delivery_of_clean_work_area:{
-          ef:boolean;
-          com:boolean;
-        };
+        equipment_delivery_conditions:string;
+        delivery_of_clean_work_area:string;
     }
 
     export interface PressureUmaPreMtto{
-        parameter:{
-          _35:boolean;
-          _65:boolean;
-          _95:boolean;
-           }
+        parameter:string;
     }
 
     export interface PressureUmaPosMtto{
-        parameter:{
-          _35:boolean;
-          _65:boolean;
-          _95:boolean;
-           }
+        parameter:string;
     }

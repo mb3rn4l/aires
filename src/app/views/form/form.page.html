@@ -133,12 +133,15 @@
               <td >N/A</td>
             </tr>
             <tr>
+              
               <td>LIMPIEZA INTERIOR-EXTERIOR</td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning?.ef}}</td>
-              <td></td>
-              <td></td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning, 'NA') ? '✓' : '' }}</td>
+ 
               <td>AJUSTE GENERAL DE TORNILOS</td>
-              <td>{{ getSymbol(minuteData?.work_and_revisions_carried_out?.drive_unit?.overall_screw_adjustment?.ef ?? false) }}</td>
+              <td></td>
+
               <td></td>
               <td></td>
                 

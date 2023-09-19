@@ -22,8 +22,8 @@ export class FormPage implements OnInit {
 
   }
 
-  getSymbol(value: boolean): string {
-    return value ? "✓" : "";
+  shouldMark(value: string, targetValue: string): boolean {
+    return value === targetValue;
   }
 
   ngOnInit() {

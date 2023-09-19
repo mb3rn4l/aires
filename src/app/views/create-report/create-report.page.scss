@@ -58,3 +58,9 @@
     margin-right: 10px; /* Ajusta el valor según tus necesidades */
   }
   
+  ion-fab {
+    margin-top: var(--ion-safe-area-top, 0);
+  }
+  ion-fab {
+    margin-bottom: var(--ion-safe-area-bottom, 0);
+  }
