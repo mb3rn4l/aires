@@ -36,7 +36,7 @@
         </div> -->
 
         <br>
-        <ion-input 
+        <ion-input
           required
           type="password"
           fill="outline"
@@ -46,8 +46,10 @@
           placeholder="Password"
           [ngModel]="model.password"
           name="password"
-          #password="ngModel">
-        </ion-input>
+          #password="ngModel"
+          
+        ></ion-input>
+        <!-- appPasswordLength="7 -->"
 
         <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
           <div *ngIf="password.errors?.['required']">
@@ -73,11 +75,8 @@
               La contraseña no coincide
             </div>
           </div> -->
-        </ion-input>
-        
-         
-        </form>
-      
+        </ion-input>       
+        </form> 
       </div>
 
       <button button-section type="button" (click)="datosForm()" >
@@ -87,3 +86,4 @@
 
     </app-container-card>
 </ion-content>
+

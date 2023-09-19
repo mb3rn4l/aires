@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ParamMap } from '@angular/router';
 import { MinuteService } from 'src/app/service/minute/minute-service';
 
-
-
 @Component({
   selector: 'app-download-minutes',
   templateUrl: './download-minutes.page.html',
