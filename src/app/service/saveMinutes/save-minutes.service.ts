@@ -19,12 +19,7 @@ export class SaveMinutesService {
 
   constructor(private angularFirestore: AngularFirestore) { }
 
-  setUserData(CreateMinute: Minute) {
-    const userRef: AngularFirestoreDocument<any> = this.angularFirestore.doc(
-      `minutes/${CreateMinute.equipment_code}`
-    );
-    return userRef.set(CreateMinute, {
-      merge: true,
-    });
+  addMinuteData(minute: Minute) {
+    return this.angularFirestore.collection('minutes').add(minute);
   }
 }

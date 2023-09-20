@@ -18,11 +18,7 @@ export class CreateReportPage implements OnInit {
   @ViewChild('fToltal') formTotal: NgForm;
   @ViewChildren(NgForm) formulariosSecundarios: QueryList<NgForm>;
 
-
-  @ViewChild('fToltal') datosFormTotal: NgForm;
-
   constructor( private loadingCtrl: LoadingController, private router: Router, private saveMinutesService:SaveMinutesService) { }
-
 
   async submitForm() {
     // Verifica todos los formularios secundarios
@@ -33,7 +29,7 @@ export class CreateReportPage implements OnInit {
     if (formulariosValidos) {
       try {
         // Llama al servicio para guardar los datos
-        await this.saveMinutesService.setUserData(this.minute);
+        await this.saveMinutesService.addMinuteData(this.minute);
   
         // Todos los formularios son válidos, puedes continuar con el procesamiento
         alert('Formulario enviado correctamente');

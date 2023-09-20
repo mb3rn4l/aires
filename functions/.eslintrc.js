@@ -25,6 +25,9 @@ module.exports = {
     "import",
   ],
   rules: {
+    "linebreak-style": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "object-curly-spacing": [2, "always"],
     "quotes": ["error", "double"],
     "import/no-unresolved": 0,
     "indent": ["error", 2],
