@@ -1,8 +1,5 @@
-
-
   <h1>INFORME TECNICO</h1>
   <hr>
-
   <ion-grid>
     <form  #fToltal="ngForm">
     <ion-row>
@@ -36,7 +33,7 @@
                       >
                       </ion-input>
                 
-                      <ion-list>
+                    <ion-list>
                         <ion-accordion-group>
                           <ion-accordion value="start">
                             <ion-item slot="header">
@@ -61,7 +58,7 @@
                             ></ion-datetime>
                           </ion-accordion>
                         </ion-accordion-group>
-                      </ion-list>
+                    </ion-list>
 
                     <br>
                     
@@ -89,11 +86,11 @@
                         name="Tipo_Mntto" 
                         #Tipo_Mntto: ngModel
                     >
-                    </ion-input>
-                    <br>         
-                  </form>  
-                </div>
-              </ion-col>
+                          </ion-input>
+                          <br>         
+                        </form>  
+                      </div>
+                    </ion-col>
 
               <ion-col size="12" size-sm="4">
                 <div form-section >
@@ -860,7 +857,7 @@
                               <tr>
                                 <td>L2</td>
                                 <td >
-                                  <ion-input [(ngModel)]="minute.technical_data_and_measurements.capacitor_motor.amperage._1.l1" name="l2"
+                                  <ion-input [(ngModel)]="minute.technical_data_and_measurements.capacitor_motor.amperage._1.l2" name="l2"
                                     required
                                     size="1"
                                     type="text"

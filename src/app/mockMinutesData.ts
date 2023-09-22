@@ -10,7 +10,7 @@ export const data: Minute[] = [{
     "equipment_name":"logistica #1",
     "capacity":"1800 o BTU",
     "equipment_type":"mini split",
-    "observations":"Esto es una observcioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeqweqweqweqweqweqweqweqweqweqweqweqweqeqeqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",
+    "observations":"Esto es una observcioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
   
     "technical_data_and_measurements":{
       "handling_unit":{
@@ -172,10 +172,10 @@ export const data: Minute[] = [{
       "delivery_of_clean_work_area":"EF",
     },
     "pressure_uma_pre_mtto":{
-      "parameter":"",
+      "parameter":"35",
     },
     "pressure_uma_pos_mtto":{
-      "parameter":"",
+      "parameter":"35",
     }
   }];
   

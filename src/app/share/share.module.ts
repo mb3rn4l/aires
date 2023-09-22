@@ -6,12 +6,14 @@ import { HeaderLayoutComponent } from './components/header-layout/header-layout.
 import { RouterModule } from '@angular/router';
 import { ValidatorPasswordDirective } from './directives/confirm-password/validator-password.directive';
 import { PasswordLengthDirective } from './directives/minimum-password/password-length.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   declarations: [ ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective, PasswordLengthDirective],
   exports:[ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective]

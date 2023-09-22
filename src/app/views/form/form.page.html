@@ -140,87 +140,98 @@
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning, 'NA') ? '✓' : '' }}</td>
  
               <td>AJUSTE GENERAL DE TORNILOS</td>
-              <td></td>
-
-              <td></td>
-              <td></td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.overall_screw_adjustment, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.overall_screw_adjustment, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.overall_screw_adjustment, 'NA') ? '✓' : '' }}</td>
                 
             </tr>
             <tr>
               <td>LAVADO DE SERPENTINES</td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.coil_serpentines?.ef}}</td>
-              <td></td>
-              <td></td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.coil_serpentines, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.coil_serpentines, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.coil_serpentines, 'NA') ? '✓' : '' }}</td>
+
               <td>REVISION VALVULAS<br> DE TORNILLOS</td>
-              <td></td>
-              <td></td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.revision_of_expansion_valves?.n_a}}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.revision_of_expansion_valves, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.revision_of_expansion_valves, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.revision_of_expansion_valves, 'NA') ? '✓' : '' }}</td>
+
             </tr>
             <tr>
               <td>AJUSTES PRIONEROS DE CHUMAREJAS</td>
-              <td></td>
-              <td></td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.adjust_prisoners_of_chumaceras?.n_a}}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.adjust_prisoners_of_chumaceras, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.adjust_prisoners_of_chumaceras, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.adjust_prisoners_of_chumaceras, 'NA') ? '✓' : '' }}</td>
+
               <td>REVISION ACCESORIOS<br>ELECTRICOS Y AJUSTES DE<br>TORNILLERIA TAB. DE CONTROL </td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.review_electrical_accessories?.ef}}</td>
-              <td></td>
-              <td></td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.review_electrical_accessories, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.review_electrical_accessories, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.review_electrical_accessories, 'NA') ? '✓' : '' }}</td>
+
             </tr>
             <tr>
               <td>LAVADO FILTRO DE AIRE</td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.air_filter_wash?.ef}}</td>
-              <td></td>
-              <td></td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.air_filter_wash, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.air_filter_wash, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.air_filter_wash, 'NA') ? '✓' : '' }}</td>
+
               <td>REVISION RELE BIOMETALICO </td>
-              <td></td>
-              <td></td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.bimetallic_relay_revision?.n_a}}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bimetallic_relay_revision, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bimetallic_relay_revision, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bimetallic_relay_revision, 'NA') ? '✓' : '' }}</td>
+
             </tr>
             <tr>
               <td>TENSION DE CORREAS</td>
-              <td></td>
-              <td></td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.belt_tension?.n_a}}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.belt_tension, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.belt_tension, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.belt_tension, 'NA') ? '✓' : '' }}</td>
+
               <td>LIMPIEZA TABLERO ELECTRONICO </td>
-              <td></td>
-              <td></td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.electronic_board_cleaning?.n_a}}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.electronic_board_cleaning, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.electronic_board_cleaning, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.electronic_board_cleaning, 'NA') ? '✓' : '' }}</td>
             </tr>
             <tr>
               <td>CAMBIO DE CORREAS</td>
-              <td></td>
-              <td></td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.changing_straps?.n_a}}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.changing_straps, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.changing_straps, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.changing_straps, 'NA') ? '✓' : '' }}</td>
+
               <td>REVISION TERMOSTATO </td>
-              <td></td>
-              <td></td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.thermostat_check?.ef}}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.thermostat_check, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.thermostat_check, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.thermostat_check, 'NA') ? '✓' : '' }}</td>
             </tr>
             <tr>
               <td>REVISION RODAMIENTOS</td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.bearing_review?.ef}}</td>
-              <td></td>
-              <td></td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bearing_review, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bearing_review, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bearing_review, 'NA') ? '✓' : '' }}</td>
+
               <td>INSPECCION MOTOR </td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.engine_inspection?.ef}}</td>
-              <td></td>
-              <td></td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.engine_inspection, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.engine_inspection, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.engine_inspection, 'NA') ? '✓' : '' }}</td>
+
             </tr>
             <tr>
               <td>REVISION AISLAMIENTO INTERIOR</td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.internal_insulation_review?.ef}}</td>
-              <td></td>
-              <td></td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.internal_insulation_review, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.internal_insulation_review, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.internal_insulation_review, 'NA') ? '✓' : '' }}</td>
+
               <td>LIMPIEZA DE DESAGUES </td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.drain_cleaning?.ef}}</td>
-              <td></td>
-              <td></td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.drain_cleaning, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.drain_cleaning, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.drain_cleaning, 'NA') ? '✓' : '' }}</td>
+
             </tr>
             <tr>
               <td>CAMBIO FILTRO</td>
-              <td></td>
-              <td></td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.Filter_change?.n_a}}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.Filter_change, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.Filter_change, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.Filter_change, 'NA') ? '✓' : '' }}</td>
             </tr>
           </table>   
         </div>
@@ -329,50 +340,56 @@
                     </tr>
                     <tr>
                       <td>LIMPIEZA INTERIOR-EXTERIOR</td>
-                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.interior_exterior_cleaning?.ef}}</td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.interior_exterior_cleaning, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.interior_exterior_cleaning, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.interior_exterior_cleaning, 'NA') ? '✓' : '' }}</td>
+
                       <td>AJUSTE GENERAL DE TORNILOS</td>
-                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.overall_screw_adjustment?.n_a}}</td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.overall_screw_adjustment, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.overall_screw_adjustment, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.overall_screw_adjustment, 'NA') ? '✓' : '' }}</td>
                         
                     </tr>
                     <tr>
                       <td>LAVADO DE SERPENTINES</td>
-                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.coil_serpentines?.ef}}</td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.coil_serpentines, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.coil_serpentines, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.coil_serpentines, 'NA') ? '✓' : '' }}</td>
+
                       <td>REVISION ACCESORIOS<br>ELECTRICOS Y AJUSTES DE<br>TORNILLERIA TAB. DE CONTROL </td>
-                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.review_electrical_accessories?.ef}}</td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.review_electrical_accessories, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.review_electrical_accessories, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.review_electrical_accessories, 'NA') ? '✓' : '' }}</td>
+
                     </tr>
                     <tr>
                       <td>RODAMIENTOS</td>
-                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearing?.ef}}</td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearings, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearing, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearing, 'NA') ? '✓' : '' }}</td>
+
                       <td>REVISION RELE BIOMETALICO </td>
-                      <td></td>
-                      <td></td>
-                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearing?.ef}}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bimetallic_relay_revision, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bimetallic_relay_revision, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bimetallic_relay_revision, 'NA') ? '✓' : '' }}</td>
+
                     </tr>
                     <tr>
                       <td>REVISION DE COMPRESOR</td>
-                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.bimetallic_relay_revision?.ef}}</td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.compressor_overhaul, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.compressor_overhaul, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.compressor_overhaul, 'NA') ? '✓' : '' }}</td>
+
                       <td rowspan="2">INSPECCION DE TUBERIA <br>REFIGERANTE </td>
-                      <td rowspan="2">{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearing?.ef}}</td>
-                      <td rowspan="2"></td>
-                      <td rowspan="2"></td>
+                      <td rowspan="2">{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.refrigerant_pipe_inspection, 'EF') ? '✓' : '' }}</td>
+                      <td rowspan="2">{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.refrigerant_pipe_inspection, 'COM') ? '✓' : '' }}</td>
+                      <td rowspan="2">{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.refrigerant_pipe_inspection, 'NA') ? '✓' : '' }}</td>
                     </tr>
                     <tr>
                       <td>ESTADO DE SOPORTE</td>
-                      <td>{{ minuteData?.work_and_revisions_carried_out?.condensing_unit?.refrigerant_pipe_inspection?.ef}}</td>
-                      <td></td>
-                      <td></td>       
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.support_status, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.support_status, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.support_status, 'NA') ? '✓' : '' }}</td>     
                     </tr>        
                   </table>   
                 </div>
@@ -397,23 +414,27 @@
                     </tr>
                     <tr>
                       <td>REVISION DAMPERS</td>
-                      <td></td>
-                      <td></td>
-                      <td>{{ minuteData?.work_and_revisions_carried_out?.air_distribution_system?.damper_revision?.n_a}}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.damper_revision, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.damper_revision, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.damper_revision, 'NA') ? '✓' : '' }}</td> 
+
                       <td>REVISION TERMOMETRO</td>
-                      <td></td>
-                      <td></td>
-                      <td >{{ minuteData?.work_and_revisions_carried_out?.air_distribution_system?.thermometer_review?.ef}}</td>       
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.thermometer_review, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.thermometer_review, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.thermometer_review, 'NA') ? '✓' : '' }}</td> 
+
                     </tr>
                     <tr>
                        <td>INSPECCION</td>
-                      <td></td>
-                      <td></td>
-                      <td>{{ minuteData?.work_and_revisions_carried_out?.air_distribution_system?.inspection?.n_a}}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.inspection, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.inspection, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.inspection, 'NA') ? '✓' : '' }}</td> 
+
                       <td>REVISION GENERAL CONDUCTOS </td>
-                      <td></td>
-                      <td></td>
-                      <td>{{ minuteData?.work_and_revisions_carried_out?.air_distribution_system?.general_inspection_ducts?.n_a}}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.general_inspection_ducts, 'EF') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.general_inspection_ducts, 'COM') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.general_inspection_ducts, 'NA') ? '✓' : '' }}</td> 
+
                     </tr>        
                   </table>   
                 </div>
@@ -524,9 +545,9 @@
                     </tr>
                     <tr>
                       <td>PARAMETRO(0,2 A 1,5 INCA)</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ shouldMark(minuteData?.pressure_uma_pre_mtto.parameter, '35') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.pressure_uma_pre_mtto.parameter, '65') ? '✓' : '' }}</td>
+                      <td>{{ shouldMark(minuteData?.pressure_uma_pre_mtto.parameter, '95') ? '✓' : '' }}</td>
                     </tr>     
                   </table>   
                 </div>
@@ -562,13 +583,14 @@
                           </tr>
                           <tr>
                             <td>CONDICIONES ENTREGA DE EQUIPO</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ shouldMark(minuteData?.air_outlet_dampers?.equipment_delivery_conditions, 'EF') ? '✓' : '' }}</td>
+                            <td>{{ shouldMark(minuteData?.air_outlet_dampers?.equipment_delivery_conditions, 'COM') ? '✓' : '' }}</td>
+                            
                           </tr>
                           <tr>
                             <td>ENTREGA DE AREA LIMPIA DE TRABAJO</td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ shouldMark(minuteData?.air_outlet_dampers?.delivery_of_clean_work_area, 'EF') ? '✓' : '' }}</td>
+                            <td>{{ shouldMark(minuteData?.air_outlet_dampers?.delivery_of_clean_work_area, 'COM') ? '✓' : '' }}</td>
                           </tr>       
                         </table>   
                       </div>
@@ -587,9 +609,9 @@
                         </tr>
                         <tr>
                           <td>PARAMETRO(0,2 A 1,5 INCA)</td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                          <td>{{ shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '35') ? '✓' : '' }}</td>
+                          <td>{{ shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '65') ? '✓' : '' }}</td>
+                          <td>{{ shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '95') ? '✓' : '' }}</td>
                         </tr>     
                       </table>   
                     </div>
@@ -597,23 +619,24 @@
                     </ion-col>
 
                 </ion-row>
-                <ion-row>
-                  <ion-col>
-                    <!-- CONTENEDOR13 -->
-                    <div id="container13">
-                      <table>
-                          <tr>
-                              <td>OBSERVACIONES:</td>
-                          </tr>
-                          <tr>
-                            <td>__________________________________________________________________________________<br>__________________________________________________________________________________</td>
-                          </tr>
-                      </table>
-                    </div>
-                  </ion-col>
-                </ion-row>
+                
+                
             </ion-row>
-
+            <ion-row size="12">
+              <ion-col size="12">
+                <!-- CONTENEDOR13 -->
+                <div id="container13">
+                  <table class="stylec">
+                      <tr>
+                          <td>OBSERVACIONES:</td>
+                      </tr>
+                      <tr>
+                        <td ><span class="sub">{{ minuteData?.observations}}</span></td>
+                      </tr>
+                  </table>
+                </div>
+              </ion-col>
+            </ion-row>
 
 
           </ion-col>
