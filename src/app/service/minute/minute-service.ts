@@ -19,12 +19,12 @@ export class MinuteService {
     const apiUrl = `${this.apiUrlBase}/api/minutes/${numInforme}`;
      return of(data[0]) ; 
     
-/*   return this.http.get<Minute>(apiUrl).pipe(
+ /*  return this.http.get<Minute>(apiUrl).pipe(
     catchError((error) => {
       throw error;
     })
-  );
- */
+  ); */
+
   
   }
 

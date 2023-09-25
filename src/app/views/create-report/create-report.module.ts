@@ -7,13 +7,15 @@ import { IonicModule} from '@ionic/angular';
 import { CreateReportPageRoutingModule } from './create-report-routing.module';
 
 import { CreateReportPage } from './create-report.page';
+import { SharePageModule } from 'src/app/share/share.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CreateReportPageRoutingModule
+    CreateReportPageRoutingModule,
+    SharePageModule
   ],
   declarations: [CreateReportPage],
   bootstrap: [],

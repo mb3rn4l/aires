@@ -1,7 +1,8 @@
-<ion-content  >
+<ion-content>
+ 
   <ion-grid  #child1>
     <ion-row>
-      <ion-col size="3">
+      <ion-col size="6" size-sm="3">
            <!-- CONTENEDOR INFO DE LA EMPRESA -->
        
         <div id="container-infoE" class="containeSB">
@@ -9,7 +10,7 @@
             <img src="assets/logo_cali_airesrm.png" />
           </div>
           <div class="text-container">
-            <p>CALI-AIRES S.A.S <br>NIT. 901 055 034 - 5 <br>INFORME TECNICO </p>
+            <p  class="boll">CALI-AIRES S.A.S <br>NIT. 901 055 034 - 5 <br>INFORME TECNICO </p>
           </div>
         </div>
       </ion-col>
@@ -17,7 +18,7 @@
       <ion-col size="2">
 
       </ion-col>
-      <ion-col size="3">
+      <ion-col size="4" size-sm="3">
          <!-- CONTENEDOR DEL CODIGO -->
          <div id="container-Code">
           <P><span class="boll">CODIGO DE EQUIPO N°.</span> <span class="space"></span><span class="sub">{{ minuteData?.equipment_code}}</span> </P>
@@ -28,7 +29,7 @@
 
     <!--  -->
     <ion-row>
-        <ion-col size="12">
+        <ion-col size="12" size-sm="12">
             <!-- CONTENEDOR1 -->
         <div id="container1" >
           <table>
@@ -54,9 +55,10 @@
 
     </ion-row>
     <!--  -->
-
+<br>
+<br>
     <ion-row >
-      <ion-col size="4">       
+      <ion-col size="12" size-sm="4">       
             <!-- CONTENEDOR2 -->
             <div id="container2"  >
               <table  class="stylec">
@@ -68,19 +70,19 @@
                 </tr>
                 <tr>
                   <td rowspan="4" class="boll">MOTOR DATOS DE PLACA</td>
-                  <td  >W</td>
+                  <td  class="boll" >W</td>
                   <td >{{ minuteData?.technical_data_and_measurements?.handling_unit?.motor_data_plane?.w }}</td>
                 </tr>
                 <tr>
-                  <td >VOL</td>
+                  <td  class="boll">VOL</td>
                   <td >{{ minuteData?.technical_data_and_measurements?.handling_unit?.motor_data_plane?.vol }}</td>
                 </tr>
                 <tr>
-                  <td>AMP</td>
+                  <td  class="boll">AMP</td>
                   <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.motor_data_plane?.amp }}</td>     
                 </tr>
                 <tr>
-                  <td>RPM</td>
+                  <td  class="boll">RPM</td>
                   <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.motor_data_plane?.rpm }}</td>        
                 </tr>
                 <tr>
@@ -98,137 +100,137 @@
                 </tr>
                 <tr>
                   <td rowspan="3" class="boll">AMPERAJE</td>
-                  <td>L1</td>
+                  <td  class="boll">L1</td>
                   <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.voltage_measurements?.val_1 }}</td>      
                 </tr>
                 <tr>
-                  <td>L2</td>
+                  <td  class="boll">L2</td>
                   <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.voltage_measurements?.val_2 }}</td>
                 </tr>
-                <tr>
-                  <td>L3</td>
+                <tr> 
+                  <td  class="boll">L3</td>
                   <td>{{ minuteData?.technical_data_and_measurements?.handling_unit?.voltage_measurements?.val_3 }}</td>       
                 </tr>
                </table>   
               </div>
            </ion-col>
            <!-- CONTENEDOR5 -->
-          <ion-col size="8">    
+          <ion-col size="12" size-sm="8">    
         <div id="container5" class="stylec">
           <table  >
             <tr>
-              <td colspan="8">LABORES Y REVISIONES REALIZADAS </td>
+              <td colspan="8"  class="boll">LABORES Y REVISIONES REALIZADAS </td>
             </tr>
             <tr>
-              <td colspan="8" >UNIDAD DE MANEJO</td>
+              <td colspan="8"  class="boll">UNIDAD DE MANEJO</td>
             </tr>
             <tr>
               <td></td>
-              <td >EF</td>
-              <td >COM</td>
-              <td >N/A</td>
-              <td></td>
-              <td >EF</td>
-              <td >COM</td>
-              <td >N/A</td>
+              <td  class="boll">EF</td>
+              <td  class="boll">COM</td>
+              <td  class="boll">N/A</td>
+              <td  class="boll"></td>
+              <td  class="boll">EF</td>
+              <td  class="boll">COM</td>
+              <td  class="boll">N/A</td>
             </tr>
             <tr>
               
-              <td>LIMPIEZA INTERIOR-EXTERIOR</td>
+              <td class="boll">LIMPIEZA INTERIOR-EXTERIOR</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning, 'NA') ? '✓' : '' }}</td>
  
-              <td>AJUSTE GENERAL DE TORNILOS</td>
+              <td class="boll">AJUSTE GENERAL DE TORNILOS</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.overall_screw_adjustment, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.overall_screw_adjustment, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.overall_screw_adjustment, 'NA') ? '✓' : '' }}</td>
                 
             </tr>
             <tr>
-              <td>LAVADO DE SERPENTINES</td>
+              <td class="boll">LAVADO DE SERPENTINES</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.coil_serpentines, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.coil_serpentines, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.coil_serpentines, 'NA') ? '✓' : '' }}</td>
 
-              <td>REVISION VALVULAS<br> DE TORNILLOS</td>
+              <td class="boll">REVISION VALVULAS<br> DE TORNILLOS</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.revision_of_expansion_valves, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.revision_of_expansion_valves, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.revision_of_expansion_valves, 'NA') ? '✓' : '' }}</td>
 
             </tr>
             <tr>
-              <td>AJUSTES PRIONEROS DE CHUMAREJAS</td>
+              <td class="boll">AJUSTES PRIONEROS DE CHUMAREJAS</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.adjust_prisoners_of_chumaceras, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.adjust_prisoners_of_chumaceras, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.adjust_prisoners_of_chumaceras, 'NA') ? '✓' : '' }}</td>
 
-              <td>REVISION ACCESORIOS<br>ELECTRICOS Y AJUSTES DE<br>TORNILLERIA TAB. DE CONTROL </td>
+              <td class="boll">REVISION ACCESORIOS<br>ELECTRICOS Y AJUSTES DE<br>TORNILLERIA TAB. DE CONTROL </td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.review_electrical_accessories, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.review_electrical_accessories, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.review_electrical_accessories, 'NA') ? '✓' : '' }}</td>
 
             </tr>
             <tr>
-              <td>LAVADO FILTRO DE AIRE</td>
+              <td class="boll">LAVADO FILTRO DE AIRE</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.air_filter_wash, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.air_filter_wash, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.air_filter_wash, 'NA') ? '✓' : '' }}</td>
 
-              <td>REVISION RELE BIOMETALICO </td>
+              <td class="boll">REVISION RELE BIOMETALICO </td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bimetallic_relay_revision, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bimetallic_relay_revision, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bimetallic_relay_revision, 'NA') ? '✓' : '' }}</td>
 
             </tr>
             <tr>
-              <td>TENSION DE CORREAS</td>
+              <td class="boll">TENSION DE CORREAS</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.belt_tension, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.belt_tension, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.belt_tension, 'NA') ? '✓' : '' }}</td>
 
-              <td>LIMPIEZA TABLERO ELECTRONICO </td>
+              <td class="boll">LIMPIEZA TABLERO ELECTRONICO </td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.electronic_board_cleaning, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.electronic_board_cleaning, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.electronic_board_cleaning, 'NA') ? '✓' : '' }}</td>
             </tr>
             <tr>
-              <td>CAMBIO DE CORREAS</td>
+              <td class="boll">CAMBIO DE CORREAS</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.changing_straps, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.changing_straps, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.changing_straps, 'NA') ? '✓' : '' }}</td>
 
-              <td>REVISION TERMOSTATO </td>
+              <td class="boll">REVISION TERMOSTATO </td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.thermostat_check, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.thermostat_check, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.thermostat_check, 'NA') ? '✓' : '' }}</td>
             </tr>
             <tr>
-              <td>REVISION RODAMIENTOS</td>
+              <td class="boll">REVISION RODAMIENTOS</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bearing_review, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bearing_review, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.bearing_review, 'NA') ? '✓' : '' }}</td>
 
-              <td>INSPECCION MOTOR </td>
+              <td class="boll">INSPECCION MOTOR </td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.engine_inspection, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.engine_inspection, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.engine_inspection, 'NA') ? '✓' : '' }}</td>
 
             </tr>
             <tr>
-              <td>REVISION AISLAMIENTO INTERIOR</td>
+              <td class="boll">REVISION AISLAMIENTO INTERIOR</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.internal_insulation_review, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.internal_insulation_review, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.internal_insulation_review, 'NA') ? '✓' : '' }}</td>
 
-              <td>LIMPIEZA DE DESAGUES </td>
+              <td class="boll">LIMPIEZA DE DESAGUES </td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.drain_cleaning, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.drain_cleaning, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.drain_cleaning, 'NA') ? '✓' : '' }}</td>
 
             </tr>
             <tr>
-              <td>CAMBIO FILTRO</td>
+              <td class="boll">CAMBIO FILTRO</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.Filter_change, 'EF') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.Filter_change, 'COM') ? '✓' : '' }}</td>
               <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.Filter_change, 'NA') ? '✓' : '' }}</td>
@@ -241,11 +243,11 @@
         <!-- SEGUNDA FILA -->
         <ion-row>
           <!-- CONTENEDOR3 -->
-          <ion-col size="4">      
+          <ion-col size="12" size-sm="4">      
           <div id="container3" class="stylec">
             <table >
               <tr>
-                <td colspan="4" >UNIDAD COMPRESORA </td>
+                <td colspan="4" class="boll" >UNIDAD COMPRESORA </td>
               </tr>
               <tr>
                 <td colspan="2"></td>          
@@ -253,18 +255,18 @@
                 <td>2</td>
               </tr>
               <tr>
-                <td rowspan="4">DATOS DE PLACA</td>
-                <td >HP</td>
+                <td rowspan="4" class="boll">DATOS DE PLACA</td>
+                <td class="boll">HP</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._1?.hp}}</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._2?.hp}}</td>
               </tr>
               <tr>
-                <td>VOL</td>
+                <td class="boll">VOL</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._1?.vol}}</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._2?.vol}}</td>
               </tr>
               <tr>
-                <td>AMP</td>
+                <td class="boll">AMP</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._1?.amp}}</td>    
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.plate_data?._2?.amp}}</td> 
               </tr>
@@ -272,45 +274,45 @@
                        
               </tr>
               <tr>
-                <td rowspan="3">MEDICIONES VOLTAJE</td>
-                <td>VL1-L2</td>
+                <td rowspan="3" class="boll">MEDICIONES VOLTAJE</td>
+                <td class="boll">VL1-L2</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._1?.vl1_l2}}</td>  
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._2?.vl1_l2}}</td>     
               </tr>
               <tr>
-                <td>VL2-L3</td>
+                <td class="boll">VL2-L3</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._1?.vl2_l3}}</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._2?.vl2_l3}}</td> 
               </tr>
               <tr>
-                <td>VL3-L1</td>
+                <td class="boll">VL3-L1</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._1?.vl3_l1}}</td>  
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.voltage_measurements?._2?.vl3_l1}}</td>      
               </tr>
               <tr>
-                <td rowspan="3">AMPERAJE</td>
-                <td>L1</td>
+                <td rowspan="3" class="boll">AMPERAJE</td>
+                <td class="boll">L1</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._1?.l1}}</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._2?.l1}}</td>      
               </tr>
               <tr>
-                <td>L2</td>
+                <td class="boll">L2</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._1?.l2}}</td> 
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._2?.l2}}</td>     
               </tr>
               <tr>
-                <td>L3</td>
+                <td class="boll">L3</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._1?.l3}}</td> 
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.amperage?._2?.l3}}</td>  
               </tr>
               <tr>
-                <td rowspan="2">PRESIONES (ESTADOS)</td>
-                <td>ALTA</td>
+                <td rowspan="2" class="boll">PRESIONES (ESTADOS)</td>
+                <td class="boll">ALTA</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.pressures?._1?.tall}}</td>   
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.pressures?._2?.tall}}</td>     
               </tr>
               <tr>
-                <td>BAJA</td>
+                <td class="boll">BAJA</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.pressures?._1?.low}}</td>   
                 <td>{{ minuteData?.technical_data_and_measurements?.compressor_unit?.pressures?._2?.low}}</td> 
               </tr>
@@ -318,11 +320,8 @@
           </div>
           <!--  -->
           </ion-col>
-          <ion-col size="8" >
-              
-                
-                  <ion-col size="12">
-                      <!-- CONTENEDOR6 -->
+           <!-- CONTENEDOR6 -->
+          <ion-col size="12" size-sm="8" >        
                 <div id="container6" class="stylec">
                   <table >          
                     <tr>
@@ -330,73 +329,74 @@
                     </tr>
                     <tr>
                       <td></td>
-                      <td class="tam2">EF</td>
-                      <td class="tam2">COM</td>
-                      <td class="tam2">N/A</td>
+                      <td class="boll">EF</td>
+                      <td class="boll">COM</td>
+                      <td class="boll">N/A</td>
                       <td></td>
-                      <td class="tam2">EF</td>
-                      <td class="tam2">COM</td>
-                      <td class="tam2">N/A</td>
+                      <td class="boll">EF</td>
+                      <td class="boll">COM</td>
+                      <td class="boll">N/A</td>
                     </tr>
                     <tr>
-                      <td>LIMPIEZA INTERIOR-EXTERIOR</td>
+                      <td class="boll">LIMPIEZA INTERIOR-EXTERIOR</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.interior_exterior_cleaning, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.interior_exterior_cleaning, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.interior_exterior_cleaning, 'NA') ? '✓' : '' }}</td>
 
-                      <td>AJUSTE GENERAL DE TORNILOS</td>
+                      <td class="boll">AJUSTE GENERAL DE TORNILOS</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.overall_screw_adjustment, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.overall_screw_adjustment, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.overall_screw_adjustment, 'NA') ? '✓' : '' }}</td>
                         
                     </tr>
                     <tr>
-                      <td>LAVADO DE SERPENTINES</td>
+                      <td class="boll">LAVADO DE SERPENTINES</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.coil_serpentines, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.coil_serpentines, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.coil_serpentines, 'NA') ? '✓' : '' }}</td>
 
-                      <td>REVISION ACCESORIOS<br>ELECTRICOS Y AJUSTES DE<br>TORNILLERIA TAB. DE CONTROL </td>
+                      <td class="boll">REVISION ACCESORIOS<br>ELECTRICOS Y AJUSTES DE<br>TORNILLERIA TAB. DE CONTROL </td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.review_electrical_accessories, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.review_electrical_accessories, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.review_electrical_accessories, 'NA') ? '✓' : '' }}</td>
 
                     </tr>
                     <tr>
-                      <td>RODAMIENTOS</td>
+                      <td class="boll">RODAMIENTOS</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearings, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearing, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bearing, 'NA') ? '✓' : '' }}</td>
 
-                      <td>REVISION RELE BIOMETALICO </td>
+                      <td class="boll">REVISION RELE BIOMETALICO </td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bimetallic_relay_revision, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bimetallic_relay_revision, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.bimetallic_relay_revision, 'NA') ? '✓' : '' }}</td>
 
                     </tr>
                     <tr>
-                      <td>REVISION DE COMPRESOR</td>
+                      <td class="boll">REVISION DE COMPRESOR</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.compressor_overhaul, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.compressor_overhaul, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.compressor_overhaul, 'NA') ? '✓' : '' }}</td>
 
-                      <td rowspan="2">INSPECCION DE TUBERIA <br>REFIGERANTE </td>
+                      <td rowspan="2" class="boll">INSPECCION DE TUBERIA <br>REFIGERANTE </td>
                       <td rowspan="2">{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.refrigerant_pipe_inspection, 'EF') ? '✓' : '' }}</td>
                       <td rowspan="2">{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.refrigerant_pipe_inspection, 'COM') ? '✓' : '' }}</td>
                       <td rowspan="2">{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.refrigerant_pipe_inspection, 'NA') ? '✓' : '' }}</td>
                     </tr>
                     <tr>
-                      <td>ESTADO DE SOPORTE</td>
+                      <td class="boll">ESTADO DE SOPORTE</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.support_status, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.support_status, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.condensing_unit?.support_status, 'NA') ? '✓' : '' }}</td>     
                     </tr>        
                   </table>   
                 </div>
-                  </ion-col>
+
                   <!--  -->
-                  <ion-col size="12">
-                    <!-- CONTENEDOR7 -->
+                  <!-- CONTENEDOR7 -->
+                  <ion-col size="12" size-sm="12">
+                    
                 <div id="container7" class="stylec">
                   <table >
                     <tr>
@@ -404,33 +404,33 @@
                     </tr>
                     <tr>
                       <td></td>
-                      <td >EF</td>
-                      <td >COM</td>
-                      <td >N/A</td>
+                      <td class="boll">EF</td>
+                      <td class="boll">COM</td>
+                      <td class="boll">N/A</td>
                       <td></td>
-                      <td >EF</td>
-                      <td >COM</td>
-                      <td >N/A</td>
+                      <td class="boll">EF</td>
+                      <td class="boll">COM</td>
+                      <td class="boll">N/A</td>
                     </tr>
                     <tr>
-                      <td>REVISION DAMPERS</td>
+                      <td class="boll">REVISION DAMPERS</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.damper_revision, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.damper_revision, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.damper_revision, 'NA') ? '✓' : '' }}</td> 
 
-                      <td>REVISION TERMOMETRO</td>
+                      <td class="boll">REVISION TERMOMETRO</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.thermometer_review, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.thermometer_review, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.thermometer_review, 'NA') ? '✓' : '' }}</td> 
 
                     </tr>
                     <tr>
-                       <td>INSPECCION</td>
+                       <td class="boll">INSPECCION</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.inspection, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.inspection, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.inspection, 'NA') ? '✓' : '' }}</td> 
 
-                      <td>REVISION GENERAL CONDUCTOS </td>
+                      <td class="boll">REVISION GENERAL CONDUCTOS </td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.general_inspection_ducts, 'EF') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.general_inspection_ducts, 'COM') ? '✓' : '' }}</td>
                       <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.air_distribution_system?.general_inspection_ducts, 'NA') ? '✓' : '' }}</td> 
@@ -446,222 +446,214 @@
         </ion-row> <!-- fin segunda secciin -->
 
         <ion-row>
-          <ion-col size="4">
+          <ion-col size="12" size-sm="3.95" >
             <!-- CONTENEDOR4 -->
           <div id="container4" class="stylec">
             <table >
               <tr>
-                <td colspan="4">MOTOR CONDENSADORA </td>
+                <td colspan="4" class="boll">MOTOR CONDENSADORA </td>
               </tr>
               <tr>
                 <td colspan="2"></td>          
-                <td  class="tam">1</td>
-                <td  class="tam">2</td>
+                <td  class="boll">1</td>
+                <td  class="boll">2</td>
               </tr>
               <tr>
                 <td rowspan="4" class="boll">DATOS DE PLACA</td>
-                <td>HP</td>
+                <td class="boll">HP</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._1?.hp}}</td> 
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._2?.hp}}</td> 
               </tr>
               <tr>
-                <td>VOL</td>
+                <td class="boll">VOL</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._1?.vol}}</td> 
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._2?.vol}}</td>
               </tr>
               <tr>
-                <td>AMP</td>
+                <td class="boll">AMP</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._1?.amp}}</td> 
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._2?.amp}}</td>
               </tr>
               <tr>
-                <td>RPM</td>
+                <td class="boll">RPM</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._1?.rpm}}</td> 
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.plate_data?._2?.rpm}}</td>        
               </tr>
               <tr>
                 <td rowspan="3" class="boll">MEDICIONES VOLTAJE</td>
-                <td>VL1-L2</td>
+                <td class="boll">VL1-L2</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._1?.vl1_l2}}</td> 
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._2?.vl1_l2}}</td>    
               </tr>
               <tr>
-                <td>VL2-L3</td>
+                <td class="boll">VL2-L3</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._1?.vl2_l3}}</td> 
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._2?.vl2_l3}}</td>
               </tr>
               <tr>
-                <td>VL3-L1</td>
+                <td class="boll">VL3-L1</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._1?.vl3_l1}}</td> 
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.measurements?._2?.vl3_l1}}</td>     
               </tr>
               <tr>
                 <td rowspan="3" class="boll">AMPERAJE</td>
-                <td>L1</td>
+                <td class="boll">L1</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._1?.l1}}</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._2?.l1}}</td>     
               </tr>
               <tr>
-                <td>L2</td>
+                <td class="boll">L2</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._1?.l2}}</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._2?.l2}}</td>    
               </tr>
               <tr>
-                <td>L3</td>
+                <td class="boll">L3</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._1?.l3}}</td>
                 <td>{{ minuteData?.technical_data_and_measurements?.capacitor_motor?.amperage?._2?.l3}}</td> 
               </tr>
             </table>  
           </div> 
+
           </ion-col>
           <!--  -->
-          <ion-col>
+          
+          <ion-col size="12" size-sm="8">
             <ion-row>
-              
-                   <!-- CONTENEDOR8 -->
-                  <div id="container8" class="stylec" >
-                    <table >
-                      <tr>
-                        <td class="boll">DAMPERS SALIDA DE AIRE</td>
-                        <td > °C</td>
-                      </tr>
-                      <tr>
-                        <td>TEMPERATURA</td>
-                        <td>{{ minuteData?.air_outlet_dampers?.temperature?._c}}</td>
-                      </tr>
-                          
-                    </table>   
-                  </div>
-              
-              <ion-col size="4">
-                  <!-- CONTENEDOR11 -->
-                <div id="container11" class="stylec">
+              <ion-col size="12" size-sm="3">
+                <!-- CONTENEDOR8 -->
+                <div id="container8" class="stylec" >
                   <table >
                     <tr>
-                      <td class="boll">DIF. DE PRESION UMA PRE-MTTO</td>
-                      <td>35%</td>
-                      <td>65%</td>
-                      <td>95%</td>
+                      <td class="boll">DAMPERS SALIDA DE AIRE</td>
+                      <td class="boll"> °C</td>
                     </tr>
                     <tr>
-                      <td>PARAMETRO(0,2 A 1,5 INCA)</td>
-                      <td>{{ shouldMark(minuteData?.pressure_uma_pre_mtto.parameter, '35') ? '✓' : '' }}</td>
-                      <td>{{ shouldMark(minuteData?.pressure_uma_pre_mtto.parameter, '65') ? '✓' : '' }}</td>
-                      <td>{{ shouldMark(minuteData?.pressure_uma_pre_mtto.parameter, '95') ? '✓' : '' }}</td>
-                    </tr>     
+                      <td class="boll">TEMPERATURA</td>
+                      <td>{{ minuteData?.air_outlet_dampers?.temperature?._c}}</td>
+                    </tr>
+                        
                   </table>   
                 </div>
               </ion-col>
-            </ion-row>
+            <ion-col size="12" size-sm="4">
+                <!-- CONTENEDOR11 -->
+              <div id="container11" class="stylec">
+                <table >
+                  <tr>
+                    <td class="boll">DIF. DE PRESION UMA PRE-MTTO</td>
+                    <td class="boll">35%</td>
+                    <td class="boll">65%</td>
+                    <td class="boll">95%</td>
+                  </tr>
+                  <tr>
+                    <td class="boll">PARAMETRO(0,2 A 1,5 INCA)</td>
+                    <td>{{ shouldMark(minuteData?.pressure_uma_pre_mtto.parameter, '35') ? '✓' : '' }}</td>
+                    <td>{{ shouldMark(minuteData?.pressure_uma_pre_mtto.parameter, '65') ? '✓' : '' }}</td>
+                    <td>{{ shouldMark(minuteData?.pressure_uma_pre_mtto.parameter, '95') ? '✓' : '' }}</td>
+                  </tr>     
+                </table>   
+              </div>
+            </ion-col>
+
             <!--  -->
-            <ion-row size="8">
-                
-                    <!-- CONTENEDOR9 -->
-                    <div id="container9" class="stylec">
-                      <table >
+          <!-- CONTENEDOR9 -->
+          
+            <ion-col size="12" size-sm="12">
+                  <div id="container9" class="stylec">
+                    <table >
+                      <tr>
+                        <td class="boll">TIPO DE REFIGERANTE</td>
+                        <td>{{ minuteData?.air_outlet_dampers?.type_of_refrigerant}}</td>
+                      </tr>     
+                    </table>   
+                  </div>
+              </ion-col>
+          
+
+            <!--  -->
+            <ion-col size="12" size-sm="3">
+                    
+              <div id="container10" class="stylec">
+                <table >
+                  <tr>
+                    <td></td>
+                    <td class="boll">EF&nbsp;&nbsp;</td>
+                    <td class="boll">COM</td>
+                  </tr>
+                  <tr>
+                    <td class="boll">CONDICIONES ENTREGA DE EQUIPO</td>
+                    <td>{{ shouldMark(minuteData?.air_outlet_dampers?.equipment_delivery_conditions, 'EF') ? '✓' : '' }}</td>
+                    <td>{{ shouldMark(minuteData?.air_outlet_dampers?.equipment_delivery_conditions, 'COM') ? '✓' : '' }}</td>
+                    
+                  </tr>
+                  <tr>
+                    <td class="boll">ENTREGA DE AREA LIMPIA DE TRABAJO</td>
+                    <td>{{ shouldMark(minuteData?.air_outlet_dampers?.delivery_of_clean_work_area, 'EF') ? '✓' : '' }}</td>
+                    <td>{{ shouldMark(minuteData?.air_outlet_dampers?.delivery_of_clean_work_area, 'COM') ? '✓' : '' }}</td>
+                  </tr>       
+                </table>   
+              </div>
+
+            </ion-col>
+
+            <ion-col size="12" size-sm="6">
+                  <!-- CONTENEDOR12 -->
+            <div id="container12" class="stylec">
+              <table >
+                <tr>
+                  <td class="boll">DIF. DE PRESION UMA POS-MTTO</td>
+                  <td class="boll">35%</td>
+                  <td class="boll">65%</td>
+                  <td class="boll">95%</td>
+                </tr>
+                <tr>
+                  <td class="boll">PARAMETRO(0,2 A 1,5 INCA)</td>
+                  <td>{{ shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '35') ? '✓' : '' }}</td>
+                  <td>{{ shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '65') ? '✓' : '' }}</td>
+                  <td>{{ shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '95') ? '✓' : '' }}</td>
+                </tr>     
+              </table>   
+            </div>
+
+            </ion-col>
+
+            <!-- observaciones -->
+                <!-- CONTENEDOR13 -->
+                <ion-col size="12" size-sm="8">
+                  <div id="container13">
+                    <table  class="stylec">
                         <tr>
-                          <td class="boll">TIPO DE REFIGERANTE</td>
-                          <td>{{ minuteData?.air_outlet_dampers?.type_of_refrigerant}}</td>
-                        </tr>     
-                      </table>   
-                    </div>
-               
-
-                <ion-col size="4">
-                  
-                </ion-col>
-
-                <ion-row size="8">
-                    <ion-col size="">
-                      <!-- CONTENEDOR10 -->
-                      <div id="container10" class="stylec">
-                        <table >
-                          <tr>
-                            <td></td>
-                            <td >EF&nbsp;&nbsp;</td>
-                            <td >COM</td>
-                          </tr>
-                          <tr>
-                            <td>CONDICIONES ENTREGA DE EQUIPO</td>
-                            <td>{{ shouldMark(minuteData?.air_outlet_dampers?.equipment_delivery_conditions, 'EF') ? '✓' : '' }}</td>
-                            <td>{{ shouldMark(minuteData?.air_outlet_dampers?.equipment_delivery_conditions, 'COM') ? '✓' : '' }}</td>
-                            
-                          </tr>
-                          <tr>
-                            <td>ENTREGA DE AREA LIMPIA DE TRABAJO</td>
-                            <td>{{ shouldMark(minuteData?.air_outlet_dampers?.delivery_of_clean_work_area, 'EF') ? '✓' : '' }}</td>
-                            <td>{{ shouldMark(minuteData?.air_outlet_dampers?.delivery_of_clean_work_area, 'COM') ? '✓' : '' }}</td>
-                          </tr>       
-                        </table>   
-                      </div>
-
-                    </ion-col>
-
-                    <ion-col size="8">
-                           <!-- CONTENEDOR12 -->
-                    <div id="container12" class="stylec">
-                      <table >
-                        <tr>
-                          <td class="boll">DIF. DE PRESION UMA POS-MTTO</td>
-                          <td>35%</td>
-                          <td>65%</td>
-                          <td>95%</td>
+                            <td class="boll">OBSERVACIONES:</td>
                         </tr>
                         <tr>
-                          <td>PARAMETRO(0,2 A 1,5 INCA)</td>
-                          <td>{{ shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '35') ? '✓' : '' }}</td>
-                          <td>{{ shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '65') ? '✓' : '' }}</td>
-                          <td>{{ shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '95') ? '✓' : '' }}</td>
-                        </tr>     
-                      </table>   
-                    </div>
-
-                    </ion-col>
-
-                </ion-row>
-                
-                
-            </ion-row>
-            <ion-row size="12">
-              <ion-col size="12">
-                <!-- CONTENEDOR13 -->
-                <div id="container13">
-                  <table class="stylec">
-                      <tr>
-                          <td>OBSERVACIONES:</td>
-                      </tr>
-                      <tr>
-                        <td ><span class="sub">{{ minuteData?.observations}}</span></td>
-                      </tr>
-                  </table>
-                </div>
-              </ion-col>
-            </ion-row>
-
-
-          </ion-col>
+                          <td ><span  style="white-space: pre-line;">{{ minuteData?.observations}}</span></td>
+                        </tr>
+                    </table>
+                  </div>
+                </ion-col>
+               </ion-row>
+           </ion-col>
+          
+            <!-- fin -->
         </ion-row>
-
+        
+        <br>
         <!-- otra fila -->
         <br>
-        <ion-row size="12">
-            <!-- CONTENEDOR14 -->
-        <div id="container14" >
-          <table>
-              <tr>
-                  <td>________________________________________&nbsp;&nbsp;</td>
-                  <td>________________________________________&nbsp;&nbsp;</td>
-                  <td>________________________________________</td>
-              </tr>
-              <tr>
-                <td>FIRMA EJECUTOR</td>
-                <td>FIRMA RECIBE</td>
-                <td>SELLO</td>
-              </tr>
-          </table>
-        </div>
+        <ion-row>
+          <ion-col size="4" size-sm="4">
+            <p class="boll">FIRMA EJECUTOR</p>
+          </ion-col>
+          <ion-col size="4" size-sm="4">
+            <p class="boll">FIRMA RECIBE</p>
+          </ion-col>
+          <ion-col size="4" size-sm="4">
+            <p class="boll">SELLO</p>
+          </ion-col>   
         </ion-row> 
-     
-    <button  class="ff"  (click)="generatePDF()">Generar PDF</button>
+        
+    <button button-section class="ff"  (click)="generatePDF()">Generar PDF</button>
+  
   </ion-grid>
+
 </ion-content>

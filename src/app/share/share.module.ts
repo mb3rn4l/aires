@@ -5,8 +5,8 @@ import { ContainerCardComponent } from './components/container-card/container-ca
 import { HeaderLayoutComponent } from './components/header-layout/header-layout.component';
 import { RouterModule } from '@angular/router';
 import { ValidatorPasswordDirective } from './directives/confirm-password/validator-password.directive';
-import { PasswordLengthDirective } from './directives/minimum-password/password-length.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { NumericInputDirective } from './directives/numeric-input/numeric-input.directive';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     HttpClientModule
   ],
-  declarations: [ ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective, PasswordLengthDirective],
-  exports:[ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective]
+  declarations: [ ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective, NumericInputDirective],
+  exports:[ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective, NumericInputDirective]
 })
 export class SharePageModule {}

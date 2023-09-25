@@ -6,11 +6,11 @@ export const data: Minute[] = [{
     "client":"NGB",
     "maintenance_type":"Preventivo",
     "brand":"carrier",
-    "model":"modelo",
+    "model":"what",
     "equipment_name":"logistica #1",
     "capacity":"1800 o BTU",
     "equipment_type":"mini split",
-    "observations":"Esto es una observcioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "observations":"Esto es una observcioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee  eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee eeeeeeeeeeeeeeeee eeeeeeeeeeeeeeeeeeeeeeeee",
   
     "technical_data_and_measurements":{
       "handling_unit":{
@@ -169,13 +169,13 @@ export const data: Minute[] = [{
       "type_of_refrigerant":"not",
       
       "equipment_delivery_conditions":"EF",
-      "delivery_of_clean_work_area":"EF",
+      "delivery_of_clean_work_area":"",
     },
     "pressure_uma_pre_mtto":{
-      "parameter":"35",
+      "parameter":"",
     },
     "pressure_uma_pos_mtto":{
-      "parameter":"35",
+      "parameter":"",
     }
   }];
   
