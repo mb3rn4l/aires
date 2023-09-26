@@ -17,7 +17,7 @@ export class MinuteService {
   // Método para obtener todos los datos de la API
   getAllMinuteData(numInforme: string): Observable<Minute> {
     const apiUrl = `${this.apiUrlBase}/api/minutes/${numInforme}`;
-     /* return of(data[0]) ;  */
+     /* return of(data) ; */ 
     
   return this.http.get<Minute>(apiUrl).pipe(
     catchError((error) => {
