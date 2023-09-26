@@ -2,7 +2,7 @@ import { Minute } from "./share/models/minuteData";
 
 export const data: Minute[] = [{
     "equipment_code":"1111",
-    "date": "14 Diciembre 2022",
+    "date": "2022-09-08",
     "client":"NGB",
     "maintenance_type":"Preventivo",
     "brand":"carrier",
@@ -10,7 +10,7 @@ export const data: Minute[] = [{
     "equipment_name":"logistica #1",
     "capacity":"1800 o BTU",
     "equipment_type":"mini split",
-    "observations":"",
+    "observations":"Esto es una observcioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeqweqweqweqweqweqweqweqweqweqweqweqweqeqeqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",
   
     "technical_data_and_measurements":{
       "handling_unit":{
@@ -100,7 +100,7 @@ export const data: Minute[] = [{
         "_1":{
           "vl1_l2":"219",
           "vl2_l3":"208",
-          "vl3_l1":"0"
+          "vl3_l1":"10"
         },
         "_2":{
           "vl1_l2":"0",
@@ -112,7 +112,7 @@ export const data: Minute[] = [{
         "_1":{
           "l1":"0.39",
           "l2":"0.39",
-          "l3":"0"
+          "l3":"0.10"
         },
         "_2":{
           "l1":"0",
@@ -125,160 +125,40 @@ export const data: Minute[] = [{
   },
     "work_and_revisions_carried_out":{
       "drive_unit":{
-        "interior_exterior_cleaning":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "coil_serpentines":{
-          "ef":true,
-          "com":true,
-          "n_a":true
-        },
-         "adjust_prisoners_of_chumaceras":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "air_filter_wash":{
-          "ef":true,
-          "com":true,
-          "n_a":true
-        },
-        "belt_tension":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "changing_straps":{
-          "ef":true,
-          "com":true,
-          "n_a":true
-        },
-        "bearing_review":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "internal_insulation_review":{
-          "ef":true,
-          "com":true,
-          "n_a":true
-        },
-        "Filter_change":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "overall_screw_adjustment":{
-          "ef":true,
-          "com":true,
-          "n_a":true
-        },
-        "revision_of_expansion_valves":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "review_electrical_accessories":{
-          "ef":true,
-          "com":true,
-          "n_a":true
-        },
-        "bimetallic_relay_revision":{
-          "ef":true,
-          "com":true,
-          "n_a":true
-        },
-        "electronic_board_cleaning":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "thermostat_check":{
-          "ef":true,
-          "com":true,
-          "n_a":true
-        },
-        "engine_inspection":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "drain_cleaning":{
-          "ef":true,
-          "com":true,
-          "n_a":true
-        }
+        "interior_exterior_cleaning":"COM",
+        "coil_serpentines":"NA",
+         "adjust_prisoners_of_chumaceras":"NA",
+        "air_filter_wash":"NA",
+        "belt_tension":"NA",
+        "changing_straps":"NA",
+        "bearing_review":"NA",
+        "internal_insulation_review":"NA",
+        "Filter_change":"NA",
+        "overall_screw_adjustment":"NA",
+        "revision_of_expansion_valves":"COM",
+        "review_electrical_accessories":"EF",
+        "bimetallic_relay_revision":"COM",
+        "electronic_board_cleaning":"COM",
+        "thermostat_check":"COM",
+        "engine_inspection":"EF",
+        "drain_cleaning":"EF",
       },
       "condensing_unit":{
-        "interior_exterior_cleaning":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "coil_serpentines":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "bearing":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "compressor_overhaul":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "support_status":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "overall_screw_adjustment":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "review_electrical_accessories":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "bimetallic_relay_revision":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "refrigerant_pipe_inspection":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        } 
+        "interior_exterior_cleaning":"EF",
+        "coil_serpentines":"EF",
+        "bearing":"EF",
+        "compressor_overhaul":"EF",
+        "support_status":"EF",
+        "overall_screw_adjustment":"EF",
+        "review_electrical_accessories":"EF",
+        "bimetallic_relay_revision":"EF",
+        "refrigerant_pipe_inspection":"EF",
       },
       "air_distribution_system":{
-        "damper_revision":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "inspection":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "thermometer_review":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        },
-        "general_inspection_ducts":{
-          "ef":false,
-          "com":false,
-          "n_a":false
-        }
+        "damper_revision":"EF",
+        "inspection":"EF",
+        "thermometer_review":"EF",
+        "general_inspection_ducts":"EF",
       }
       
     },
@@ -288,28 +168,14 @@ export const data: Minute[] = [{
       },
       "type_of_refrigerant":"not",
       
-      "equipment_delivery_conditions":{
-        "ef":false,
-        "com":false
-      },
-      "delivery_of_clean_work_area":{
-        "ef":false,
-        "com":false
-      }
+      "equipment_delivery_conditions":"EF",
+      "delivery_of_clean_work_area":"EF",
     },
     "pressure_uma_pre_mtto":{
-      "parameter":{
-        "_35":false,
-        "_65":false,
-        "_95":false
-      }
+      "parameter":"",
     },
     "pressure_uma_pos_mtto":{
-      "parameter":{
-        "_35":false,
-        "_65":false,
-        "_95":false
-      }
+      "parameter":"",
     }
   }];
   

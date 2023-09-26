@@ -152,163 +152,43 @@ export interface Minute {
 
     export interface  DriveUnit{
 
-        interior_exterior_cleaning:{
-          ef:boolean;
-          com:boolean;
-          n_a:boolean;
-        };
-        coil_serpentines:{
-          ef:boolean;
-          com:boolean;
-          n_a:boolean;
-        };
-         adjust_prisoners_of_chumaceras:{
-          ef:boolean;
-          com:boolean;
-          n_a:boolean;
-        };
-        air_filter_wash:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        belt_tension:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        changing_straps:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        bearing_review:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        internal_insulation_review:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        Filter_change:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        overall_screw_adjustment:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        revision_of_expansion_valves:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        review_electrical_accessories:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        bimetallic_relay_revision:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        electronic_board_cleaning:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        thermostat_check:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        engine_inspection:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-        drain_cleaning:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
+        interior_exterior_cleaning:string;
+        coil_serpentines:string;
+        adjust_prisoners_of_chumaceras:string;
+        air_filter_wash:string;
+        belt_tension:string;
+        changing_straps:string;
+        bearing_review:string;
+        internal_insulation_review:string;
+        Filter_change:string;
+        overall_screw_adjustment:string;
+        revision_of_expansion_valves:string;
+        review_electrical_accessories:string;
+        bimetallic_relay_revision:string;
+        electronic_board_cleaning:string;
+        thermostat_check:string;
+        engine_inspection:string;
+        drain_cleaning:string;
     }
 
     export interface CondensingUnita{
-        interior_exterior_cleaning:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-          coil_serpentines:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-          bearing:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-          compressor_overhaul:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-          support_status:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-          overall_screw_adjustment:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-          review_electrical_accessories:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-          bimetallic_relay_revision:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-          refrigerant_pipe_inspection:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
+          interior_exterior_cleaning:string;
+          coil_serpentines:string;
+          bearing:string;
+          compressor_overhaul:string;
+          support_status:string;
+          overall_screw_adjustment:string;
+          review_electrical_accessories:string;
+          bimetallic_relay_revision:string;
+          refrigerant_pipe_inspection:string;
 
     }
 
     export interface AirDistributionSystem{
-        damper_revision:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-          inspection:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-          thermometer_review:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
-          general_inspection_ducts:{
-            ef:boolean;
-            com:boolean;
-            n_a:boolean;
-        };
+        damper_revision: string;
+        inspection: string;
+        thermometer_review: string;
+        general_inspection_ducts: string;
     }
    
     export interface AirOutletDampers{
@@ -317,29 +197,14 @@ export interface Minute {
         };
         type_of_refrigerant:string;
 
-        equipment_delivery_conditions:{
-          ef:boolean;
-          com:boolean;          
-        };
-        delivery_of_clean_work_area:{
-          ef:boolean;
-          com:boolean;
-        };
+        equipment_delivery_conditions:string;
+        delivery_of_clean_work_area:string;
     }
 
-  
     export interface PressureUmaPreMtto{
-        parameter:{
-          _35:boolean;
-          _65:boolean;
-          _95:boolean;
-           }
+        parameter:string;
     }
 
     export interface PressureUmaPosMtto{
-        parameter:{
-          _35:boolean;
-          _65:boolean;
-          _95:boolean;
-           }
+        parameter:string;
     }
