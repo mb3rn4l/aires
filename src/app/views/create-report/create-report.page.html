@@ -31,11 +31,12 @@
                       label="Codigo De Equipo"
                       labelPlacement="floating"
                       helperText=""
-                      errorText="Cliente es obligatorio"
-                      name="Codigo_De_Equipo"
-                      #Codigo_De_Equipo:
-                      ngModel
-                      value=""
+                      errorText="Codigo De Equipo es obligatorio"
+                      name="Codigo_de_equipo"
+                      [(ngModel)] = "minute.equipment_code"
+                      #Codigo_de_equipo: ngModel
+
+                      
                     >
                     </ion-input>
 
@@ -58,9 +59,17 @@
                             labelPlacement="floating"
                             helperText=""
                             errorText="Fecha y Hora son obligatorios"
-                            name="Fecha_Y_Hora"
+                            
                             locale="es-ES"
+                            name="fecha"
                             required
+                            [(ngModel)] = "minute.date"
+                            #Fecha:
+                            ngModel
+                          
+                            
+                            
+                            
                             
                           ></ion-datetime>
                         </ion-accordion>
@@ -81,6 +90,7 @@
                       name="Cliente"
                       #Cliente:
                       ngModel
+                      [(ngModel)] = "minute.client"
                     >
                     </ion-input>
                     <br />
@@ -96,6 +106,7 @@
                       name="Tipo_Mntto"
                       #Tipo_Mntto:
                       ngModel
+                      [(ngModel)] = "minute.maintenance_type"
                     >
                     </ion-input>
                     <br />
@@ -118,6 +129,7 @@
                       name="Marca"
                       #Marca:
                       ngModel
+                      [(ngModel)] = "minute.brand"
                     >
                     </ion-input>
                     <br />
@@ -133,6 +145,7 @@
                       name="Modelo"
                       #Modelo:
                       ngModel
+                      [(ngModel)] = "minute.model"
                     >
                     </ion-input>
                     <br />
@@ -148,6 +161,7 @@
                       name="Nombre_De_Equipo"
                       #Nombre_De_Equip:
                       ngModel
+                      [(ngModel)] = "minute.equipment_name"
                     >
                     </ion-input>
                     <br />
@@ -170,6 +184,7 @@
                       name="Capacidad"
                       #Capacidad:
                       ngModel
+                      [(ngModel)] = "minute.capacity"
                     >
                     </ion-input>
                     <br />
@@ -185,18 +200,22 @@
                       name="Tipo_De_Equipo"
                       #Tipo_De_Equipo:
                       ngModel
+                      [(ngModel)] = "minute.equipment_type"
                     >
                     </ion-input>
                     <br />
                     <ion-input
-                      
+                      required
                       type="text"
                       fill="outline"
                       label="Observaciones"
                       labelPlacement="floating"
+                      helperText=""
+                      errorText="Observaciones es obligatorio"
                       name="Observaciones"
                       #Observaciones:
                       ngModel
+                      [(ngModel)] = "minute.observations"
                     >
                     </ion-input>
                     <br />
@@ -251,6 +270,7 @@
                                     errorText="campo obligatorio"
                                     #w:
                                     ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.handling_unit.motor_data_plane.w"
                                   >
                                   </ion-input>
                                 </td>
@@ -269,6 +289,7 @@
                                     errorText="campo obligatorio"
                                     #vol:
                                     ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.handling_unit.motor_data_plane.vol"
                                   >
                                   </ion-input>
                                 </td>
@@ -285,6 +306,9 @@
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #amp:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.handling_unit.motor_data_plane.amp"
                                   >
                                   </ion-input>
                                 </td>
@@ -301,6 +325,9 @@
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #rmp:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.handling_unit.motor_data_plane.rpm"
                                   >
                                   </ion-input>
                                 </td>
@@ -320,6 +347,9 @@
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #val_1:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.handling_unit.voltage_measurements.val_1"
                                   >
                                   </ion-input>
                                 </td>
@@ -336,6 +366,9 @@
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #val_2:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.handling_unit.voltage_measurements.val_2"
                                   >
                                   </ion-input>
                                 </td>
@@ -352,6 +385,9 @@
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #val_3:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.handling_unit.voltage_measurements.val_3"
                                   >
                                   </ion-input>
                                 </td>
@@ -369,6 +405,9 @@
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #l1:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.handling_unit.amperage.l1"
                                   >
                                   </ion-input>
                                 </td>
@@ -385,6 +424,9 @@
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #l2:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.handling_unit.amperage.l2"
                                   >
                                   </ion-input>
                                 </td>
@@ -401,6 +443,9 @@
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #l3:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.handling_unit.amperage.l3"
                                   >
                                   </ion-input>
                                 </td>
@@ -444,6 +489,9 @@
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #hp:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.plate_data._1.hp"
                                   >
                                   </ion-input>
                                 </td>
@@ -454,6 +502,8 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.plate_data._2.hp"
                                   >
                                   </ion-input>
                                 </td>
@@ -463,13 +513,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="vol"
+                                    name="vol_compresora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #vol_compresora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.plate_data._1.vol"
                                   >
                                   </ion-input>
                                 </td>
@@ -480,6 +533,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.plate_data._2.vol"
                                   >
                                   </ion-input>
                                 </td>
@@ -489,13 +543,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="amp"
+                                    name="amp_compresora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #amp_compresora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.plate_data._1.amp"
                                   >
                                   </ion-input>
                                 </td>
@@ -506,6 +563,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.plate_data._2.amp"
                                   >
                                   </ion-input>
                                 </td>
@@ -517,13 +575,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="vl1_l2"
+                                    name="vl1_l2_compresora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #vl1_l2_compresora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.voltage_measurements._1.vl1_l2"
                                   >
                                   </ion-input>
                                 </td>
@@ -534,6 +595,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.voltage_measurements._2.vl1_l2"
                                   >
                                   </ion-input>
                                 </td>
@@ -543,13 +605,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="vl2_l3"
+                                    name="vl2_l3_compresora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #vl2_l3_compresora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.voltage_measurements._1.vl2_l3"
                                   >
                                   </ion-input>
                                 </td>
@@ -560,6 +625,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.voltage_measurements._2.vl2_l3"
                                   >
                                   </ion-input>
                                 </td>
@@ -569,13 +635,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="vl3_l1"
+                                    name="vl3_l1_compresora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #vl3_l1_compresora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.voltage_measurements._1.vl3_l1"
                                   >
                                   </ion-input>
                                 </td>
@@ -586,6 +655,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.voltage_measurements._2.vl3_l1"
                                   >
                                   </ion-input>
                                 </td>
@@ -596,13 +666,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="l1"
+                                    name="l1_compresora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #l1_compresora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.amperage._1.l1"
                                   >
                                   </ion-input>
                                 </td>
@@ -613,6 +686,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.amperage._2.l1"
                                   >
                                   </ion-input>
                                 </td>
@@ -622,13 +696,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="l2"
+                                    name="l2_compresora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #l2_compresora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.amperage._1.l2"
                                   >
                                   </ion-input>
                                 </td>
@@ -639,6 +716,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.amperage._2.l2"
                                   >
                                   </ion-input>
                                 </td>
@@ -648,13 +726,16 @@
                                 <td>
                                   <ion-input
                                    
-                                    name="l3"
+                                    name="l3_compresora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #l3_compresora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.amperage._1.l3"
                                   >
                                   </ion-input>
                                 </td>
@@ -665,6 +746,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.amperage._2.l3"
                                   >
                                   </ion-input>
                                 </td>
@@ -675,13 +757,16 @@
                                 <td>
                                   <ion-input
                                    
-                                    name="tall"
+                                    name="tall_compresora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #tall_compresora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.pressures._1.tall"
                                   >
                                   </ion-input>
                                 </td>
@@ -692,6 +777,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.pressures._2.tall"
                                   >
                                   </ion-input>
                                 </td>
@@ -701,13 +787,16 @@
                                 <td>
                                   <ion-input
                                    
-                                    name="low"
+                                    name="low_compresora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #low_compresora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.pressures._1.low"
                                   >
                                   </ion-input>
                                 </td>
@@ -718,6 +807,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.compressor_unit.pressures._2.low"
                                   >
                                   </ion-input>
                                 </td>
@@ -753,13 +843,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="hp"
+                                    name="hp_condensadora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #hp_condensadora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.plate_data._1.hp"
                                   >
                                   </ion-input>
                                 </td>
@@ -770,6 +863,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.plate_data._2.hp"
                                   >
                                   </ion-input>
                                 </td>
@@ -779,13 +873,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="vol"
+                                    name="vol_condensadora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #vol_condensadora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.plate_data._1.vol"
                                   >
                                   </ion-input>
                                 </td>
@@ -796,6 +893,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.plate_data._2.vol"
                                   >
                                   </ion-input>
                                 </td>
@@ -805,13 +903,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="amp"
+                                    name="amp_condensadora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #amp_condensadora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.plate_data._1.amp"
                                   >
                                   </ion-input>
                                 </td>
@@ -822,6 +923,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.plate_data._2.amp"
                                   >
                                   </ion-input>
                                 </td>
@@ -831,11 +933,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="rpm"
+                                    name="rpm_condensadora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    helperText=""
+                                    errorText="campo obligatorio"
+                                    #rpm_condensadora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.plate_data._1.rpm"
                                   >
                                   </ion-input>
                                 </td>
@@ -843,10 +950,11 @@
                                   <ion-input
                                     
                                     name="rpm2"
-                                    required
+                                    
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.plate_data._2.rpm"
                                   >
                                   </ion-input>
                                 </td>
@@ -859,14 +967,18 @@
                                 <td>
                                   <ion-input
                                    
-                                    name="vl1_l2"
+                                    name="vl1_l2_condensadora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #vl1_l2_condensadora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.measurements._1.vl1_l2"
                                   >
+                                  
                                   </ion-input>
                                 </td>
                                 <td>
@@ -876,6 +988,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.measurements._2.vl1_l2"
                                   >
                                   </ion-input>
                                 </td>
@@ -885,13 +998,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="vl2_l3"
+                                    name="vl2_l3_condensadora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #vl2_l3_condensadora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.measurements._1.vl2_l3"
                                   >
                                   </ion-input>
                                 </td>
@@ -902,6 +1018,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.measurements._2.vl2_l3"
                                   >
                                   </ion-input>
                                 </td>
@@ -911,13 +1028,16 @@
                                 <td>
                                   <ion-input
                                    
-                                    name="vl3_l1"
+                                    name="vl3_l1_condensadora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #vl3_l1_condensadora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.measurements._1.vl3_l1"
                                   >
                                   </ion-input>
                                 </td>
@@ -928,6 +1048,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.measurements._2.vl3_l1"
                                   >
                                   </ion-input>
                                 </td>
@@ -938,13 +1059,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="l1"
+                                    name="l1_condensadora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #l1_condensadora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.amperage._1.l1"
                                   >
                                   </ion-input>
                                 </td>
@@ -955,6 +1079,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.amperage._2.l1"
                                   >
                                   </ion-input>
                                 </td>
@@ -964,14 +1089,18 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="l2"
+                                    name="l2_condensadora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #l2_condensadora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.amperage._1.l2"
                                   >
+                                  
                                   </ion-input>
                                 </td>
                                 <td>
@@ -981,6 +1110,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.amperage._2.l2"
                                   >
                                   </ion-input>
                                 </td>
@@ -990,13 +1120,16 @@
                                 <td>
                                   <ion-input
                                     
-                                    name="l3"
+                                    name="l3_condensadora"
                                     required
                                     size="1"
                                     type="text"
                                     fill="outline"
                                     helperText=""
                                     errorText="campo obligatorio"
+                                    #l3_condensadora:
+                                    ngModel
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.amperage._1.l3"
                                   >
                                   </ion-input>
                                 </td>
@@ -1007,6 +1140,7 @@
                                     size="1"
                                     type="text"
                                     fill="outline"
+                                    [(ngModel)] = "minute.technical_data_and_measurements.capacitor_motor.amperage._2.l3"
                                   >
                                   </ion-input>
                                 </td>
@@ -1058,6 +1192,9 @@
                                     name="interior_exterior_cleaning"
                                     interface="popover"
                                     required
+                                    #interior_exterior_cleaning:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.interior_exterior_cleaning"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1077,6 +1214,9 @@
                                     name="overall_screw_adjustment"
                                     interface="popover"
                                     required
+                                    #overall_screw_adjustment:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.overall_screw_adjustment"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1098,6 +1238,9 @@
                                     name="coil_serpentines"
                                     interface="popover"
                                     required
+                                    #coil_serpentines:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.coil_serpentines"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1120,6 +1263,9 @@
                                     name="revision_of_expansion_valves"
                                     interface="popover"
                                     required
+                                    #revision_of_expansion_valves:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.revision_of_expansion_valves"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1141,6 +1287,9 @@
                                     name="adjust_prisoners_of_chumaceras"
                                     interface="popover"
                                     required
+                                    #adjust_prisoners_of_chumaceras:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.adjust_prisoners_of_chumaceras"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1163,6 +1312,9 @@
                                     name="review_electrical_accessories"
                                     interface="popover"
                                     required
+                                    #review_electrical_accessories:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.review_electrical_accessories"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1184,6 +1336,9 @@
                                     name="air_filter_wash"
                                     interface="popover"
                                     required
+                                    #air_filter_wash:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.air_filter_wash"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1203,6 +1358,9 @@
                                     name="bimetallic_relay_revision"
                                     interface="popover"
                                     required
+                                    #bimetallic_relay_revision:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.bimetallic_relay_revision"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1224,6 +1382,9 @@
                                     name="belt_tension"
                                     interface="popover"
                                     required
+                                    #belt_tension:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.belt_tension"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1243,6 +1404,9 @@
                                     name="electronic_board_cleaning"
                                     interface="popover"
                                     required
+                                    #electronic_board_cleaning:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.electronic_board_cleaning"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1264,6 +1428,9 @@
                                     name="changing_straps"
                                     interface="popover"
                                     required
+                                    #changing_straps:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.changing_straps"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1283,6 +1450,9 @@
                                     name="thermostat_check"
                                     interface="popover"
                                     required
+                                    #thermostat_check:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.thermostat_check"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1304,6 +1474,9 @@
                                     name="bearing_review"
                                     interface="popover"
                                     required
+                                    #bearing_review:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.bearing_review"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1323,6 +1496,9 @@
                                     name="engine_inspection"
                                     interface="popover"
                                     required
+                                    #engine_inspection:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.engine_inspection"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1344,6 +1520,9 @@
                                     name="internal_insulation_review"
                                     interface="popover"
                                     required
+                                    #internal_insulation_review:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.internal_insulation_review"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1363,6 +1542,9 @@
                                     name="drain_cleaning"
                                     interface="popover"
                                     required
+                                    #drain_cleaning:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.drain_cleaning"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1384,6 +1566,9 @@
                                     name="Filter_change"
                                     interface="popover"
                                     required
+                                    #Filter_change:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.drive_unit.Filter_change"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1424,9 +1609,12 @@
                                 <td>
                                   <ion-select
                                     
-                                    name="interior_exterior_cleaning"
+                                    name="interior_exterior_cleaning2"
                                     interface="popover"
                                     required
+                                    #interior_exterior_cleaning2:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.condensing_unit.interior_exterior_cleaning"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1443,9 +1631,12 @@
                                 <td>
                                   <ion-select
                                     
-                                    name="overall_screw_adjustment"
+                                    name="overall_screw_adjustment2"
                                     interface="popover"
                                     required
+                                    #overall_screw_adjustment2:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.condensing_unit.overall_screw_adjustment"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1464,9 +1655,12 @@
                                 <td>
                                   <ion-select
                                     
-                                    name="coil_serpentines"
+                                    name="coil_serpentines2"
                                     interface="popover"
                                     required
+                                    #coil_serpentines2:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.condensing_unit.coil_serpentines"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1486,9 +1680,12 @@
                                 <td>
                                   <ion-select
                                     
-                                    name="review_electrical_accessories"
+                                    name="review_electrical_accessories2"
                                     interface="popover"
                                     required
+                                    #review_electrical_accessories2:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.condensing_unit.review_electrical_accessories"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1507,9 +1704,12 @@
                                 <td>
                                   <ion-select
                                     
-                                    name="condensing_unit.bearing"
+                                    name="bearing"
                                     interface="popover"
                                     required
+                                    #bearing:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.condensing_unit.bearing"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1526,9 +1726,12 @@
                                 <td>
                                   <ion-select
                                     
-                                    name=".bimetallic_relay_revision"
+                                    name="bimetallic_relay_revision2"
                                     interface="popover"
                                     required
+                                    #bimetallic_relay_revision2:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.condensing_unit.bimetallic_relay_revision"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1547,9 +1750,12 @@
                                 <td>
                                   <ion-select
                                     
-                                    name="compressor_overhaul"
+                                    name="compressor_check"
                                     interface="popover"
                                     required
+                                    #compressor_check:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.condensing_unit.compressor_overhaul"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1571,6 +1777,9 @@
                                     name="refrigerant_pipe_inspection"
                                     interface="popover"
                                     required
+                                    #refrigerant_pipe_inspection:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.condensing_unit.refrigerant_pipe_inspection"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1589,10 +1798,14 @@
                                 <td>
                                   <ion-select
                                     
-                                    name="damper_revision"
+                                    name="support_status"
                                     interface="popover"
                                     required
+                                    #support_status:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.condensing_unit.support_status"
                                   >
+                                  
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
                                     >
@@ -1633,6 +1846,9 @@
                                     name="damper_revision"
                                     interface="popover"
                                     required
+                                    #damper_revision:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.air_distribution_system.damper_revision"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1654,6 +1870,9 @@
                                     name="thermometer_review"
                                     interface="popover"
                                     required
+                                    #thermometer_review:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.air_distribution_system.thermometer_review"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1675,6 +1894,9 @@
                                     name="inspection"
                                     interface="popover"
                                     required
+                                    #inspection:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.air_distribution_system.inspection"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1694,6 +1916,9 @@
                                     name="general_inspection_ducts"
                                     interface="popover"
                                     required
+                                    #general_inspection_ducts:
+                                    ngModel
+                                    [(ngModel)] = "minute.work_and_revisions_carried_out.air_distribution_system.general_inspection_ducts"
                                   >
                                     <ion-select-option value="EF"
                                       >EF</ion-select-option
@@ -1750,6 +1975,10 @@
                               fill="outline"
                               helperText=""
                               errorText="campo obligatorio"
+                              #c:
+                              ngModel
+                              [(ngModel)] = "minute.air_outlet_dampers.temperature._c"
+                                  
                             >
                             </ion-input>
                           </td>
@@ -1771,6 +2000,9 @@
                               fill="outline"
                               helperText=""
                               errorText="campo obligatorio"
+                              #type_of_refrigerant:
+                              ngModel
+                              [(ngModel)] = "minute.air_outlet_dampers.type_of_refrigerant"
                             >
                             </ion-input>
                           </td>
@@ -1789,6 +2021,9 @@
                               name="equipment_delivery_conditions"
                               interface="popover"
                               required
+                              #equipment_delivery_conditions:
+                              ngModel
+                              [(ngModel)] = "minute.air_outlet_dampers.equipment_delivery_conditions"
                             >
                               <ion-select-option value="EF"
                                 >EF</ion-select-option
@@ -1810,6 +2045,9 @@
                               name="delivery_of_clean_work_area"
                               interface="popover"
                               required
+                              #delivery_of_clean_work_area:
+                              ngModel
+                              [(ngModel)] = "minute.air_outlet_dampers.delivery_of_clean_work_area"
                             >
                               <ion-select-option value="EF"
                                 >EF</ion-select-option
@@ -1846,6 +2084,7 @@
                               
                               name="parameter_pre"
                               interface="popover"
+                              [(ngModel)] = "minute.pressure_uma_pre_mtto.parameter"
                             >
                               <ion-select-option value="35"
                                 >35%</ion-select-option
@@ -1875,6 +2114,7 @@
                              
                               name="parameter_pos"
                               interface="popover"
+                              [(ngModel)] = "minute.pressure_uma_pos_mtto.parameter"
                             >
                               <ion-select-option value="35"
                                 >35%</ion-select-option

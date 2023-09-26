@@ -31,13 +31,13 @@ export interface Minute {
 
     pressure_uma_pre_mtto: PressureUmaPreMtto
 
-    pressure_uma_pos_mtto: PressureUmaPosMtto
+    pressure_uma_pos_mtto: PressureUmaPosMtto 
 
     
   }
   /******************************************+ */
   // ... otras propiedades
-  export interface HandlingUnit{
+   export interface HandlingUnit{
     
         motor_data_plane: {
           w: string;
@@ -208,3 +208,4 @@ export interface Minute {
     export interface PressureUmaPosMtto{
         parameter:string;
     }
+ 

@@ -71,7 +71,7 @@ export class AuthService {
               id: result.user!.uid!,
               name: createForm.name,
               email: createForm.email,
-              password: createForm.password,
+              
               isAdmin:false
             } ;
           
