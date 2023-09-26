@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PdfService } from 'src/app/service/pdf.service';
+import { PdfService } from 'src/app/service/pdf/pdf.service';
 
 @Component({
   selector: 'app-form2',

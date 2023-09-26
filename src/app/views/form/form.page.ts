@@ -1,12 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { filter } from 'rxjs';
-import { Minute } from 'src/app/interfaceData';
-import { MinuteService } from 'src/app/service/minute-servce';
-import { PdfService } from 'src/app/service/pdf.service';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild} from '@angular/core';
+import { Minute } from 'src/app/share/models/minuteData';
+import { MinuteService } from 'src/app/service/minute/minute-service';
+import { PdfService } from 'src/app/service/pdf/pdf.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Router } from '@angular/router';
-
-
+import { map } from 'rxjs/operators'; // Agrega la importación de 'map'
 
 @Component({
   selector: 'app-form',
@@ -16,6 +14,7 @@ import { Router } from '@angular/router';
 export class FormPage implements OnInit {
 
   minuteData: Minute | undefined = undefined; // Inicializa con null
+  id:number
 
   @ViewChild('child1', {static:false}) myContainer!: any;
 
@@ -28,15 +27,16 @@ export class FormPage implements OnInit {
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe((params) => {
-      const equipmentCode = params['equipment_code'];
 
+    this.route.paramMap.pipe(
+      map((paramMap) => paramMap.get('id')) // 'id' es el nombre del parámetro en la ruta
+    ).subscribe((equipmentCode) => {
       if (equipmentCode) {
         this.minuteData = this.minuteService.getMinuteData(equipmentCode);
-
+    
         if (this.minuteData) {
           console.log('JSON Data:', this.minuteData);
-        //  this.generatePDF(); 
+          //  this.generatePDF();
         } else {
           console.log('No se encontraron datos para el código de equipo:', equipmentCode);
         }
@@ -44,14 +44,11 @@ export class FormPage implements OnInit {
         console.log('No se proporcionó un código de equipo en la URL.');
       }
     });
+
   }
 
-
   generatePDF() {
-    /* const DATA = document.querySelector("#container"); */
     const DATA =this.myContainer.el;
-    // console.log(DATA)
-    console.log(this.myContainer)
     this.pdfService.generatePDF(DATA);
   }
 
