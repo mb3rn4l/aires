@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LoginForm } from 'src/app/share/models/loginForm';
 
@@ -25,6 +24,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {}
 
   async onClickSubmit() {
+   
     console.log(this.model)
     console.log(this.loginForm.valid)
     console.log(this.loginForm.value)
@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
       try {
 
 				await this.authService.signIn(this.loginForm.value)
-				this.router.navigate(["/home"]);
+				this.router.navigate(["home"]);
 				await loading.dismiss();
         
 			} catch (error) {

@@ -28,6 +28,16 @@ const routes: Routes = [
         path: 'download-minute',
         loadChildren: () => import('./views/download-minutes/download-minutes.module').then( m => m.DownloadMinutesPageModule)
       },  
+      {
+        path: 'create-user',
+        loadChildren: () => import('./views/create-user/create-user.module').then( m => m.CreateUserPageModule),
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+      },
+      {
+        path: 'upload-minute',
+         loadChildren: () => import('./views/upload-minutes/upload-minutes.module').then( m => m.UploadMinutesPageModule)
+      },
     ]
   },
   {
@@ -38,10 +48,11 @@ const routes: Routes = [
     path: 'form',
     loadChildren: () => import('./views/form/form.module').then( m => m.FormPageModule)
   },
-  // {
-  //   path: 'upload-minute',
-  //   loadChildren: () => import('./views/upload-minutes/upload-minutes.module').then( m => m.UploadMinutesPageModule)
-  // },
+  {
+    path: 'form/:id',
+    loadChildren: () => import('./views/form/form.module').then(m => m.FormPageModule),
+  },
+
   
 ];
 
