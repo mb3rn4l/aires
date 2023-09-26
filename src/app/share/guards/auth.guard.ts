@@ -12,19 +12,13 @@ export class AuthGuard  {
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (this.authService.isLoggedIn !== true) {
-        this.router.navigate(['/login']);
-      }
-      return true;
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {   
+      return this.authService.checkUser();
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if (this.authService.isLoggedIn !== true) {
-        this.router.navigate(['/login']);
-      }
-      return true;
+      return this.authService.checkUser();
   }
   
 }

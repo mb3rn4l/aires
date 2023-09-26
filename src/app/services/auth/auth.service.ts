@@ -1,11 +1,13 @@
-import { User } from './../../share/models/user';
-import { CreateUserForm } from './../../share/models/createUserForm';
-import { Injectable } from '@angular/core';
+import { Router } from "@angular/router";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Injectable } from '@angular/core';
+
+import { CreateUserForm } from './../../share/models/createUserForm';
 import { LoginForm } from 'src/app/share/models/loginForm';
 import { DataUserForms } from 'src/app/share/models/dataUserForm';
 import { SaveUserService } from 'src/app/service/save/save-user.service';
 
+import { map } from 'rxjs';
 
 
 
@@ -18,12 +20,10 @@ export class AuthService {
   
 
   constructor(
-    public afAuth: AngularFireAuth,
+    private router: Router,
     private angularFireAuth: AngularFireAuth,
     private saveInfoUser: SaveUserService)
      { 
-
-
       /* Saving user data in localstorage when 
       logged in and setting up null when logged out */
       this.angularFireAuth.authState.subscribe((user) => {
@@ -41,20 +41,8 @@ export class AuthService {
     }
 
     signIn(loginForm: LoginForm) : Promise<any> {
-      // try {
         return this.angularFireAuth
           .signInWithEmailAndPassword(loginForm.email, loginForm.password);
-
-        // this.setUserData(result.user);
-
-        // this.angularFireAuth.authState.subscribe((user_1) => {
-        //   if (user_1) {
-        //     this.router.navigate(['dashboard']);
-        //   }
-        // });
-      // } catch (error: any) {
-      //   window.alert(error.message);
-      // }
     }
 
     
@@ -62,9 +50,9 @@ export class AuthService {
     async signUp(createForm: CreateUserForm): Promise<any> {
       
      try {
-      const originalUser = await this.afAuth.currentUser;
+      const originalUser = await this.angularFireAuth.currentUser;
       
-      const result = await this.afAuth.createUserWithEmailAndPassword(createForm.email,createForm.password)
+      const result = await this.angularFireAuth.createUserWithEmailAndPassword(createForm.email,createForm.password)
       console.log(result.user?.uid)
       
       const userDataa: DataUserForms = {
@@ -77,7 +65,7 @@ export class AuthService {
          
       await this.saveInfoUser.setUserData(userDataa)
         
-      await this.afAuth.updateCurrentUser(originalUser) 
+      await this.angularFireAuth.updateCurrentUser(originalUser) 
 
      } catch (error: any) {
       window.alert(error.message);
@@ -90,9 +78,17 @@ export class AuthService {
     return user !== null 
   }
 
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+
+  checkUser(){
+    return this.angularFireAuth.authState.pipe(
+			map((user) => {
+				if (!user) {
+					this.router.navigateByUrl("/login");
+				}
+				return !!user;
+			})
+		);
+  }
  
   // Sign out
   async signOut() {

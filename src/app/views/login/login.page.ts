@@ -33,7 +33,7 @@ export class LoginPage implements OnInit {
       try {
 
 				await this.authService.signIn(this.loginForm.value)
-				this.router.navigate(["home"]);
+				this.router.navigate(["/home"]);
 				await loading.dismiss();
         
 			} catch (error) {
