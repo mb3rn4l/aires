@@ -59,30 +59,30 @@ export class AuthService {
 
     
       // Sign up with email/password
-      async signUp(createForm: CreateUserForm): Promise<any> {
+    async signUp(createForm: CreateUserForm): Promise<any> {
+      
+     try {
+      const originalUser = await this.afAuth.currentUser;
+      
+      const result = await this.afAuth.createUserWithEmailAndPassword(createForm.email,createForm.password)
+      console.log(result.user?.uid)
+      
+      const userDataa: DataUserForms = {
+            id: result.user!.uid!,
+            name: createForm.name,
+            email: createForm.email,
+            password: createForm.password,
+            isAdmin:false
+          } ;
+         
+      await this.saveInfoUser.setUserData(userDataa)
         
-      try {
-        const originalUser = await this.afAuth.currentUser;
-        
-        const result = await this.afAuth.createUserWithEmailAndPassword(createForm.email,createForm.password)
-        
-        
-        const userDataa: DataUserForms = {
-              id: result.user!.uid!,
-              name: createForm.name,
-              email: createForm.email,
-              password: createForm.password,
-              isAdmin:false
-            } ;
-          
-        await this.saveInfoUser.setUserData(userDataa)
-          
-        await this.afAuth.updateCurrentUser(originalUser) 
+      await this.afAuth.updateCurrentUser(originalUser) 
 
-      } catch (error: any) {
-        window.alert(error.message);
-      } 
-      }
+     } catch (error: any) {
+      window.alert(error.message);
+     } 
+    }
     
     // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
