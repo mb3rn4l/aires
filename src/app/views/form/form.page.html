@@ -133,12 +133,15 @@
               <td >N/A</td>
             </tr>
             <tr>
+              
               <td>LIMPIEZA INTERIOR-EXTERIOR</td>
-              <td>{{ minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning?.ef}}</td>
-              <td></td>
-              <td></td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning, 'EF') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning, 'COM') ? '✓' : '' }}</td>
+              <td>{{ shouldMark(minuteData?.work_and_revisions_carried_out?.drive_unit?.interior_exterior_cleaning, 'NA') ? '✓' : '' }}</td>
+ 
               <td>AJUSTE GENERAL DE TORNILOS</td>
-              <td>{{ getSymbol(minuteData?.work_and_revisions_carried_out?.drive_unit?.overall_screw_adjustment?.ef ?? false) }}</td>
+              <td></td>
+
               <td></td>
               <td></td>
                 
@@ -573,11 +576,11 @@
                     </ion-col>
 
                     <ion-col size="8">
-                           <!-- CONTENEDOR11 -->
-                    <div id="container11" class="stylec">
+                           <!-- CONTENEDOR12 -->
+                    <div id="container12" class="stylec">
                       <table >
                         <tr>
-                          <td class="boll">DIF. DE PRESION UMA PRE-MTTO</td>
+                          <td class="boll">DIF. DE PRESION UMA POS-MTTO</td>
                           <td>35%</td>
                           <td>65%</td>
                           <td>95%</td>
