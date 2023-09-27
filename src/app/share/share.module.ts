@@ -7,15 +7,28 @@ import { RouterModule } from '@angular/router';
 import { ValidatorPasswordDirective } from './directives/confirm-password/validator-password.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { NumericInputDirective } from './directives/numeric-input/numeric-input.directive';
+import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha'; 
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
   ],
   declarations: [ ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective, NumericInputDirective],
-  exports:[ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective, NumericInputDirective]
+  exports:[ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective, NumericInputDirective],
+ /*  providers: [
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: environment.firebase.recaptcha.siteKey
+      } as RecaptchaSettings,
+    },
+    
+  ], */
 })
 export class SharePageModule {}

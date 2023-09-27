@@ -105,4 +105,9 @@ export class AuthService {
         window.alert(error);
       });
   }
+
+
+  isAuthenticated(): boolean {
+    return !!this.afAuth.currentUser; // Verifica si existe un usuario autenticado
+  }
 }

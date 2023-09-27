@@ -7,7 +7,7 @@ import { DownloadMinutesPage } from './download-minutes.page';
 import { SharePageModule } from 'src/app/share/share.module';
 import { MinuteService } from 'src/app/service/minute/minute-service';
 import { HttpClientModule } from '@angular/common/http'; 
-
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @NgModule({
   imports: [
@@ -17,10 +17,11 @@ import { HttpClientModule } from '@angular/common/http';
     DownloadMinutesPageRoutingModule,
     SharePageModule,
     HttpClientModule,
+    
   ],
   declarations: [DownloadMinutesPage],
   providers: [
-    MinuteService, // Agrega el servicio aquí
+    MinuteService,AuthService  // Agrega el servicio aquí
   ],
 })
 export class DownloadMinutesPageModule {}

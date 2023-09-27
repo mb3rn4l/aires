@@ -56,10 +56,7 @@ const routes: Routes = [
   {
     path: 'reset-password',
     component: HeaderLayoutComponent,
-    loadChildren: () => import('./views/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
-  },
-
- 
+    loadChildren: () => import('./views/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)  },
 
   
 ];

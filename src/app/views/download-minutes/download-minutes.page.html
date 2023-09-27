@@ -1,5 +1,67 @@
 <ion-content [fullscreen]="true">
-  <app-container-card>
+  <app-container-card *ngIf="isNotAuthenticated">
+    <strong title>usuario NO está autenticado</strong>
+    <div form-section>
+      <h1>Angular reCAPTCHA v2</h1>
+
+      <form #form="ngForm">
+        <div class="row mt-3">
+          <div class="col-sm-12 mb-2">
+            <re-captcha
+              id="recaptcha"
+              name="recaptcha"
+              #recaptcha="ngModel"
+              [(ngModel)]="token"
+              required
+              [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"
+            ></re-captcha>
+            <div
+              *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"
+              class="invalid-feedback"
+            >
+              <div *ngIf="recaptcha.errors?.['required']">
+                This field is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 mb-2">
+            <button
+              type="button"
+              class="btn btn-sm btn-primary"
+              (click)="send(form)"
+            >
+              Send
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </app-container-card>
+  <app-container-card *ngIf="!isNotAuthenticated">
+    <strong title>Consulta tu informe tecnico</strong>
+    <div form-section>
+      <ion-input
+        id="numC"
+        type="text"
+        fill="outline"
+        label="#Informe"
+        labelPlacement="floating"
+        [(ngModel)]="numInforme"
+      ></ion-input>
+    </div>
+    <button button-section type="button" (click)="descargarM()">
+      Descargar
+    </button>
+  </app-container-card>
+</ion-content>
+
+<!-- <ion-content [fullscreen]="true">
+  <app-container-card *ngIf="isNotAuthenticated">
+    <p>No has iniciado sesión. Por favor, inicia sesión para acceder a esta página.</p>
+  </app-container-card>
+  <app-container-card *ngIf="!isNotAuthenticated">
     <strong title>Consulta tu informe tecnico</strong>
     <div form-section>
       <ion-input id="numC" type="text" fill="outline" label="#Informe" labelPlacement="floating" [(ngModel)]="numInforme"></ion-input>
@@ -7,3 +69,4 @@
        <button button-section type="button" (click)="descargarM()">  Descargar </button> 
   </app-container-card>
 </ion-content>
+ -->
