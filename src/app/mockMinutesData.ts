@@ -1,82 +1,82 @@
 import { Minute } from "./share/models/minuteData";
 
-export const data: Minute[] = [{
-    "equipment_code":"1111",
-    "date": "2022-09-08",
-    "client":"NGB",
-    "maintenance_type":"Preventivo",
-    "brand":"carrier",
-    "model":"modelo",
-    "equipment_name":"logistica #1",
-    "capacity":"1800 o BTU",
-    "equipment_type":"mini split",
-    "observations":"Esto es una observcioneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeqweqweqweqweqweqweqweqweqweqweqweqweqeqeqweqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",
+export const data: Minute = {
+    "equipment_code":"",
+    "date": "",
+    "client":"",
+    "maintenance_type":"",
+    "brand":"",
+    "model":"",
+    "equipment_name":"",
+    "capacity":"",
+    "equipment_type":"",
+    "observations":"",
   
     "technical_data_and_measurements":{
       "handling_unit":{
         "motor_data_plane":{
-          "w":"20",
-          "vol":"220",
-          "amp":"0.25",
-          "rpm":"100"
+          "w":"",
+          "vol":"",
+          "amp":"",
+          "rpm":"",
         },
         "voltage_measurements":{
-          "val_1":"219",
-          "val_2":"208",
-          "val_3":"#"
+          "val_1":"",
+          "val_2":"",
+          "val_3":"",
         },
         "amperage":{
-          "l1":"0.025",
-          "l2":"0.025",
-          "l3":"#"
+          "l1":"",
+          "l2":"",
+          "l3":"",
         }
       },
     
     "compressor_unit":{
       "plate_data":{
         "_1":{
-          "hp":"2",
-          "vol":"220",
-          "amp":"20"
+          "hp":"",
+          "vol":"",
+          "amp":"",
         },
         "_2":{
-          "hp":"0",
-          "vol":"0",
-          "amp":"0"
+          "hp":"",
+          "vol":"",
+          "amp":"",
         }
       },
       "voltage_measurements":{
         "_1":{
-          "vl1_l2":"219",
-          "vl2_l3":"208",
-          "vl3_l1":"0"
+          "vl1_l2":"",
+          "vl2_l3":"",
+          "vl3_l1":"",
         },
         "_2":{
-          "vl1_l2":"0",
-          "vl2_l3":"0",
-          "vl3_l1":"0"
+          "vl1_l2":"",
+          "vl2_l3":"",
+          "vl3_l1":"",
         }
       },
       "amperage":{
         "_1":{
-          "l1":"9.0",
-          "l2":"9.0",
-          "l3":"0"
+          "l1":"",
+          "l2":"",
+          "l3":"",
         },
         "_2":{
-          "l1":"0",
-          "l2":"0",
-          "l3":"0"
+          "l1":"",
+          "l2":"",
+          "l3":"",
         }
       },
       "pressures":{
         "_1":{
-          "tall":"350",
-          "low":"50"
+          "tall":"",
+          "low":"",
         },
         "_2":{
-          "tall":"0",
-          "low":"0"
+          "tall":"",
+          "low":"",
         }
       }
     },
@@ -84,40 +84,40 @@ export const data: Minute[] = [{
     "capacitor_motor":{
       "plate_data":{
         "_1":{
-          "hp":"70w",
-          "vol":"220",
-          "amp":"0.80",
-          "rpm":"1000"
+          "hp":"",
+          "vol":"",
+          "amp":"",
+          "rpm":"",
         },
         "_2":{
-          "hp":"0",
-          "vol":"0",
-          "amp":"0",
-          "rpm":"0"
+          "hp":"",
+          "vol":"",
+          "amp":"",
+          "rpm":"",
         }
       },
       "measurements":{
         "_1":{
-          "vl1_l2":"219",
-          "vl2_l3":"208",
-          "vl3_l1":"10"
+          "vl1_l2":"",
+          "vl2_l3":"",
+          "vl3_l1":"",
         },
         "_2":{
-          "vl1_l2":"0",
-          "vl2_l3":"0",
-          "vl3_l1":"0"
+          "vl1_l2":"",
+          "vl2_l3":"",
+          "vl3_l1":"",
         }
       },
       "amperage":{
         "_1":{
-          "l1":"0.39",
-          "l2":"0.39",
-          "l3":"0.10"
+          "l1":"",
+          "l2":"",
+          "l3":"",
         },
         "_2":{
-          "l1":"0",
-          "l2":"0",
-          "l3":"0"
+          "l1":"",
+          "l2":"",
+          "l3":"",
         }
       }
     }
@@ -125,51 +125,51 @@ export const data: Minute[] = [{
   },
     "work_and_revisions_carried_out":{
       "drive_unit":{
-        "interior_exterior_cleaning":"COM",
-        "coil_serpentines":"NA",
-         "adjust_prisoners_of_chumaceras":"NA",
-        "air_filter_wash":"NA",
-        "belt_tension":"NA",
-        "changing_straps":"NA",
-        "bearing_review":"NA",
-        "internal_insulation_review":"NA",
-        "Filter_change":"NA",
-        "overall_screw_adjustment":"NA",
-        "revision_of_expansion_valves":"COM",
-        "review_electrical_accessories":"EF",
-        "bimetallic_relay_revision":"COM",
-        "electronic_board_cleaning":"COM",
-        "thermostat_check":"COM",
-        "engine_inspection":"EF",
-        "drain_cleaning":"EF",
+        "interior_exterior_cleaning":"",
+        "coil_serpentines":"",
+         "adjust_prisoners_of_chumaceras":"",
+        "air_filter_wash":"",
+        "belt_tension":"",
+        "changing_straps":"",
+        "bearing_review":"",
+        "internal_insulation_review":"",
+        "Filter_change":"",
+        "overall_screw_adjustment":"",
+        "revision_of_expansion_valves":"",
+        "review_electrical_accessories":"",
+        "bimetallic_relay_revision":"",
+        "electronic_board_cleaning":"",
+        "thermostat_check":"",
+        "engine_inspection":"",
+        "drain_cleaning":"",
       },
       "condensing_unit":{
-        "interior_exterior_cleaning":"EF",
-        "coil_serpentines":"EF",
-        "bearing":"EF",
-        "compressor_overhaul":"EF",
-        "support_status":"EF",
-        "overall_screw_adjustment":"EF",
-        "review_electrical_accessories":"EF",
-        "bimetallic_relay_revision":"EF",
-        "refrigerant_pipe_inspection":"EF",
+        "interior_exterior_cleaning":"",
+        "coil_serpentines":"",
+        "bearing":"",
+        "compressor_overhaul":"",
+        "support_status":"",
+        "overall_screw_adjustment":"",
+        "review_electrical_accessories":"",
+        "bimetallic_relay_revision":"",
+        "refrigerant_pipe_inspection":"",
       },
       "air_distribution_system":{
-        "damper_revision":"EF",
-        "inspection":"EF",
-        "thermometer_review":"EF",
-        "general_inspection_ducts":"EF",
+        "damper_revision":"",
+        "inspection":"",
+        "thermometer_review":"",
+        "general_inspection_ducts":"",
       }
       
     },
     "air_outlet_dampers":{
       "temperature":{
-        "_c":"21"
+        "_c":"",
       },
-      "type_of_refrigerant":"not",
+      "type_of_refrigerant":"",
       
-      "equipment_delivery_conditions":"EF",
-      "delivery_of_clean_work_area":"EF",
+      "equipment_delivery_conditions":"",
+      "delivery_of_clean_work_area":"",
     },
     "pressure_uma_pre_mtto":{
       "parameter":"",
@@ -177,6 +177,6 @@ export const data: Minute[] = [{
     "pressure_uma_pos_mtto":{
       "parameter":"",
     }
-  }];
+  };
   
   
