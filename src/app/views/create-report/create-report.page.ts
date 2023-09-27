@@ -1,4 +1,3 @@
-
 import { SaveMinutesService } from './../../service/saveMinutes/save-minutes.service';
 import { Component, OnInit, ViewChild, QueryList,ViewChildren } from '@angular/core';
 import { Minute } from 'src/app/share/models/minuteData';

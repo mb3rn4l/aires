@@ -56,6 +56,7 @@ export class FormPage implements OnInit {
         console.log('No se proporcionó un número de informe en la URL.');
       }
     });
+
   }
 
   generatePDF() {

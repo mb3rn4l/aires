@@ -72,7 +72,6 @@ export class DownloadMinutesPage implements OnInit {
 
     await alert.present();
   }
-
   
   ngOnInit() {
 
