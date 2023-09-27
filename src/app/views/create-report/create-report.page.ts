@@ -26,6 +26,10 @@ export class CreateReportPage implements OnInit {
     // Mostrar el indicador de carga
     let loading = await this.loadingCtrl.create();
     await loading.present();
+
+     // Establecer la fecha actual en formato "YYYY-MM-DD"
+      const fechaActual = new Date();
+      this.minute.date = fechaActual.toISOString().split('T')[0];
     
     
     console.log(this.minute)
@@ -68,6 +72,7 @@ export class CreateReportPage implements OnInit {
   }  
   
   ngOnInit() {
+    this.minute.date = new Date().toISOString();
   }
 
 }

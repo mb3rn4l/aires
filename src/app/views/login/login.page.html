@@ -17,9 +17,10 @@
           errorText="El correo electrónico no es válido"
           [ngModel]="model.email" 
           name="email" 
-          #email="ngModel">
+          #email="ngModel"
+          >
         </ion-input>
-
+        
         <br>
         <ion-input 
           required
@@ -35,6 +36,10 @@
         </ion-input>
           
         </form>
+        <a routerLink="/reset-password" class="nav-link">
+          <p align="left">Fortgot password ?</p>
+        </a>
+       
       
       </div>
 

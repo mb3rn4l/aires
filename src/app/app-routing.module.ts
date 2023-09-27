@@ -53,6 +53,12 @@ const routes: Routes = [
     path: 'form/:id',
     loadChildren: () => import('./views/form/form.module').then(m => m.FormPageModule),
   },
+  {
+    path: 'reset-password',
+    component: HeaderLayoutComponent,
+    loadChildren: () => import('./views/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+  },
+
  
 
   
