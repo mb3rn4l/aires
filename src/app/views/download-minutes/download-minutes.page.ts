@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ParamMap } from '@angular/router';
 import { MinuteService } from 'src/app/service/minute/minute-service';
+import { Minute } from 'src/app/share/models/minuteData';
+import { LoadingController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-download-minutes',
@@ -9,32 +13,70 @@ import { MinuteService } from 'src/app/service/minute/minute-service';
 })
 export class DownloadMinutesPage implements OnInit {
 
-  constructor(private router: Router, private minuteService: MinuteService) { }
-
   numInforme: string = ''; // Propiedad para almacenar el valor del ion-input
 
-  descargarM() {
+  constructor(private router: Router, private minuteService: MinuteService, private loadingCtrl: LoadingController, private alertController: AlertController) {}
+
+
+  async descargarM() {
     console.log('Valor de this.numInforme:', this.numInforme);
   
-    // Verificamos que se haya ingresado un valor antes de navegar
-    if (this.numInforme) {
-      // Verificar si el valor coincide con un código de equipo válido en el JSON
-      const minuteData = this.minuteService.getMinuteData(this.numInforme);
-  
-      if (minuteData) {
-        // Navegamos a la página 'form' y pasamos el valor de numInforme como un parámetro en la URL
-        this.router.navigate([`/form/${this.numInforme}`]); // Utiliza comillas invertidas para incluir el valor en la URL
-      } else {
-        // Mostrar un mensaje de error al usuario
-        alert('El número de informe no es válido. Por favor, ingrese un número de informe válido.');
-      }
-    } else {
-      // Mostrar un mensaje de error al usuario
-      alert('Por favor, ingrese un número de informe válido.');
+      // Verificar si el campo numInforme no está vacío
+    if (this.numInforme.trim() === '') {
+      // Llamar a la función showEmptyFieldsAlert si el campo está vacío
+      await this.showEmptyFieldsAlert();
+      return; // Detener la ejecución si el campo está vacío
     }
+    // Mostrar el indicador de carga
+    let loading = await this.loadingCtrl.create();
+    await loading.present();
+  
+    // Validar el número de informe antes de la navegación
+    this.minuteService.getAllMinuteData(this.numInforme).subscribe(
+      (data: Minute) => {
+        if (data) {
+          // Imprimir el código de estado 200 en caso de éxito
+          console.log('Código de estado:', 200);
+          // Navegar a la página 'form' con el parámetro 'numInforme'
+          this.router.navigate([`/form/${this.numInforme}`]);
+        } else {
+          // Mostrar una alerta si la solicitud no se completó con éxito
+          alert('Error: No devolvió datos válidos');
+        }
+      },
+      (error) => {
+        // Mostrar una alerta en caso de error
+        if (error && error.status) {
+          // Imprimir el código de estado del error en la consola
+          console.log('Código de estado:', error.status);
+          if (error.status === 500) {
+            // Si el código de estado es 500, muestra un mensaje específico de error
+            alert('No es posible consultar el informe técnico en estos momentos');
+          } else {
+            alert('Número de informe no encontrado, vuelve a intentarlo');
+          }
+        } 
+      }
+    ).add(() => {
+      // Ocultar el indicador de carga cuando la solicitud haya terminado
+      loading.dismiss();
+    });
   }
   
+  
+  async showEmptyFieldsAlert() {
+    const alert = await this.alertController.create({
+      message: 'Por favor, completa todos los campos.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+  
+  
   ngOnInit() {
+
+
   }
 
 }

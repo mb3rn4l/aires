@@ -12,23 +12,29 @@ import { AlertController } from '@ionic/angular';
   templateUrl: './create-user.page.html',
   styleUrls: ['./create-user.page.scss'],
 })
+
+
 export class CreateUserPage implements OnInit {
-  
-  
-  public model : CreateUserForm = {name:"", email:"", password: "", confirmPassword: "" };
+  public model: CreateUserForm = { name: "", email: "", password: "", confirmPassword: "" };
   @ViewChild('createForm') createForm: NgForm;
-  
- 
+  showPassword = false;
+  showPassword2 = false;
+  emailPattern = '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$';
+
   constructor(private router: Router, private loadingCtrl: LoadingController, private authService: AuthService, private alertController: AlertController) { }
 
   async datosForm() {
     if (this.createForm.valid) {
-      if (this.model.password.length >= 7) { // Verifica la longitud de la contraseña
+      // Obtén el valor del campo de contraseña según sea necesario
+      const passwordValue = this.showPassword ? this.createForm.value.password : this.model.password;
+
+      if (passwordValue.length >= 7) { // Verifica la longitud de la contraseña
         let loading = await this.loadingCtrl.create();
         loading.present();
 
         try {
-          await this.authService.signUp(this.createForm.value)
+          // Usa el valor correcto de la contraseña al hacer la llamada a signUp
+          await this.authService.signUp({ ...this.createForm.value, password: passwordValue })
           this.router.navigate(["/home"]);
           await loading.dismiss();
         } catch (error) {
@@ -62,46 +68,13 @@ export class CreateUserPage implements OnInit {
     await alert.present();
   }
 
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+  togglePasswordVisibility2() {
+    this.showPassword2 = !this.showPassword2;
+  }
+ 
+
   ngOnInit() { }
 }
-
-
-
-
-
-
-
- /*  async datosForm() {
-    if (this.createForm.valid) {
-      let loading = await this.loadingCtrl.create();
-      loading.present();
-
-      try {
-        await this.authService.signUp(this.createForm.value)
-        this.router.navigate(["/home"]);
-        await loading.dismiss();
-      } catch (error) {
-        console.log("no se pudo entrar al signUp")
-      }
-    } else {
-      this.showEmptyFieldsAlert();
-    }
-  }
-
-
-  
-  async showEmptyFieldsAlert() {
-    const alert = await this.alertController.create({
-      header: 'Campos Vacíos',
-      message: 'Por favor, completa todos los campos obligatorios en el formulario.',
-      buttons: ['OK']
-    });
-
-    await alert.present();
-  }
-
-  ngOnInit() {
-   
-    }
-  }
- */

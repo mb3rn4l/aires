@@ -13,18 +13,27 @@ import { Router } from '@angular/router';
 })
 export class CreateReportPage implements OnInit {
 
-  minute: Minute = data[0];
+  
+  minute: Minute = data; 
 
   @ViewChild('fToltal') formTotal: NgForm;
   @ViewChildren(NgForm) formulariosSecundarios: QueryList<NgForm>;
-
-
-  @ViewChild('fToltal') datosFormTotal: NgForm;
 
   constructor( private loadingCtrl: LoadingController, private router: Router, private saveMinutesService:SaveMinutesService) { }
 
 
   async submitForm() {
+    // Mostrar el indicador de carga
+    let loading = await this.loadingCtrl.create();
+    await loading.present();
+
+     // Establecer la fecha actual en formato "YYYY-MM-DD"
+      const fechaActual = new Date();
+      this.minute.date = fechaActual.toISOString().split('T')[0];
+    
+    
+    console.log(this.minute)
+    console.log("hi")
     // Verifica todos los formularios secundarios
     const formulariosValidos = this.formulariosSecundarios
       .toArray()
@@ -33,7 +42,7 @@ export class CreateReportPage implements OnInit {
     if (formulariosValidos) {
       try {
         // Llama al servicio para guardar los datos
-        await this.saveMinutesService.setUserData(this.minute);
+        await this.saveMinutesService.addMinuteData(this.minute);
   
         // Todos los formularios son válidos, puedes continuar con el procesamiento
         alert('Formulario enviado correctamente');
@@ -41,12 +50,18 @@ export class CreateReportPage implements OnInit {
       } catch (error) {
         // Maneja cualquier error que pueda ocurrir al guardar los datos
         console.error('Error al guardar los datos:', error);
+      } finally {
+        // Ocultar el indicador de carga, ya sea que haya éxito o error
+        loading.dismiss();
       }
     } else {
       // Al menos un formulario tiene campos obligatorios vacíos
       alert('Por favor, completa todos los campos obligatorios en todos los formularios.');
+      // Ocultar el indicador de carga en caso de error
+      loading.dismiss();
     }
   }
+  
 
   // Función de validación  para un formulario 
   private validarFormulario(form: NgForm): boolean {
@@ -57,6 +72,7 @@ export class CreateReportPage implements OnInit {
   }  
   
   ngOnInit() {
+    this.minute.date = new Date().toISOString();
   }
 
 }
