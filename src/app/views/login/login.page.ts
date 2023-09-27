@@ -14,6 +14,7 @@ import { LoginForm } from 'src/app/share/models/loginForm';
 export class LoginPage implements OnInit {
    public model : LoginForm = {email:"", password: ""};
    @ViewChild('loginForm') loginForm: NgForm;
+   emailPattern = '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$';
 
   constructor(
     private router: Router,
@@ -33,7 +34,7 @@ export class LoginPage implements OnInit {
       try {
 
 				await this.authService.signIn(this.loginForm.value)
-				this.router.navigate(["home"]);
+				this.router.navigate(["./create-user"]);
 				await loading.dismiss();
         
 			} catch (error) {
@@ -48,8 +49,19 @@ export class LoginPage implements OnInit {
         await alert.present();
 			}
       
+    }else {
+      this.showEmptyFieldsAlert();
     }
     
+  }
+
+  async showEmptyFieldsAlert() {
+    const alert = await this.alertController.create({
+      message: 'Por favor, completa todos los campos.',
+      buttons: ['OK'],
+    });
+
+    await alert.present();
   }
 }
 

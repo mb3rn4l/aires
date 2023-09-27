@@ -1,19 +1,29 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * import {onCall} from "firebase-functions/v2/https";
- * import {onDocumentWritten} from "firebase-functions/v2/firestore";
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
+const serviceAccount = require("../permissions.json");
 
-import {onRequest} from "firebase-functions/v2/https";
-import * as logger from "firebase-functions/logger";
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
 
-// Start writing functions
-// https://firebase.google.com/docs/functions/typescript
+const express = require("express");
+const app = express();
+const db = admin.firestore();
 
-// export const helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+app.get("/api/minutes/:equipment_code", async (req: any, res: any) => {
+  try {
+    const equipmentCode = req.params.equipment_code;
+    const querySnapshot = await db.collection("minutes").where("equipment_code",
+      "==", equipmentCode).get();
+    if (querySnapshot.empty) {
+      return res.status(404).json({ error: "Document not found" });
+    }
+    const doc = querySnapshot.docs[0];
+    const data = doc.data();
+    return res.status(200).json(data);
+  } catch (error) {
+    return res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+exports.app = functions.https.onRequest(app);
