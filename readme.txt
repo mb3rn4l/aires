@@ -1,4 +1,4 @@
-Notas de instalaciónservicio api rest.
+Notas de instalación servicio api rest.
 
 -> Ingresar a FireBase
 -> Ingresar al proyecto 
@@ -15,33 +15,38 @@ Notas de instalaciónservicio api rest.
 Notas de instalación recaptcha
 
 -> Ingresar en tu cuenta gmail a https://www.google.com/recaptcha/admin/create   
--> completa la casilla etiqueta
--> escogemos la version v2(casilla de verificacion)
-->domino (localhost por el momento )
-->el uso de cloud platform en este caso se usa y escogemos el de cali-aires(firebase)
--> AL VERIFICAR SE generan dos claves (publica y privada)
--> en los archivos (environment.ts y environment.prod.ts)
+-> Completa la casilla etiqueta
+-> Escogemos la version v2(casilla de verificacion)
+-> Domino (localhost o 127.0.0.1) "depende de tu entorno de trabajo"
+-> El uso de cloud platform en este caso se usa y escogemos el de cali-aires(firebase)
+-> AL VERIFICAR se generan dos claves (publica y privada)
+
+-> En los archivos (environment.ts y environment.prod.ts)
             copiar recaptcha: {
             siteKey: 'clave-publica',
             },
             
--> instalamos en el proyecto npm install ng-recaptcha
+-> Instalamos en el proyecto npm install npm i ng-recaptcha --save
 
-->Importe FormsModule, RecaptchaFormsModule, RecaptchaModule (en caso de no tenerlos). Configure la clave reCAPTCHA de Google. Cambie el app.module.ts (o en este caso share.module.ts) archivo y agregue las líneas como se muestra a continuación.
+-> Importe la dependencia  import { RecaptchaModule } from 'ng-recaptcha'; en el modulo correspondientede su pagina que vaya a usar y agregue las líneas como se muestra a continuación.
 
-            import { FormsModule } from '@angular/forms';
-            import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha'
-            import { environment } from 'src/environments/environment';
+           import { RecaptchaModule } from 'ng-recaptcha'; -> en caso de la pagina a usar 
             imports: [
-                RecaptchaModule,
-                RecaptchaFormsModule,
+                NgxCaptchaModule
                 ],
-            providers: [
-                    {
-                    provide: RECAPTCHA_SETTINGS,
-                    useValue: {
-                    siteKey: environment.firebase.recaptcha.siteKey
-                    } as RecaptchaSettings,
-                    },
-                ],
+
+-> En el html se llama de esta manera
+            <re-captcha
+              [siteKey]="siteKey"
+            ></re-captcha>
+
+-> En su ts, se llama a la clave publica y ejecuta en el constructor 
+
+            siteKey = environment.firebase.recaptcha.siteKey;
+            constructor(
+            
+            ) {
+                this.siteKey;
+            }
+                    
 

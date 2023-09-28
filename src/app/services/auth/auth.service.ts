@@ -1,4 +1,3 @@
-import { User } from './../../share/models/user';
 import { CreateUserForm } from './../../share/models/createUserForm';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -95,19 +94,16 @@ export class AuthService {
   }
 
   // Reset Forggot password
-  ForgotPassword(RPasswordForm: string):Promise<any> {
+  ForgotPassword(RPasswordForm: string): Promise<any> {
     return this.afAuth
       .sendPasswordResetEmail(RPasswordForm)
       .then(() => {
-        window.alert('Correo electrónico de restablecimiento de contraseña enviado, revisa tu bandeja de entrada.');
+        window.alert(
+          'Correo electrónico de restablecimiento de contraseña enviado, revisa tu bandeja de entrada.'
+        );
       })
       .catch((error) => {
         window.alert(error);
       });
-  }
-
-
-  isAuthenticated(): boolean {
-    return !!this.afAuth.currentUser; // Verifica si existe un usuario autenticado
   }
 }
