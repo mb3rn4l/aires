@@ -85,7 +85,6 @@ export class AuthService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-
   // Sign out
   async signOut() {
     await this.angularFireAuth.signOut();
