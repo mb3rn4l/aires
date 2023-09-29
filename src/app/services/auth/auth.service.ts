@@ -1,4 +1,4 @@
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Injectable } from '@angular/core';
 
@@ -7,52 +7,61 @@ import { LoginForm } from 'src/app/share/models/loginForm';
 import { DataUserForms } from 'src/app/share/models/dataUserForm';
 import { SaveUserService } from 'src/app/service/save/save-user.service';
 
-import { map } from 'rxjs';
-
-
+import { Observable, map, of, switchMap, tap } from 'rxjs';
+import { ReactiveStore } from 'src/app/app-store';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  userData: any;
+  authState$ = this.angularFireAuth.authState.pipe(
+    switchMap((next) => {
+      if (next === null) {
+        return of(null);
+      } else {
+        return this.getUserProfile(next.uid).pipe(
+          map((userData) => {
+            if (!userData) {
+              return null;
+            }
+
+            return userData;
+          })
+        );
+      }
+    }),
+    tap((result) => {
+      this.reactiveStore.set('user', result);
+    })
+  );
 
   constructor(
     private router: Router,
+    private reactiveStore: ReactiveStore,
+    private angularFirestore: AngularFirestore,
     private angularFireAuth: AngularFireAuth,
-    private saveInfoUser: SaveUserService)
-     { 
-      /* Saving user data in localstorage when 
-      logged in and setting up null when logged out */
-    this.angularFireAuth.authState.subscribe((user) => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user')!);
-      } else {
-        localStorage.setItem('user', 'null');
-        JSON.parse(localStorage.getItem('user')!);
-      }
-    });
+    private saveInfoUser: SaveUserService
+  ) {
+    this.authState$.subscribe();
+
+    //   (result) => {
+    //   console.log('result', result);
+    //   this.reactiveStore.set('user', result);
+    // });
   }
 
   signIn(loginForm: LoginForm): Promise<any> {
-    // try {
     return this.angularFireAuth.signInWithEmailAndPassword(
       loginForm.email,
       loginForm.password
     );
+  }
 
-    // this.setUserData(result.user);
-
-    // this.angularFireAuth.authState.subscribe((user_1) => {
-    //   if (user_1) {
-    //     this.router.navigate(['dashboard']);
-    //   }
-    // });
-    // } catch (error: any) {
-    //   window.alert(error.message);
-    // }
+  getUserProfile(uid: string): Observable<DataUserForms | undefined> {
+    return this.angularFirestore
+      .doc<DataUserForms>('users/' + uid)
+      .valueChanges();
   }
 
   // Sign up with email/password
@@ -69,7 +78,6 @@ export class AuthService {
         id: result.user!.uid!,
         name: createForm.name,
         email: createForm.email,
-
         isAdmin: false,
       };
 
@@ -81,41 +89,33 @@ export class AuthService {
     }
   }
 
-  // Returns true when user is looged in and email is verified
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user')!);
-    /* console.log('User in localStorage:', user); */
-    return user !== null;
-  }
-
-
-  checkUser(){
+  checkUser() {
     return this.angularFireAuth.authState.pipe(
-			map((user) => {
-				if (!user) {
-					this.router.navigateByUrl("/login");
-				}
-				return !!user;
-			})
-		);
-  }
- 
-  // Sign out
-  async signOut() {
-    await this.angularFireAuth.signOut();
-    localStorage.removeItem('user');
-    // this.router.navigate(['sign-in']);
+      map((user) => {
+        if (!user) {
+          this.router.navigateByUrl('/login');
+        }
+        return !!user;
+      })
+    );
   }
 
-  // Reset Forggot password
-  ForgotPassword(RPasswordForm: string):Promise<any> {
-    return this.angularFireAuth
-      .sendPasswordResetEmail(RPasswordForm)
-      .then(() => {
-        window.alert('Correo electrónico de restablecimiento de contraseña enviado, revisa tu bandeja de entrada.');
-      })
-      .catch((error) => {
-        window.alert(error);
-      });
+  // Sign out
+  signOut() {
+    // console.log('this.signOut');
+    return this.angularFireAuth.signOut().then(() => {
+      this.reactiveStore.set('user', null);
+    });
+  }
+
+  async forgotPassword(RPasswordForm: string): Promise<any> {
+    try {
+      await this.angularFireAuth.sendPasswordResetEmail(RPasswordForm);
+      window.alert(
+        'Correo electrónico de restablecimiento de contraseña enviado, revisa tu bandeja de entrada.'
+      );
+    } catch (error) {
+      window.alert(error);
+    }
   }
 }

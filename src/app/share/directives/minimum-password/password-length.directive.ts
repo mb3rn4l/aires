@@ -1,10 +1,21 @@
 import { Directive, Input, HostListener } from '@angular/core';
-import { NG_VALIDATORS, Validator, AbstractControl, ValidationErrors } from '@angular/forms';
+import {
+  NG_VALIDATORS,
+  Validator,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 import { AlertController } from '@ionic/angular'; // Importa el AlertController
 
 @Directive({
   selector: '[appPasswordLength]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: PasswordLengthDirective, multi: true }]
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: PasswordLengthDirective,
+      multi: true,
+    },
+  ],
 })
 export class PasswordLengthDirective implements Validator {
   @Input('appPasswordLength') minLength: number;
@@ -12,7 +23,6 @@ export class PasswordLengthDirective implements Validator {
   constructor(private alertController: AlertController) {} // Inyecta el AlertController
 
   validate(control: AbstractControl): ValidationErrors | null {
-    console.log('validate function called');
     if (!control.value || control.value.length < this.minLength) {
       // Si la contraseña no cumple con la longitud mínima, muestra un alert
       this.presentAlert();
@@ -26,7 +36,7 @@ export class PasswordLengthDirective implements Validator {
     const alert = await this.alertController.create({
       header: 'Contraseña demasiado corta',
       message: `La contraseña debe tener al menos ${this.minLength} caracteres.`,
-      buttons: ['OK']
+      buttons: ['OK'],
     });
 
     await alert.present();

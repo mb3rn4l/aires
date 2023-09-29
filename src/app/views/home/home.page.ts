@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { ReactiveStore } from 'src/app/app-store';
+import { DataUserForms } from 'src/app/share/models/dataUserForm';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  isAdmin: boolean;
 
-  constructor(private router: Router) {}
+  constructor(private reactiveStore: ReactiveStore) {}
 
-  navigateUpload(){
-    this.router.navigate(["/upload-minutas"])
+  ngOnInit() {
+    this.reactiveStore.select('user').subscribe((user: any) => {
+      this.isAdmin = user ? user.isAdmin : false;
+      console.log('isAdmin', this.isAdmin);
+    });
   }
-
 }

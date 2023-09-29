@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+// import { Subscription } from 'rxjs';
+import { AuthService } from './services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  // authStateSubsc: Subscription;
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    // this.subscribeToAuth();
+  }
+
+  // private subscribeToAuth() {
+  // this.authStateSubsc = this.authService.authState$.subscribe();
+  // }
 }

@@ -1,33 +1,33 @@
-<ion-content [fullscreen]="true"  >
+<!-- <ion-content [fullscreen]="true"> -->
 <ion-header>
-    <ion-toolbar>
-        <ion-grid>
-            <ion-row>
-              <ion-col>
-                <ion-item lines="none">
-                    <ion-thumbnail slot="start">
-                        <a routerLink="/home" class="nav-link">
-                        <img alt="logo" src="assets/logo_cali_airesrm.png" />
-                        </a>
-                    </ion-thumbnail>
-                    <ion-label>Cali Aires</ion-label>
-                </ion-item>
-              </ion-col>
-              <ion-col *ngIf="checkUser()">
-                <ion-item lines="none" class="ion-float-right">
-                    <ion-label>
-                        <h2>usuario</h2>
-                        <ion-button (click)="onClickSignOut()">salir</ion-button>
-                    </ion-label>
-                </ion-item>
-
-              </ion-col>
-            </ion-row>
-        </ion-grid>
-
-         
-    </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item color="primary" lines="none">
+            <ion-thumbnail slot="start">
+              <a routerLink="/home" class="nav-link">
+                <img alt="logo" src="assets/logo_cali_airesrm.png" />
+              </a>
+            </ion-thumbnail>
+            <ion-label style="font-size: x-large">Cali Aires</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="(userData$ | async) != null">
+          <ion-item color="primary" lines="none" class="ion-float-right">
+            <ion-label>
+              <h2>Hola, {{ (userData$ | async)?.name }}</h2>
+              <ion-button color="light" (click)="onClickSignOut()"
+                >salir</ion-button
+              >
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
 </ion-header>
-
-<router-outlet></router-outlet>
+<ion-content>
+  <router-outlet></router-outlet>
 </ion-content>
+<!-- </ion-content> -->

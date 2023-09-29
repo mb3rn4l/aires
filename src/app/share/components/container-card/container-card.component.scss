@@ -1,43 +1,34 @@
 /* Estilos para el fondo */
   #container {
     text-align: center;
-    // position: absolute;
-    // left: 50%;
-    // top: 50%;
-    // transform: translate(-50%, -50%);
-    padding: 20px; /* Agregamos un poco de espacio alrededor del contenido */
-    // background-color: white; /* Añadimos un color de fondo para destacar el contenedor */
-    border-radius: 5px; /* Agregamos bordes redondeados al contenedor */
-    border: 1px solid #000000; /* Borde negro */
+    padding: 20px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
     background-color: white;
   } 
-
 
 
 /* Estilos para el titulo */
 
   :host ::ng-deep [title]{
-    color: #090101;
-    font-size: 20px;
     line-height: 26px;
-    display: block; /* Para que el contenido se comporte como bloques */
-    margin-bottom: 20px; /* Agrega espacio inferior */
+    margin-bottom: 20px; 
   }
 
 /* Estilos para el botón */
  
    :host ::ng-deep [button-section] {
-    border: 1px solid  black !important; /* Agrega un borde sólido de 1 píxel de grosor en color negro */
+    border: 1px solid  #ccc !important; /* Agrega un borde sólido de 1 píxel de grosor en color negro */
     padding: 1.3em 3em;
-    font-size: 12px; /* Ajusta el tamaño de fuente según sea necesario */
-    text-transform: uppercase;
+    // font-size: 12px; /* Ajusta el tamaño de fuente según sea necesario */
+    // text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
     color: #000;
     background-color: #fff;
     border: none;
-    border-radius: 1rem;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    // box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;

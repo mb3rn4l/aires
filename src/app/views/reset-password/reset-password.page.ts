@@ -12,39 +12,38 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./reset-password.page.scss'],
 })
 export class ResetPasswordPage implements OnInit {
+  public model2: ResetUserPassword = { email: '' };
 
-  emailPattern = '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$';
-  public model2 : ResetUserPassword  = {email:""};
-   @ViewChild('RPasswordForm') RPasswordForm: NgForm;
-  
-   constructor(
+  @ViewChild('RPasswordForm') RPasswordForm: NgForm;
+
+  constructor(
     private router: Router,
     private loadingCtrl: LoadingController,
     private alertController: AlertController,
-    private authService: AuthService) {}
+    private authService: AuthService
+  ) {}
 
-    async onClickSubmitReset() {
-      console.log(this.model2)
-      if (this.RPasswordForm.valid) {
-        let loading = await this.loadingCtrl.create();
-        loading.present();
-        try {
-          await this.authService.ForgotPassword(this.model2.email);
-          this.router.navigate(["./login"]);
-          await loading.dismiss();
-        } catch (error) {
-          await loading.dismiss();
-          const alert = await this.alertController.create({
-            message: 'algo salio mal',
-            buttons: ['OK'],
-          });
-          await alert.present();
-        }
-      } else {
-        this.showEmptyFieldsAlert();
+  async onClickSubmitReset() {
+    console.log(this.model2);
+    if (this.RPasswordForm.valid) {
+      let loading = await this.loadingCtrl.create();
+      loading.present();
+      try {
+        await this.authService.forgotPassword(this.model2.email);
+        this.router.navigate(['./login']);
+        await loading.dismiss();
+      } catch (error) {
+        await loading.dismiss();
+        const alert = await this.alertController.create({
+          message: 'algo salio mal',
+          buttons: ['OK'],
+        });
+        await alert.present();
       }
+    } else {
+      this.showEmptyFieldsAlert();
     }
-
+  }
 
   async showEmptyFieldsAlert() {
     const alert = await this.alertController.create({
@@ -55,7 +54,5 @@ export class ResetPasswordPage implements OnInit {
     await alert.present();
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

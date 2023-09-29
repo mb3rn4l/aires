@@ -1,9 +1,16 @@
-<ion-content [fullscreen]="true">
-  <app-container-card>
-    <strong title>Consulta tu informe tecnico</strong>
-    <div form-section>
-      <ion-input id="numC" type="text" fill="outline" label="#Informe" labelPlacement="floating" [(ngModel)]="numInforme"></ion-input>
-    </div>
-       <button button-section type="button" (click)="descargarM()">  Descargar </button> 
-  </app-container-card>
-</ion-content>
+<!-- <ion-content [fullscreen]="true"> -->
+<app-container-card>
+  <h3 title>Consulta tu informe tecnico</h3>
+  <div form-section>
+    <ion-input
+      id="numC"
+      type="text"
+      fill="outline"
+      label="Numero de informe"
+      labelPlacement="floating"
+      [(ngModel)]="numInforme"
+    ></ion-input>
+  </div>
+  <button button-section type="button" (click)="descargarM()">Descargar</button>
+</app-container-card>
+<!-- </ion-content> -->

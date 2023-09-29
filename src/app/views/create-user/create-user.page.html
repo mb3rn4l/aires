@@ -1,84 +1,82 @@
-<ion-content [fullscreen]="true" class="ion-padding" >
+<app-container-card>
+  <h3 title>Crear Usuario</h3>
 
-  <app-container-card>
-
-      <strong title>Crear Usuario</strong>
-      
-      <div form-section >
-        <form  #createForm="ngForm">
-        <ion-input 
-          required
-          type="text"
-          fill="outline"
-          label="Name"
-          labelPlacement="floating"
-          [ngModel]="model.name" 
-          name="name" 
-          #name="ngModel">
-        </ion-input>
-        <br>
-        <ion-input 
-          required
-          type="email"
-          fill="outline"
-          label="Email"
-          [pattern]="emailPattern"
-          labelPlacement="floating"
-          errorText="El correo electrónico no es válido"
-          [ngModel]="model.email" 
-          name="email" 
-          #email="ngModel">
-         </ion-input>
- 
-        <br>
-        <ion-input 
+  <div form-section>
+    <form #createForm="ngForm">
+      <ion-input
         required
-        [type]="showPassword ? 'text' : 'password'" 
+        type="text"
+        fill="outline"
+        label="Name"
+        labelPlacement="floating"
+        [ngModel]="model.name"
+        name="name"
+        #name="ngModel"
+      >
+      </ion-input>
+      <br />
+      <ion-input
+        required
+        type="email"
+        fill="outline"
+        label="Email"
+        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+        labelPlacement="floating"
+        errorText="El correo electrónico no es válido"
+        [ngModel]="model.email"
+        name="email"
+        #email="ngModel"
+      >
+      </ion-input>
+
+      <br />
+      <ion-input
+        required
+        [type]="showPassword ? 'text' : 'password'"
         fill="outline"
         label="Password"
         labelPlacement="floating"
         errorText="password es obligatorio"
-        placeholder="Password"
         [(ngModel)]="model.password"
         name="password"
         #password="ngModel"
-        ></ion-input>
-      
+      ></ion-input>
 
-        <ion-icon
-          name="{{ showPassword ? 'eye' : 'eye-off' }}" 
-          (click)="togglePasswordVisibility()"
-          slot="end" 
-        ></ion-icon>
-        
-        <br>
-        <ion-input 
-          required
-          [type]="showPassword2 ? 'text' : 'password'" 
-          fill="outline"
-          label="Confirm Password"
-          labelPlacement="floating"
-          errorText="La contraseña no coincide"
-          placeholder="Confirm Password"
-          appValidatorPassword = "password"
-          [ngModel]="model.confirmPassword"
-          name="confirmPassword"
-          #confirmPassword="ngModel">
+      <ion-icon
+        name="{{ showPassword ? 'eye' : 'eye-off' }}"
+        (click)="togglePasswordVisibility()"
+      ></ion-icon>
 
-        
-        </ion-input> 
-        <ion-icon
-          name="{{ showPassword2 ? 'eye' : 'eye-off' }}" 
-          (click)="togglePasswordVisibility2()"
-          slot="end" 
-        ></ion-icon>      
-        </form> 
-      </div>
+      <br />
+      <br />
 
-      <button button-section type="button" (click)="datosForm()" >
-        <ion-icon name="person-add-outline" size="default" color="primary"></ion-icon>  
-        Crear
-      </button>
+      <ion-input
+        required
+        [type]="showPassword2 ? 'text' : 'password'"
+        fill="outline"
+        label="Confirm Password"
+        labelPlacement="floating"
+        errorText="La contraseña no coincide"
+        appValidatorPassword="password"
+        [ngModel]="model.confirmPassword"
+        name="confirmPassword"
+        #confirmPassword="ngModel"
+      >
+      </ion-input>
 
-    </app-container-card>
-</ion-content>
+      <ion-icon
+        (click)="togglePasswordVisibility2()"
+        name="{{ showPassword2 ? 'eye' : 'eye-off' }}"
+      ></ion-icon>
+    </form>
+  </div>
+
+  <button button-section type="button" (click)="datosForm()">
+    <ion-icon
+      name="person-add-outline"
+      size="default"
+      color="primary"
+    ></ion-icon>
+    Crear
+  </button>
+</app-container-card>
