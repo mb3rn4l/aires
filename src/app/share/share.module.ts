@@ -7,15 +7,27 @@ import { RouterModule } from '@angular/router';
 import { ValidatorPasswordDirective } from './directives/confirm-password/validator-password.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { NumericInputDirective } from './directives/numeric-input/numeric-input.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
-  declarations: [ ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective, NumericInputDirective],
-  exports:[ContainerCardComponent, HeaderLayoutComponent, ValidatorPasswordDirective, NumericInputDirective]
+  declarations: [
+    ContainerCardComponent,
+    HeaderLayoutComponent,
+    ValidatorPasswordDirective,
+    NumericInputDirective,
+  ],
+  exports: [
+    ContainerCardComponent,
+    HeaderLayoutComponent,
+    ValidatorPasswordDirective,
+    NumericInputDirective,
+  ],
 })
 export class SharePageModule {}
