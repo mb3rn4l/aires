@@ -9,20 +9,27 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class MinuteService {
-  private apiUrlBase =
-    'https://us-central1-cali-aires-dev.cloudfunctions.net/app'; // URL to web api
+  private apiUrlBase = '/cali-aires-dev/us-central1/app';
+  //'https://us-central1-cali-aires-dev.cloudfunctions.net/app';
 
   constructor(private http: HttpClient) {}
 
   // Método para obtener todos los datos de la API
   getAllMinuteData(numInforme: string): Observable<Minute> {
-    const apiUrl = `${this.apiUrlBase}/api/minutes/${numInforme}`;
-    return of(data);
+    const apiUrl = `${this.apiUrlBase}/api/minutes2/${numInforme}`;
+    /*   return of(data); */
 
-    /*  return this.http.get<Minute>(apiUrl).pipe(
-      catchError((error) => {
-        throw error;
-      })
-    ); */
+    return this.http
+      .get<Minute>(
+        `http://localhost:5001/cali-aires-dev/us-central1/app/api/minutes2/${numInforme}`,
+        {
+          headers: { 'Content-Type': 'application/pdf' },
+        }
+      )
+      .pipe(
+        catchError((error) => {
+          throw error;
+        })
+      );
   }
 }

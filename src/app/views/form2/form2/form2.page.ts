@@ -5,27 +5,23 @@ import { PdfService } from 'src/app/service/pdf/pdf.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.page.html',
-  styleUrls: ['./form.page.scss'],
+  selector: 'app-form2',
+  templateUrl: './form2.page.html',
+  styleUrls: ['./form2.page.scss'],
 })
-export class FormPage implements OnInit {
+export class Form2Page implements OnInit {
   minuteData: Minute | undefined = undefined;
   id: number;
-
   @ViewChild('child1', { static: false }) myContainer!: any;
 
   constructor(
     private minuteService: MinuteService,
     private pdfService: PdfService,
     private route: ActivatedRoute,
-    private router: Router,
-    private http: HttpClient
+    private router: Router
   ) {}
-
   shouldMark(value: string, targetValue: string): boolean {
     return value === targetValue;
   }
@@ -59,10 +55,5 @@ export class FormPage implements OnInit {
           console.log('No se proporcionó un número de informe en la URL.');
         }
       });
-  }
-
-  generatePDF() {
-    /*  const DATA = this.myContainer.el;
-    this.pdfService.generatePDF(DATA); */
   }
 }
