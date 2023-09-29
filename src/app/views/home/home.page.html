@@ -1,104 +1,189 @@
+<h1>Hola!</h1>
+<hr />
 
+<ion-grid>
+  <ion-row size="12">
+    <ion-col size-md="4" size-sm="12">
+      <a routerLink="/create-report" class="nav-link">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-icon
+                name="document-attach-outline"
+                size="default"
+                color="primary"
+              ></ion-icon>
+              Crear Informe
+            </ion-card-title>
+          </ion-card-header>
 
-  <ion-grid>
-    <ion-row  style="margin-top: 30px; margin-bottom: 50px;">
-      <ion-col size-md="12" size-sm="12" style="margin-left: 10px">
-        <ion-item-divider color="default">
-          <ion-label><h1>Gestion de informes</h1></ion-label>
-        </ion-item-divider>
-        
-      </ion-col>
-    
-
-      <ion-col size-md="4" size-sm="12">
-        <a routerLink="/create-report" class="nav-link" style="text-decoration: none;">
-          <ion-card style="background-color: white;">
-            <ion-card-content>
-              <ion-row>
-              <ion-col size-md="3" size-sm="12" style="border-right: 1px solid #ccc;">
-                <ion-icon name="create-outline"  color="primary" style="font-size: 70px !important;"></ion-icon>
-              </ion-col>
-      
-              <ion-col size-md="8" size-sm="12" style="display: flex; align-items: center;">
-                <h1 style="margin-left: auto; margin-right: auto;">Crear Informe</h1>
-              </ion-col>
-            </ion-row> 
-              
-            </ion-card-content>
-          </ion-card>
-        </a>
-      </ion-col>
-
-
-      <ion-col size-md="4" size-sm="12">
-        <a routerLink="#" class="nav-link" style="text-decoration: none;">
-          <ion-card style="background-color: white;">
-            <ion-card-content>
-              <ion-row>
-              <ion-col size-md="3" size-sm="12" style="border-right: 1px solid #ccc;">
-                <ion-icon name="document-text-outline"  color="primary" style="font-size: 70px !important;"></ion-icon>
-              </ion-col>
-      
-              <ion-col size-md="8" size-sm="12" style="display: flex; align-items: center;">
-                <h1 style="margin-left: auto; margin-right: auto;">Informes guardados</h1>
-              </ion-col>
-            </ion-row> 
-              
-            </ion-card-content>
-          </ion-card>
-        </a>
-      </ion-col>
-      
-
-
-<ion-col size-md="4" size-sm="12">
-  <a routerLink="/download-minute" class="nav-link" style="text-decoration: none;">
-    <ion-card style="background-color: white;">
-      <ion-card-content>
-        <ion-row>
-        <ion-col size-md="3" size-sm="12" style="border-right: 1px solid #ccc;">
-          <ion-icon name="cloud-download-outline"  color="primary" style="font-size: 70px !important;"></ion-icon>
-        </ion-col>
-
-        <ion-col size-md="8" size-sm="12" style="display: flex; align-items: center; text-align: center;">
-          <h1 style="margin-left: auto; margin-right: auto;">Descarga tu informe</h1>
-        </ion-col>
-      </ion-row> 
-        
-      </ion-card-content>
-    </ion-card>
-  </a>
-</ion-col>
-    </ion-row>
-    
-    <ion-row *ngIf="isAdmin">
-      <ion-col size-md="12" size-sm="12" style="margin-left: 10px;">
-
-        <ion-item-divider color="default">
-          <ion-label><h1>Gestion de usuarios</h1></ion-label>
-        </ion-item-divider>
-      </ion-col>
-      
-      <ion-col size-md="4" size-sm="12">
-        <a routerLink="/create-user" class="nav-link" style="text-decoration: none;">
-          <ion-card style="background-color: white;">
-            <ion-card-content>
-              <ion-row>
-              <ion-col size-md="3" size-sm="12" style="border-right: 1px solid #ccc;">
-                <ion-icon name="person-add-outline"  color="primary" style="font-size: 70px !important;"></ion-icon>
+          <ion-grid>
+            <ion-row style="margin-top: 30px; margin-bottom: 50px">
+              <ion-col size-md="12" size-sm="12" style="margin-left: 10px">
+                <ion-item-divider color="default">
+                  <ion-label><h1>Gestion de informes</h1></ion-label>
+                </ion-item-divider>
               </ion-col>
 
-              <ion-col size-md="8" size-sm="12" style="display: flex; align-items: center;">
-                <h1 style="margin-left: auto; margin-right: auto;">Crear Usuarios</h1>
+              <ion-col size-md="4" size-sm="12">
+                <a
+                  routerLink="/create-report"
+                  class="nav-link"
+                  style="text-decoration: none"
+                >
+                  <ion-card style="background-color: white">
+                    <ion-card-content>
+                      <ion-row>
+                        <ion-col
+                          size-md="3"
+                          size-sm="12"
+                          style="border-right: 1px solid #ccc"
+                        >
+                          <ion-icon
+                            name="create-outline"
+                            color="primary"
+                            style="font-size: 70px !important"
+                          ></ion-icon>
+                        </ion-col>
+
+                        <ion-col
+                          size-md="8"
+                          size-sm="12"
+                          style="display: flex; align-items: center"
+                        >
+                          <h1 style="margin-left: auto; margin-right: auto">
+                            Crear Informe
+                          </h1>
+                        </ion-col>
+                      </ion-row>
+                    </ion-card-content>
+                  </ion-card>
+                </a>
               </ion-col>
-            </ion-row> 
-              
-            </ion-card-content>
-          </ion-card>
-        </a>
-      </ion-col>
-      
-    </ion-row>
 
-  </ion-grid>
+              <ion-col size-md="4" size-sm="12">
+                <a
+                  routerLink="#"
+                  class="nav-link"
+                  style="text-decoration: none"
+                >
+                  <ion-card style="background-color: white">
+                    <ion-card-content>
+                      <ion-row>
+                        <ion-col
+                          size-md="3"
+                          size-sm="12"
+                          style="border-right: 1px solid #ccc"
+                        >
+                          <ion-icon
+                            name="document-text-outline"
+                            color="primary"
+                            style="font-size: 70px !important"
+                          ></ion-icon>
+                        </ion-col>
 
+                        <ion-col
+                          size-md="8"
+                          size-sm="12"
+                          style="display: flex; align-items: center"
+                        >
+                          <h1 style="margin-left: auto; margin-right: auto">
+                            Informes guardados
+                          </h1>
+                        </ion-col>
+                      </ion-row>
+                    </ion-card-content>
+                  </ion-card>
+                </a>
+              </ion-col>
+
+              <ion-col size-md="4" size-sm="12">
+                <a
+                  routerLink="/download-minute"
+                  class="nav-link"
+                  style="text-decoration: none"
+                >
+                  <ion-card style="background-color: white">
+                    <ion-card-content>
+                      <ion-row>
+                        <ion-col
+                          size-md="3"
+                          size-sm="12"
+                          style="border-right: 1px solid #ccc"
+                        >
+                          <ion-icon
+                            name="cloud-download-outline"
+                            color="primary"
+                            style="font-size: 70px !important"
+                          ></ion-icon>
+                        </ion-col>
+
+                        <ion-col
+                          size-md="8"
+                          size-sm="12"
+                          style="
+                            display: flex;
+                            align-items: center;
+                            text-align: center;
+                          "
+                        >
+                          <h1 style="margin-left: auto; margin-right: auto">
+                            Descarga tu informe
+                          </h1>
+                        </ion-col>
+                      </ion-row>
+                    </ion-card-content>
+                  </ion-card>
+                </a>
+              </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="isAdmin">
+              <ion-col size-md="12" size-sm="12" style="margin-left: 10px">
+                <ion-item-divider color="default">
+                  <ion-label><h1>Gestion de usuarios</h1></ion-label>
+                </ion-item-divider>
+              </ion-col>
+
+              <ion-col size-md="4" size-sm="12">
+                <a
+                  routerLink="/create-user"
+                  class="nav-link"
+                  style="text-decoration: none"
+                >
+                  <ion-card style="background-color: white">
+                    <ion-card-content>
+                      <ion-row>
+                        <ion-col
+                          size-md="3"
+                          size-sm="12"
+                          style="border-right: 1px solid #ccc"
+                        >
+                          <ion-icon
+                            name="person-add-outline"
+                            color="primary"
+                            style="font-size: 70px !important"
+                          ></ion-icon>
+                        </ion-col>
+
+                        <ion-col
+                          size-md="8"
+                          size-sm="12"
+                          style="display: flex; align-items: center"
+                        >
+                          <h1 style="margin-left: auto; margin-right: auto">
+                            Crear Usuarios
+                          </h1>
+                        </ion-col>
+                      </ion-row>
+                    </ion-card-content>
+                  </ion-card>
+                </a>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card></a
+      ></ion-col
+    ></ion-row
+  ></ion-grid
+>

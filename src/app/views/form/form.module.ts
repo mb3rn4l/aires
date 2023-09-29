@@ -14,8 +14,8 @@ import { FormPage } from './form.page';
     IonicModule,
     FormPageRoutingModule,
     SharePageModule,
-    HttpClientModule   
+    HttpClientModule,
   ],
-  declarations: [FormPage]
+  declarations: [FormPage],
 })
 export class FormPageModule {}

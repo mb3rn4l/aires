@@ -10,6 +10,13 @@
       labelPlacement="floating"
       [(ngModel)]="numInforme"
     ></ion-input>
+    <br />
+    <div align="center" *ngIf="!isAuthenticated">
+      <re-captcha
+        [siteKey]="siteKey"
+        (resolved)="captchaResolved2($event)"
+      ></re-captcha>
+    </div>
   </div>
   <button button-section type="button" (click)="descargarM()">Descargar</button>
 </app-container-card>

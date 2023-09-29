@@ -12,9 +12,8 @@ import { SharePageModule } from 'src/app/share/share.module';
     FormsModule,
     IonicModule,
     CreateUserPageRoutingModule,
-    SharePageModule
+    SharePageModule,
   ],
-  declarations: [CreateUserPage ]
+  declarations: [CreateUserPage],
 })
-
 export class CreateUserPageModule {}

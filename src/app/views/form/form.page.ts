@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./form.page.scss'],
 })
 export class FormPage implements OnInit {
-  minuteData: Minute | undefined = undefined; // Inicializa con null
+  minuteData: Minute | undefined = undefined;
   id: number;
 
   @ViewChild('child1', { static: false }) myContainer!: any;
@@ -36,26 +36,25 @@ export class FormPage implements OnInit {
           this.minuteService.getAllMinuteData(numInforme).subscribe(
             (data: Minute) => {
               this.minuteData = data;
-              // Imprimir el código de estado 200 en caso de éxito
-              // console.log('Código de estado:', 200);
+
+              console.log('Código de estado:', 200);
             },
             (error) => {
               console.error('Error al obtener datos', error);
               if (error && error.status) {
-                // Imprimir el código de estado del error en la consola
-                // console.log('Código de estado:', error.status);
+                console.log('Código de estado:', error.status);
                 if (error.status === 500) {
-                  // Si el código de estado es 500, muestra un mensaje específico de error
-                  // console.log('No es posible consultar el informe tecnico en estos momentos');
+                  console.log(
+                    'No es posible consultar el informe tecnico en estos momentos'
+                  );
                 }
               } else {
-                // En caso de un error sin un código de estado, muestra un mensaje genérico
-                // console.log('Error inesperado:', error);
+                console.log('Error inesperado:', error);
               }
             }
           );
         } else {
-          // console.log('No se proporcionó un número de informe en la URL.');
+          console.log('No se proporcionó un número de informe en la URL.');
         }
       });
   }

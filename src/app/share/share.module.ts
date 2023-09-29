@@ -7,11 +7,16 @@ import { RouterModule } from '@angular/router';
 import { ValidatorPasswordDirective } from './directives/confirm-password/validator-password.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { NumericInputDirective } from './directives/numeric-input/numeric-input.directive';
-import { ReactiveStore } from '../app-store';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, IonicModule, RouterModule, HttpClientModule],
-  // providers: [ReactiveStore],
+  imports: [
+    CommonModule,
+    IonicModule,
+    RouterModule,
+    HttpClientModule,
+    FormsModule,
+  ],
   declarations: [
     ContainerCardComponent,
     HeaderLayoutComponent,

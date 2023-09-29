@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveStore } from './app-store';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +32,7 @@ import { ReactiveStore } from './app-store';
   ],
   providers: [
     ReactiveStore,
+    RecaptchaModule,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
