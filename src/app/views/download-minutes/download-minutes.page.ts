@@ -47,36 +47,45 @@ export class DownloadMinutesPage implements OnInit {
     let loading = await this.loadingCtrl.create();
     await loading.present();
 
+    window.open(
+      `http://localhost:5001/cali-aires-dev/us-central1/app/api/minutes2/${this.numInforme}`,
+      '_blank'
+    );
+
     // Espera un corto período de tiempo antes de continuar la suscripción
-    setTimeout(() => {
-      this.minuteService
-        .getAllMinuteData(this.numInforme)
-        .subscribe(
-          (data: Minute) => {
-            if (data) {
-              console.log('Código de estado:', 200);
-              this.router.navigate([`/form/${this.numInforme}`]);
-            } else {
-              alert('Error: No devolvió datos válidos');
-            }
-          },
-          (error) => {
-            if (error && error.status) {
-              console.log('Código de estado:', error.status);
-              if (error.status === 500) {
-                alert(
-                  'No es posible consultar el informe técnico en estos momentos'
-                );
-              } else {
-                alert('Número de informe no encontrado, vuelve a intentarlo');
-              }
-            }
-          }
-        )
-        .add(() => {
-          loading.dismiss();
-        });
-    }, 1000); // Espera 1 segundo antes de continuar, puedes ajustar el tiempo según sea necesario
+    // setTimeout(() => {
+    //   this.minuteService
+    //     .getAllMinuteData(this.numInforme)
+    //     .subscribe(
+    //       (data: Minute) => {
+    //         if (data) {
+    //           console.log('Código de estado:', 200);
+
+    //           console.log('data', data);
+    //           //this.router.navigate([`/form/${this.numInforme}`]);
+    //         } else {
+    //           alert('Error: No devolvió datos válidos');
+    //         }
+    //       },
+    //       (error) => {
+    //         console.log('error', error);
+
+    //         if (error && error.status) {
+    //           console.log('Código de estado:', error.status);
+    //           if (error.status === 500) {
+    //             alert(
+    //               'No es posible consultar el informe técnico en estos momentos'
+    //             );
+    //           } else {
+    //             alert('Número de informe no encontrado, vuelve a intentarlo');
+    //           }
+    //         }
+    //       }
+    //     )
+    //     .add(() => {
+    //       loading.dismiss();
+    //     });
+    // }, 1000); // Espera 1 segundo antes de continuar, puedes ajustar el tiempo según sea necesario
   }
 
   //metodos de validacion de campos
