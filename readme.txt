@@ -48,5 +48,10 @@ Notas de instalación recaptcha
             ) {
                 this.siteKey;
             }
+
+
+Notas de instalación api rest pdf
+Ingresar en la carpeta de functions y generar el comando $ npm install puppeteer
+
                     
 
