@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DownloadMinutasPage } from './download-minutes.page';
+import { DownloadMinutasPage } from './download-minute.page';
 
 describe('DownloadMinutasPage', () => {
   let component: DownloadMinutasPage;

@@ -1,0 +1,34 @@
+<app-container-card>
+  <h3 title>Consulta tu informe tecnico</h3>
+
+  <form #downloadMinuteForm="ngForm" form-section (ngSubmit)="onSubmit()">
+    <div>
+      <ion-input
+        required
+        type="text"
+        fill="outline"
+        label="Numero de informe"
+        labelPlacement="floating"
+        [(ngModel)]="model.minuteCode"
+        name="minuteCode"
+      ></ion-input>
+      <br />
+      <div align="center" *ngIf="(userData$ | async) == null">
+        <re-captcha
+          [(ngModel)]="model.captcha"
+          name="captcha"
+          required
+          [siteKey]="siteKey"
+        ></re-captcha>
+      </div>
+    </div>
+    <br />
+    <ion-button
+      type="submit"
+      [disabled]="!downloadMinuteForm.form.valid"
+      color="medium"
+    >
+      Descargar
+    </ion-button>
+  </form>
+</app-container-card>
