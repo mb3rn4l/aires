@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
+import { catchError, of } from 'rxjs';
+
 import { ReactiveStore } from 'src/app/app-store';
-import { DataUserForms } from 'src/app/share/models/dataUserForm';
 
 @Component({
   selector: 'app-home',
@@ -10,12 +12,26 @@ import { DataUserForms } from 'src/app/share/models/dataUserForm';
 export class HomePage {
   isAdmin: boolean;
 
-  constructor(private reactiveStore: ReactiveStore) {}
+  constructor(
+    private reactiveStore: ReactiveStore,
+    private loadingCtrl: LoadingController
+  ) {}
 
   ngOnInit() {
-    this.reactiveStore.select('user').subscribe((user: any) => {
-      this.isAdmin = user ? user.isAdmin : false;
-      console.log('isAdmin', this.isAdmin);
-    });
+    this.initialize();
+  }
+
+  private async initialize() {
+    const loading = await this.loadingCtrl.create();
+    loading.present();
+
+    this.reactiveStore
+      .select('user')
+      .pipe(catchError(() => of(null)))
+      .subscribe((user: any) => {
+        this.isAdmin = user ? user.isAdmin : false;
+        console.log('isAdmin', this.isAdmin);
+        loading.dismiss();
+      });
   }
 }
