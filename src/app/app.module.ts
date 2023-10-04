@@ -13,14 +13,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveStore } from './app-store';
-// import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    // RecaptchaModule,
-    // RecaptchaFormsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule,

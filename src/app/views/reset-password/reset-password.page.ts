@@ -1,20 +1,18 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ResetUserPassword } from 'src/app/share/models/resetUserPassword';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { ResetUserPassword } from 'src/app/share/models/resetUserPassword';
 
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.page.html',
   styleUrls: ['./reset-password.page.scss'],
 })
-export class ResetPasswordPage implements OnInit {
-  public model2: ResetUserPassword = { email: '' };
-
-  @ViewChild('RPasswordForm') RPasswordForm: NgForm;
+export class ResetPasswordPage {
+  public model: ResetUserPassword = { email: '' };
 
   constructor(
     private router: Router,
@@ -23,36 +21,20 @@ export class ResetPasswordPage implements OnInit {
     private authService: AuthService
   ) {}
 
-  async onClickSubmitReset() {
-    console.log(this.model2);
-    if (this.RPasswordForm.valid) {
-      let loading = await this.loadingCtrl.create();
-      loading.present();
-      try {
-        await this.authService.forgotPassword(this.model2.email);
-        this.router.navigate(['./login']);
-        await loading.dismiss();
-      } catch (error) {
-        await loading.dismiss();
-        const alert = await this.alertController.create({
-          message: 'algo salio mal',
-          buttons: ['OK'],
-        });
-        await alert.present();
-      }
-    } else {
-      this.showEmptyFieldsAlert();
+  async onSubmit() {
+    let loading = await this.loadingCtrl.create();
+    loading.present();
+    try {
+      await this.authService.forgotPassword(this.model.email);
+      this.router.navigate(['./login']);
+      await loading.dismiss();
+    } catch (error) {
+      await loading.dismiss();
+      const alert = await this.alertController.create({
+        message: 'No se pudo enviar el correo',
+        buttons: ['OK'],
+      });
+      await alert.present();
     }
   }
-
-  async showEmptyFieldsAlert() {
-    const alert = await this.alertController.create({
-      message: 'Por favor, completa todos los campos.',
-      buttons: ['OK'],
-    });
-
-    await alert.present();
-  }
-
-  ngOnInit() {}
 }
