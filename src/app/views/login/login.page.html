@@ -1,10 +1,8 @@
-<!-- <ion-content [fullscreen]="true" class="ion-padding" > -->
-
 <app-container-card>
   <h3 title>Inicia Sesión</h3>
 
-  <div form-section>
-    <form #loginForm="ngForm">
+  <form #loginForm="ngForm" form-section (ngSubmit)="onSubmit()">
+    <div>
       <ion-input
         required
         pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
@@ -13,9 +11,8 @@
         label="Email*"
         labelPlacement="floating"
         errorText="El correo electrónico no es válido"
-        [ngModel]="model.email"
+        [(ngModel)]="model.email"
         name="email"
-        #email="ngModel"
       >
       </ion-input>
 
@@ -28,20 +25,17 @@
         labelPlacement="floating"
         errorText="password es obligatorio"
         placeholder="Password"
-        [ngModel]="model.password"
+        [(ngModel)]="model.password"
         name="password"
-        #password="ngModel"
       >
       </ion-input>
-    </form>
-    <a routerLink="/reset-password" class="nav-link">
-      <p align="center">No recuerdas tu contraseña ?</p>
-    </a>
-  </div>
+      <a routerLink="/reset-password" class="nav-link">
+        <p align="center">No recuerdas tu contraseña ?</p>
+      </a>
+    </div>
 
-  <button button-section type="submit" (click)="onClickSubmit()">
-    <ion-icon name="log-in-outline" size="default" color="primary"></ion-icon>
-    Ingresar
-  </button>
+    <ion-button type="submit" [disabled]="!loginForm.form.valid" color="medium">
+      Ingresar
+    </ion-button>
+  </form>
 </app-container-card>
-<!-- </ion-content> -->

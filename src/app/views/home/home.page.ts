@@ -27,7 +27,7 @@ export class HomePage {
 
     this.reactiveStore
       .select('user')
-      .pipe(catchError(() => of(null)))
+      .pipe(catchError(() => of(undefined)))
       .subscribe((user: any) => {
         this.isAdmin = user ? user.isAdmin : false;
         console.log('isAdmin', this.isAdmin);
