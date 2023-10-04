@@ -1,4 +1,4 @@
-import { Minute } from './../../share/models/minuteData';
+import { Minute } from '../../share/models/minuteData';
 import { Injectable } from '@angular/core';
 import {
   AngularFireList,
@@ -9,21 +9,20 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SaveMinutesService {
   bookingListRef: AngularFireList<any>;
   bookingRef: AngularFireObject<any>;
 
-  constructor(private angularFirestore: AngularFirestore) { }
+  constructor(private angularFirestore: AngularFirestore) {}
 
   addMinuteData(minute: Minute) {
     return this.angularFirestore.collection('minutes').add(minute);
   }
 
-/*   addMinuteData(CreateMinute: Minute) {
+  /*   addMinuteData(CreateMinute: Minute) {
     const userRef: AngularFirestoreDocument<any> = this.angularFirestore.doc(
       `minutes/${CreateMinute.equipment_code}`
     );
