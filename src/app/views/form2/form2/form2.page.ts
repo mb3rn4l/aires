@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Minute } from 'src/app/share/models/minuteData';
-import { MinuteService } from 'src/app/service/minute/minute-service';
-import { PdfService } from 'src/app/service/pdf/pdf.service';
+import { MinuteService } from 'src/app/services/minute/minute-service';
+import { PdfService } from 'src/app/services/pdf/pdf.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';

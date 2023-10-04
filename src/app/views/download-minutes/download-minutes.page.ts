@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { MinuteService } from 'src/app/service/minute/minute-service';
+import { MinuteService } from 'src/app/services/minute/minute-service';
 import { Minute } from 'src/app/share/models/minuteData';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
@@ -112,6 +112,6 @@ export class DownloadMinutesPage implements OnInit {
   }
 
   ngOnInit() {
-    this.isAuthenticated = this.authService.isLoggedIn;
+    this.isAuthenticated = false; //this.authService.isLoggedIn;
   }
 }

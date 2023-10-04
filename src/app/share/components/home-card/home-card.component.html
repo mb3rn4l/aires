@@ -1,0 +1,15 @@
+<a routerLink="{{ redirect }}" class="nav-link">
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size-md="3" size-sm="12" class="icon-col">
+          <ng-content select="[icon]"></ng-content>
+        </ion-col>
+
+        <ion-col size-md="9" size-sm="12" class="title-col">
+          <ng-content select="[title]"></ng-content>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</a>

@@ -1,0 +1,26 @@
+a {
+  text-decoration: none
+}
+
+ion-card {
+  background-color: white
+}
+
+.icon-col {
+  border-right: 1px solid #ccc; 
+  text-align: center
+}
+
+.title-col{
+  display: flex;
+  align-items: center
+}
+
+:host ::ng-deep [icon] {
+  font-size: 70px !important
+}
+
+:host ::ng-deep [title] {
+  margin-left: auto; 
+  margin-right: auto
+}

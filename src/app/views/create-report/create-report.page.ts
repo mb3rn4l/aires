@@ -1,4 +1,4 @@
-import { SaveMinutesService } from './../../service/saveMinutes/save-minutes.service';
+import { SaveMinutesService } from '../../services/saveMinutes/save-minutes.service';
 import {
   Component,
   OnInit,
