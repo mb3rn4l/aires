@@ -28,8 +28,8 @@ const routes: Routes = [
       {
         path: 'download-minute',
         loadChildren: () =>
-          import('./views/download-minutes/download-minutes.module').then(
-            (m) => m.DownloadMinutesPageModule
+          import('./views/download-minute/download-minute.module').then(
+            (m) => m.DownloadMinutePageModule
           ),
       },
       {

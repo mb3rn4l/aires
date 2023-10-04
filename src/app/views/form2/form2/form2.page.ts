@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Minute } from 'src/app/share/models/minuteData';
-import { MinuteService } from 'src/app/services/minute/minute-service';
+import { MinuteService } from 'src/app/services/minute/minute.service';
 import { PdfService } from 'src/app/services/pdf/pdf.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -31,7 +31,7 @@ export class Form2Page implements OnInit {
       .pipe(map((paramMap) => paramMap.get('id')))
       .subscribe((numInforme) => {
         if (numInforme) {
-          this.minuteService.getAllMinuteData(numInforme).subscribe(
+          this.minuteService.requestMinute(numInforme).subscribe(
             (data: Minute) => {
               this.minuteData = data;
 

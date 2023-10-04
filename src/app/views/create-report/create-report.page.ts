@@ -1,4 +1,3 @@
-import { SaveMinutesService } from '../../services/saveMinutes/save-minutes.service';
 import {
   Component,
   OnInit,
@@ -11,6 +10,7 @@ import { data } from 'src/app/mockMinutesData';
 import { NgForm } from '@angular/forms';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { MinuteService } from 'src/app/services/minute/minute.service';
 
 @Component({
   selector: 'app-create-report',
@@ -26,7 +26,7 @@ export class CreateReportPage implements OnInit {
   constructor(
     private loadingCtrl: LoadingController,
     private router: Router,
-    private saveMinutesService: SaveMinutesService
+    private minutesService: MinuteService
   ) {}
 
   async submitForm() {
@@ -46,7 +46,7 @@ export class CreateReportPage implements OnInit {
     if (formulariosValidos) {
       try {
         // Llama al servicio para guardar los datos
-        await this.saveMinutesService.addMinuteData(this.minute);
+        await this.minutesService.saveInFirestore(this.minute);
 
         // Todos los formularios son válidos, puedes continuar con el procesamiento
         alert('Formulario enviado correctamente');

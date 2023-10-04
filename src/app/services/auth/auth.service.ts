@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 
 import { CreateUserForm } from './../../share/models/createUserForm';
 import { LoginForm } from 'src/app/share/models/loginForm';
-import { DataUserForms } from 'src/app/share/models/dataUserForm';
-import { SaveUserService } from 'src/app/services/save/save-user.service';
+import { FirestoreUser } from 'src/app/share/models/firestoreUser';
+import { UserService } from 'src/app/services/user/user.service';
 
 import { Observable, map, of, switchMap, tap } from 'rxjs';
 import { ReactiveStore } from 'src/app/app-store';
@@ -41,14 +41,9 @@ export class AuthService {
     private reactiveStore: ReactiveStore,
     private angularFirestore: AngularFirestore,
     private angularFireAuth: AngularFireAuth,
-    private saveInfoUser: SaveUserService
+    private saveInfoUser: UserService
   ) {
     this.authState$.subscribe();
-
-    //   (result) => {
-    //   console.log('result', result);
-    //   this.reactiveStore.set('user', result);
-    // });
   }
 
   signIn(loginForm: LoginForm): Promise<any> {
@@ -58,35 +53,31 @@ export class AuthService {
     );
   }
 
-  getUserProfile(uid: string): Observable<DataUserForms | undefined> {
+  getUserProfile(uid: string): Observable<FirestoreUser | undefined> {
     return this.angularFirestore
-      .doc<DataUserForms>('users/' + uid)
+      .doc<FirestoreUser>('users/' + uid)
       .valueChanges();
   }
 
   // Sign up with email/password
   async signUp(createForm: CreateUserForm): Promise<any> {
-    try {
-      const originalUser = await this.angularFireAuth.currentUser;
+    const originalUser = await this.angularFireAuth.currentUser;
 
-      const result = await this.angularFireAuth.createUserWithEmailAndPassword(
-        createForm.email,
-        createForm.password
-      );
+    const result = await this.angularFireAuth.createUserWithEmailAndPassword(
+      createForm.email,
+      createForm.password
+    );
 
-      const userDataa: DataUserForms = {
-        id: result.user!.uid!,
-        name: createForm.name,
-        email: createForm.email,
-        isAdmin: false,
-      };
+    const userData: FirestoreUser = {
+      id: result.user!.uid!,
+      name: createForm.name,
+      email: createForm.email,
+      isAdmin: false,
+    };
 
-      await this.saveInfoUser.setUserData(userDataa);
+    await this.saveInfoUser.saveUserInFirestore(userData);
 
-      await this.angularFireAuth.updateCurrentUser(originalUser);
-    } catch (error: any) {
-      window.alert(error.message);
-    }
+    await this.angularFireAuth.updateCurrentUser(originalUser);
   }
 
   checkUser() {
@@ -101,21 +92,16 @@ export class AuthService {
   }
 
   // Sign out
-  signOut() {
-    // console.log('this.signOut');
-    return this.angularFireAuth.signOut().then(() => {
-      this.reactiveStore.set('user', null);
-    });
+  async signOut() {
+    await this.angularFireAuth.signOut();
+    this.reactiveStore.set('user', null);
   }
 
-  async forgotPassword(RPasswordForm: string): Promise<any> {
-    try {
-      await this.angularFireAuth.sendPasswordResetEmail(RPasswordForm);
-      window.alert(
-        'Correo electrónico de restablecimiento de contraseña enviado, revisa tu bandeja de entrada.'
-      );
-    } catch (error) {
-      window.alert(error);
-    }
+  async forgotPassword(resetPasswordForm: string): Promise<any> {
+    await this.angularFireAuth.sendPasswordResetEmail(resetPasswordForm);
+
+    // window.alert(
+    //   'Correo electrónico de restablecimiento de contraseña enviado, revisa tu bandeja de entrada.'
+    // );
   }
 }

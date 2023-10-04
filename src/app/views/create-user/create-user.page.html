@@ -1,17 +1,16 @@
 <app-container-card>
   <h3 title>Crear Usuario</h3>
 
-  <div form-section>
-    <form #createForm="ngForm">
+  <form #createForm="ngForm" form-section (ngSubmit)="onSubmit()">
+    <div>
       <ion-input
         required
         type="text"
         fill="outline"
-        label="Name"
+        label="Nombre"
         labelPlacement="floating"
-        [ngModel]="model.name"
+        [(ngModel)]="model.name"
         name="name"
-        #name="ngModel"
       >
       </ion-input>
       <br />
@@ -19,24 +18,23 @@
         required
         type="email"
         fill="outline"
-        label="Email"
+        label="Correo electrónico"
         pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
         labelPlacement="floating"
         errorText="El correo electrónico no es válido"
-        [ngModel]="model.email"
+        [(ngModel)]="model.email"
         name="email"
-        #email="ngModel"
       >
       </ion-input>
-
       <br />
       <ion-input
         required
+        minlength="8"
         [type]="showPassword ? 'text' : 'password'"
         fill="outline"
-        label="Password"
+        label="Contraseña"
         labelPlacement="floating"
-        errorText="password es obligatorio"
+        [errorText]="password.errors?.['minlength'] ? 'La contraseña debe tener al menos 8 caracteres' : 'la contraseña es obligatorio'"
         [(ngModel)]="model.password"
         name="password"
         #password="ngModel"
@@ -52,13 +50,14 @@
 
       <ion-input
         required
+        minlength="8"
         [type]="showPassword2 ? 'text' : 'password'"
         fill="outline"
-        label="Confirm Password"
+        label="Confirmar contraseña"
         labelPlacement="floating"
-        errorText="La contraseña no coincide"
+        [errorText]="confirmPassword.errors?.['minlength'] ? 'La contraseña debe tener al menos 8 caracteres' : confirmPassword.errors?.['required'] ? 'la contraseña es obligatorio' : 'La contraseña no coincide'"
         appValidatorPassword="password"
-        [ngModel]="model.confirmPassword"
+        [(ngModel)]="model.confirmPassword"
         name="confirmPassword"
         #confirmPassword="ngModel"
       >
@@ -68,15 +67,15 @@
         (click)="togglePasswordVisibility2()"
         name="{{ showPassword2 ? 'eye' : 'eye-off' }}"
       ></ion-icon>
-    </form>
-  </div>
+    </div>
 
-  <button button-section type="button" (click)="datosForm()">
-    <ion-icon
-      name="person-add-outline"
-      size="default"
-      color="primary"
-    ></ion-icon>
-    Crear
-  </button>
+    <br />
+    <ion-button
+      type="submit"
+      [disabled]="!createForm.form.valid"
+      color="medium"
+    >
+      Crear
+    </ion-button>
+  </form>
 </app-container-card>

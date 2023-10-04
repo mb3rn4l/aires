@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
@@ -10,7 +10,7 @@ import { LoginForm } from 'src/app/share/models/loginForm';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   public model: LoginForm = { email: '', password: '' };
 
   constructor(
@@ -19,8 +19,6 @@ export class LoginPage implements OnInit {
     private alertController: AlertController,
     private authService: AuthService
   ) {}
-
-  ngOnInit() {}
 
   async onSubmit() {
     let loading = await this.loadingCtrl.create();
