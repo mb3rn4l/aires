@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
 import { ReactiveStore } from '../../../app-store';
 
 @Component({
@@ -15,25 +14,17 @@ export class HeaderLayoutComponent {
   constructor(
     private authService: AuthService,
     private reactiveStore: ReactiveStore,
-    private router: Router,
-    private loadingCtrl: LoadingController
+    private router: Router
   ) {}
 
+  ngOnInit() {}
+
+  isLoginRoute() {
+    return '/login' === this.router.url;
+  }
+
   onClickSignOut() {
-    // const loading = await this.loadingCtrl.create({
-    //   message: '',
-    // });
-
-    // try {
-    // await loading.present();
-
     this.authService.signOut();
-    // this.authStateSubsc.unsubscribe();
-    // } catch (error) {
-    // Handle any errors here
-    // } finally {
     this.router.navigate(['/login']);
-    // await loading.dismiss();
-    // }
   }
 }

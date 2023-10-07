@@ -1,0 +1,14 @@
+ion-item {
+    --background: white;
+}
+
+ion-list{
+    --background: white;
+}
+
+.empty{
+    display: flex;
+    min-height: 200px;
+    align-items: center;
+    justify-content: center;
+}

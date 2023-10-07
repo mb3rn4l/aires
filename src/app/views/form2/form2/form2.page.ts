@@ -31,7 +31,7 @@ export class Form2Page implements OnInit {
       .pipe(map((paramMap) => paramMap.get('id')))
       .subscribe((numInforme) => {
         if (numInforme) {
-          this.minuteService.requestMinute(numInforme).subscribe(
+          this.minuteService.requestMinutePDF(numInforme).subscribe(
             (data: Minute) => {
               this.minuteData = data;
 

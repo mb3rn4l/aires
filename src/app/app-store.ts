@@ -6,7 +6,7 @@ import { State } from './share/models/storeState';
 
 const state: State = {
   user: undefined,
-  minutes: undefined,
+  minutes: [],
 };
 
 export class ReactiveStore {

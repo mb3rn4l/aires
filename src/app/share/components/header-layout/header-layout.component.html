@@ -2,17 +2,17 @@
   <ion-toolbar color="primary">
     <ion-grid>
       <ion-row>
-        <ion-col>
+        <ion-col class="brand">
           <ion-item color="primary" lines="none">
-            <ion-thumbnail slot="start">
-              <a routerLink="/home" class="nav-link">
+            <a routerLink="/home" class="nav-link header-link">
+              <ion-thumbnail slot="start">
                 <img alt="logo" src="assets/logo_cali_airesrm.png" />
-              </a>
-            </ion-thumbnail>
-            <ion-label style="font-size: x-large">Cali Aires</ion-label>
+              </ion-thumbnail>
+              <ion-label style="font-size: x-large">Cali Aires</ion-label>
+            </a>
           </ion-item>
         </ion-col>
-        <ion-col *ngIf="(userData$ | async) != null">
+        <ion-col *ngIf="(userData$ | async) != null; else elseBlock">
           <ion-item color="primary" lines="none" class="ion-float-right">
             <ion-label>
               <h2>Hola, {{ (userData$ | async)?.name }}</h2>
@@ -22,6 +22,17 @@
             </ion-label>
           </ion-item>
         </ion-col>
+        <ng-template #elseBlock>
+          <ion-item color="primary" lines="none" class="ion-float-right">
+            <ion-button
+              *ngIf="!isLoginRoute()"
+              color="light"
+              routerLink="/login"
+            >
+              Ingresar
+            </ion-button>
+          </ion-item>
+        </ng-template>
       </ion-row>
     </ion-grid>
   </ion-toolbar>
@@ -29,3 +40,15 @@
 <ion-content>
   <router-outlet></router-outlet>
 </ion-content>
+
+<!-- <ion-footer *ngIf="!isLoginRoute()">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button> Start </ion-button>
+    </ion-buttons>
+    <!-- <ion-title>Start / End Buttons</ion-title> --
+    <ion-buttons slot="end">
+      <ion-button> End </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer> -->

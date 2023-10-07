@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { data } from '../../mockMinutesData';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, find, map, of } from 'rxjs';
 import { Minute } from 'src/app/share/models/minuteData';
-import { catchError } from 'rxjs/operators';
 import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
+import { ReactiveStore } from 'src/app/app-store';
+import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
   providedIn: 'root',
@@ -18,25 +18,19 @@ export class MinuteService {
 
   constructor(
     private http: HttpClient,
-    private angularFirestore: AngularFirestore
+    private angularFirestore: AngularFirestore,
+    private reactiveStore: ReactiveStore,
+    private storage: Storage
   ) {}
 
   // Método para obtener todos los datos de la API
-  requestMinute(minuteCode: string): Observable<any> {
-    // const apiUrl = `${this.apiUrlBase}/api/minutes2/${numInforme}`;
-    /*   return of(data); */
+  requestMinutePDF(equipmentCode: string): Observable<any> {
+    const apiUrl = `http://localhost:5001/cali-aires-dev/us-central1/app/api/minutes2/${equipmentCode}`;
 
-    return this.http.get<Minute>(
-      `http://localhost:5001/cali-aires-dev/us-central1/app/api/minutes2/${minuteCode}`,
-      {
-        headers: { 'Content-Type': 'application/pdf' },
-      }
-    );
-    // .pipe(
-    //   catchError((error: any) => {
-    //     return of(undefined);
-    //   })
-    // );
+    return this.http.get(apiUrl, {
+      headers: { 'Content-Type': 'text', Accept: 'application/pdf' },
+      responseType: 'blob',
+    });
   }
 
   saveInFirestore(minute: Minute) {
@@ -48,5 +42,57 @@ export class MinuteService {
     return userRef.set(minute, {
       merge: true,
     });
+  }
+
+  saveLocally(minute: Minute) {
+    // save in local storage
+    this.storage.set(`minute/${minute.equipment_code}`, minute);
+    this.updateReactiveStore(minute);
+  }
+
+  getFromReactiveStore(equipmentCode: string) {
+    return this.reactiveStore.select<Minute[]>('minutes').pipe(
+      map((minutes) => {
+        return minutes.find(
+          (minute) => (minute.equipment_code = equipmentCode)
+        );
+      })
+    );
+  }
+
+  async loadMinutes() {
+    let localKeys = await this.storage.keys();
+    let minutes: Minute[] = [];
+
+    for (let key of localKeys) {
+      const localMinute: Minute = await this.storage.get(key);
+      minutes = [...minutes, localMinute];
+    }
+
+    this.reactiveStore.set('minutes', minutes);
+  }
+
+  private updateReactiveStore(minute: Minute) {
+    // update reactive store
+    const storedMinutes = this.reactiveStore.value.minutes;
+
+    const localMinute = storedMinutes.find(
+      (storedMinute) => storedMinute.equipment_code === minute.equipment_code
+    );
+    let newMinutes: Minute[] = [];
+
+    if (localMinute) {
+      newMinutes = storedMinutes.map((storedMinute) => {
+        if (minute.equipment_code === storedMinute.equipment_code) {
+          return minute;
+        }
+
+        return storedMinute;
+      });
+    } else {
+      newMinutes.push(minute);
+    }
+
+    this.reactiveStore.set('minutes', newMinutes);
   }
 }

@@ -1,0 +1,43 @@
+<ion-grid>
+  <ion-row class="top-row">
+    <ion-col class="section-divider-col" size-md="12" size-sm="12">
+      <ion-item-divider color="default">
+        <ion-label><h1>Informes guardados</h1></ion-label>
+      </ion-item-divider>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-card style="background-color: white">
+        <ion-card-content>
+          <ion-col class="empty" *ngIf="(minutes$ | async).length == 0">
+            <h1>No hay borradores de informes guardados</h1>
+          </ion-col>
+          <ion-list [inset]="true">
+            <ion-item
+              *ngFor="let minute of minutes$ | async; index as i"
+              detail="true"
+              [button]="true"
+              routerLink="/create-report/{{minute.equipment_code}}"
+            >
+              <ion-icon
+                color="tertiary"
+                slot="start"
+                name="list-circle"
+                size="large"
+              ></ion-icon>
+              <!-- <ion-badge slot="start">1</ion-badge> -->
+              <ion-label>
+                <p>
+                  <strong>Codigo de equipo:</strong> {{minute.equipment_code}}
+                </p>
+                <p><strong>Fecha:</strong> {{minute.date }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

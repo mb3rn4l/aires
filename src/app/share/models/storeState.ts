@@ -3,6 +3,6 @@ import { Minute } from './minuteData';
 
 export interface State {
   user?: FirestoreUser;
-  minutes?: Minute[];
+  minutes: Minute[];
   [key: string]: any;
 }

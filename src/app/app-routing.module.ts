@@ -6,7 +6,7 @@ import { HeaderLayoutComponent } from './share/components/header-layout/header-l
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'download-minute',
     pathMatch: 'full',
   },
   {
@@ -41,18 +41,32 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
       },
-      {
-        path: 'upload-minute',
-        loadChildren: () =>
-          import('./views/upload-minutes/upload-minutes.module').then(
-            (m) => m.UploadMinutesPageModule
-          ),
-      },
+      // {
+      //   path: 'upload-minute',
+      //   loadChildren: () =>
+      //     import('./views/upload-minutes/upload-minutes.module').then(
+      //       (m) => m.UploadMinutesPageModule
+      //     ),
+      // },
       {
         path: 'create-report',
         loadChildren: () =>
           import('./views/create-report/create-report.module').then(
             (m) => m.CreateReportPageModule
+          ),
+      },
+      {
+        path: 'create-report/:equipmentCode',
+        loadChildren: () =>
+          import('./views/create-report/create-report.module').then(
+            (m) => m.CreateReportPageModule
+          ),
+      },
+      {
+        path: 'list-minute',
+        loadChildren: () =>
+          import('./views/list-minute/list-minute.module').then(
+            (m) => m.ListMinutePageModule
           ),
       },
       {
