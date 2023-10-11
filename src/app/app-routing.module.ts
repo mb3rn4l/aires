@@ -41,19 +41,14 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         canActivateChild: [AuthGuard],
       },
-      // {
-      //   path: 'upload-minute',
-      //   loadChildren: () =>
-      //     import('./views/upload-minutes/upload-minutes.module').then(
-      //       (m) => m.UploadMinutesPageModule
-      //     ),
-      // },
       {
         path: 'create-report',
         loadChildren: () =>
           import('./views/create-report/create-report.module').then(
             (m) => m.CreateReportPageModule
           ),
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
       },
       {
         path: 'create-report/:equipmentCode',
@@ -61,6 +56,8 @@ const routes: Routes = [
           import('./views/create-report/create-report.module').then(
             (m) => m.CreateReportPageModule
           ),
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
       },
       {
         path: 'list-minute',
@@ -68,6 +65,8 @@ const routes: Routes = [
           import('./views/list-minute/list-minute.module').then(
             (m) => m.ListMinutePageModule
           ),
+        canActivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
       },
       {
         path: 'reset-password',

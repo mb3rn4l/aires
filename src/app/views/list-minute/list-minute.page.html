@@ -15,12 +15,7 @@
             <h1>No hay borradores de informes guardados</h1>
           </ion-col>
           <ion-list [inset]="true">
-            <ion-item
-              *ngFor="let minute of minutes$ | async; index as i"
-              detail="true"
-              [button]="true"
-              routerLink="/create-report/{{minute.equipment_code}}"
-            >
+            <ion-item *ngFor="let minute of minutes$ | async; index as i">
               <ion-icon
                 color="tertiary"
                 slot="start"
@@ -32,8 +27,26 @@
                 <p>
                   <strong>Codigo de equipo:</strong> {{minute.equipment_code}}
                 </p>
+                <p><strong>Cliente:</strong> {{minute.client }}</p>
                 <p><strong>Fecha:</strong> {{minute.date }}</p>
               </ion-label>
+
+              <ion-icon
+                color="tertiary"
+                slot="end"
+                name="trash-outline"
+                size="large"
+                (click)="onDiscard(minute.equipment_code)"
+              >
+              </ion-icon>
+              <ion-icon
+                color="tertiary"
+                slot="end"
+                name="open-outline"
+                size="large"
+                routerLink="/create-report/{{minute.equipment_code}}"
+              >
+              </ion-icon>
             </ion-item>
           </ion-list>
         </ion-card-content>

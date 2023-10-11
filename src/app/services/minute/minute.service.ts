@@ -33,7 +33,13 @@ export class MinuteService {
     });
   }
 
-  saveInFirestore(minute: Minute) {
+  saveMinuteInCloud(minute: Minute) {
+    this.saveInFirestore(minute);
+    this.removeFromLocalStorage(minute.equipment_code);
+    this.removeFromReactiveStore(minute.equipment_code);
+  }
+
+  private saveInFirestore(minute: Minute) {
     // return this.angularFirestore.collection('minutes').add(minute);
 
     const userRef: AngularFirestoreDocument<any> = this.angularFirestore.doc(
@@ -44,8 +50,28 @@ export class MinuteService {
     });
   }
 
+  private removeFromReactiveStore(equipmentCode: string) {
+    const storedMinutes = this.reactiveStore.value.minutes;
+
+    const newMinutes = storedMinutes.filter(
+      (storedMinute) => storedMinute.equipment_code !== equipmentCode
+    );
+
+    this.reactiveStore.set('minutes', newMinutes);
+  }
+
+  private removeFromLocalStorage(equipmentCode: string) {
+    this.storage.remove(`minute/${equipmentCode}`);
+  }
+
+  discardMinute(equipmentCode: string) {
+    this.removeFromLocalStorage(equipmentCode);
+    this.removeFromReactiveStore(equipmentCode);
+  }
+
   saveLocally(minute: Minute) {
     // save in local storage
+    console.log(minute);
     this.storage.set(`minute/${minute.equipment_code}`, minute);
     this.updateReactiveStore(minute);
   }

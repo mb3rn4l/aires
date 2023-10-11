@@ -10,6 +10,9 @@
       <ion-fab-button (click)="onSendMinute()">
         <ion-icon name="send"></ion-icon>
       </ion-fab-button>
+      <ion-fab-button (click)="onDiscard()" [disabled]="!isSavedLocally">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
 

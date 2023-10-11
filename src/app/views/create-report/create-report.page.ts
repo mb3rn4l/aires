@@ -21,6 +21,7 @@ export class CreateReportPage implements OnInit {
 
   clickOnSavedLocally = false;
   clickOnSend = false;
+  isSavedLocally = false;
 
   @ViewChild('generalDataForm') generalDataForm: NgForm;
   @ViewChild('technicalDataForm') technicalDataForm: NgForm;
@@ -51,6 +52,7 @@ export class CreateReportPage implements OnInit {
         }),
         map((storedMinute: any) => {
           if (storedMinute) {
+            this.isSavedLocally = true;
             this.minute = storedMinute;
           } else {
             this.minute.date = new Date().toISOString().split('T')[0];
@@ -69,11 +71,17 @@ export class CreateReportPage implements OnInit {
     this.pageTop.scrollToTop();
   }
 
+  onClickPrev() {
+    this.swiperRef?.nativeElement.swiper.slidePrev();
+    this.pageTop.scrollToTop();
+  }
+
   async onSaveMinute() {
     this.clickOnSavedLocally = true;
 
     if (this.generalDataForm.valid) {
       this.minutesService.saveLocally(this.minute);
+      this.isSavedLocally = true;
     } else {
       const alert = await this.alertController.create({
         message:
@@ -93,7 +101,7 @@ export class CreateReportPage implements OnInit {
       this.technicalDataForm.valid &&
       this.checkDataForm.valid
     ) {
-      await this.minutesService.saveInFirestore(this.minute);
+      this.minutesService.saveMinuteInCloud(this.minute);
       this.router.navigate(['/home']);
     } else {
       const alert = await this.alertController.create({
@@ -105,8 +113,8 @@ export class CreateReportPage implements OnInit {
     }
   }
 
-  onClickPrev() {
-    this.swiperRef?.nativeElement.swiper.slidePrev();
-    this.pageTop.scrollToTop();
+  onDiscard() {
+    this.minutesService.discardMinute(this.minute.equipment_code);
+    this.router.navigate(['/home']);
   }
 }
