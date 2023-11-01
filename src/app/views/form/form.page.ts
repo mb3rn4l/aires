@@ -31,6 +31,7 @@ export class FormPage implements OnInit {
   }
 
   ngOnInit() {
+    /*
     this.route.paramMap
       .pipe(map((paramMap) => paramMap.get('id')))
       .subscribe((numInforme) => {
@@ -59,6 +60,7 @@ export class FormPage implements OnInit {
           console.log('No se proporcionó un número de informe en la URL.');
         }
       });
+      */
   }
 
   generatePDF() {

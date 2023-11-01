@@ -34,8 +34,8 @@ export class CreateUserPage {
 
     try {
       await this.authService.signUp(this.model);
-      this.router.navigate(['/home']);
       await loading.dismiss();
+      this.router.navigate(['/home']);
     } catch (error) {
       await loading.dismiss();
 

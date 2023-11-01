@@ -9,6 +9,8 @@ export interface Minute {
   equipment_name: string;
   capacity: string;
   equipment_type: string;
+  user: string;
+  client_witness: string;
   observations: string;
 
   technical_data_and_measurements: {

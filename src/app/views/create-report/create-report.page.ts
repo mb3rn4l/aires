@@ -8,6 +8,7 @@ import { MinuteService } from 'src/app/services/minute/minute.service';
 import { IonContent } from '@ionic/angular';
 import { IonicSlides } from '@ionic/angular';
 import { map, of, switchMap } from 'rxjs';
+import { ReactiveStore } from 'src/app/app-store';
 
 @Component({
   selector: 'app-create-report',
@@ -35,6 +36,7 @@ export class CreateReportPage implements OnInit {
     private alertController: AlertController,
     private router: Router,
     private route: ActivatedRoute,
+    private reactiveStore: ReactiveStore,
     private minutesService: MinuteService
   ) {}
 
@@ -55,6 +57,7 @@ export class CreateReportPage implements OnInit {
             this.isSavedLocally = true;
             this.minute = storedMinute;
           } else {
+            this.minute.user = this.reactiveStore.value.user!.name;
             this.minute.date = new Date().toISOString().split('T')[0];
           }
         })
@@ -63,11 +66,7 @@ export class CreateReportPage implements OnInit {
   }
 
   onClickNext() {
-    // this.swiperRef!.nativeElement.swiper.allowSlideNext = true;
-
     this.swiperRef?.nativeElement.swiper.slideNext();
-    // this.swiperRef!.nativeElement.swiper.allowSlideNext = false;
-
     this.pageTop.scrollToTop();
   }
 
@@ -77,11 +76,20 @@ export class CreateReportPage implements OnInit {
   }
 
   async onSaveMinute() {
+    let loading = await this.loadingCtrl.create();
     this.clickOnSavedLocally = true;
 
     if (this.generalDataForm.valid) {
-      this.minutesService.saveLocally(this.minute);
-      this.isSavedLocally = true;
+      try {
+        loading.present();
+
+        this.minutesService.saveLocally(this.minute);
+        this.isSavedLocally = true;
+
+        loading.dismiss();
+      } catch (error) {
+        loading.dismiss();
+      }
     } else {
       const alert = await this.alertController.create({
         message:
@@ -94,6 +102,7 @@ export class CreateReportPage implements OnInit {
   }
 
   async onSendMinute() {
+    let loading = await this.loadingCtrl.create();
     this.clickOnSend = true;
 
     if (
@@ -101,8 +110,14 @@ export class CreateReportPage implements OnInit {
       this.technicalDataForm.valid &&
       this.checkDataForm.valid
     ) {
-      this.minutesService.saveMinuteInCloud(this.minute);
-      this.router.navigate(['/home']);
+      try {
+        loading.present();
+        this.minutesService.saveMinuteInCloud(this.minute);
+        this.router.navigate(['/home']);
+        loading.dismiss();
+      } catch (error) {
+        loading.dismiss();
+      }
     } else {
       const alert = await this.alertController.create({
         message: 'Revise y complete los campos obligatorios marcados con * ',
@@ -113,8 +128,10 @@ export class CreateReportPage implements OnInit {
     }
   }
 
-  onDiscard() {
+  async onDiscard() {
+    let loading = await this.loadingCtrl.create();
     this.minutesService.discardMinute(this.minute.equipment_code);
+    loading.dismiss();
     this.router.navigate(['/home']);
   }
 }

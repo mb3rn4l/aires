@@ -1,5 +1,5 @@
-<app-container-card>
-  <h3 title>Consulta tu informe tecnico</h3>
+<app-container-card *ngIf="!areMinutesRequested">
+  <h3 title>Consulta informes tecnicos</h3>
 
   <form #downloadMinuteForm="ngForm" form-section (ngSubmit)="onSubmit()">
     <div>
@@ -7,10 +7,10 @@
         required
         type="text"
         fill="outline"
-        label="Numero de informe"
+        label="Código de equipo"
         labelPlacement="floating"
-        [(ngModel)]="model.minuteCode"
-        name="minuteCode"
+        [(ngModel)]="model.equipmentCode"
+        name="equipmentCode"
       ></ion-input>
       <br />
       <div align="center" *ngIf="(userData$ | async) == null">
@@ -28,7 +28,40 @@
       [disabled]="!downloadMinuteForm.form.valid"
       color="medium"
     >
-      Descargar
+      Consultar
     </ion-button>
   </form>
+</app-container-card>
+
+<app-container-card *ngIf="areMinutesRequested">
+  <h3 title>
+    Equipo: {{ model.equipmentCode }}
+    <br />
+    <small>Últimos 5 informes del equipo </small>
+  </h3>
+
+  <div form-section>
+    <ion-item color="default" *ngFor="let minute of minutes; index as i">
+      <ion-label>
+        <p>
+          <strong>tipo de mantenimiento:</strong>
+          {{minute.maintenance_type }}
+        </p>
+        <p><strong>Fecha:</strong> {{minute.date }}</p>
+      </ion-label>
+
+      <ion-icon
+        color="tertiary"
+        slot="end"
+        name="cloud-download-outline"
+        size="large"
+        (click)="onDownloadPDF(minute.id)"
+      >
+      </ion-icon>
+    </ion-item>
+    <br />
+    <ion-button color="medium" (click)="onRequestAgain()">
+      Nueva Consulta
+    </ion-button>
+  </div>
 </app-container-card>

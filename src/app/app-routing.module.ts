@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './share/guards/auth.guard';
 import { HeaderLayoutComponent } from './share/components/header-layout/header-layout.component';
+import { LoginGuard } from './share/guards/login.guard';
 
 const routes: Routes = [
   {
@@ -24,6 +25,8 @@ const routes: Routes = [
         path: 'login',
         loadChildren: () =>
           import('./views/login/login.module').then((m) => m.LoginPageModule),
+        canActivate: [LoginGuard],
+        canActivateChild: [LoginGuard],
       },
       {
         path: 'download-minute',

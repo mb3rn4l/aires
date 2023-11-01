@@ -1,4 +1,4 @@
 export interface DownloadMinuteForm {
-  minuteCode: string;
+  equipmentCode: string;
   captcha?: string;
 }

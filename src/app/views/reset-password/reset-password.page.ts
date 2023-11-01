@@ -26,8 +26,8 @@ export class ResetPasswordPage {
     loading.present();
     try {
       await this.authService.forgotPassword(this.model.email);
-      this.router.navigate(['./login']);
       await loading.dismiss();
+      this.router.navigate(['./login']);
     } catch (error) {
       await loading.dismiss();
       const alert = await this.alertController.create({

@@ -26,8 +26,8 @@ export class LoginPage {
 
     try {
       await this.authService.signIn(this.model);
-      this.router.navigate(['/home']);
       await loading.dismiss();
+      this.router.navigate(['/home']);
     } catch (error) {
       await loading.dismiss();
 

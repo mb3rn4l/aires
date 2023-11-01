@@ -27,6 +27,7 @@ export class Form2Page implements OnInit {
   }
 
   ngOnInit() {
+    /*
     this.route.paramMap
       .pipe(map((paramMap) => paramMap.get('id')))
       .subscribe((numInforme) => {
@@ -55,5 +56,6 @@ export class Form2Page implements OnInit {
           console.log('No se proporcionó un número de informe en la URL.');
         }
       });
+        */
   }
 }

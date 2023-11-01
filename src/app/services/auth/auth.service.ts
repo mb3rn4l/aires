@@ -80,11 +80,22 @@ export class AuthService {
     await this.angularFireAuth.updateCurrentUser(originalUser);
   }
 
-  checkUser() {
+  userCanNavigate() {
     return this.angularFireAuth.authState.pipe(
       map((user) => {
         if (!user) {
           this.router.navigateByUrl('/login');
+        }
+        return !!user;
+      })
+    );
+  }
+
+  userCanLogin() {
+    return this.angularFireAuth.authState.pipe(
+      map((user) => {
+        if (user) {
+          this.router.navigateByUrl('/home');
         }
         return !!user;
       })

@@ -23,8 +23,13 @@ export class MinuteService {
     private storage: Storage
   ) {}
 
-  // Método para obtener todos los datos de la API
-  requestMinutePDF(equipmentCode: string): Observable<any> {
+  requestLastFiveMinutes(equipmentCode: string): Observable<Minute[]> {
+    const apiUrl = `http://localhost:5001/cali-aires-dev/us-central1/app/api/minutes/${equipmentCode}`;
+
+    return this.http.get<Minute[]>(apiUrl);
+  }
+
+  requestMinutePDF(equipmentCode: string): Observable<Blob> {
     const apiUrl = `http://localhost:5001/cali-aires-dev/us-central1/app/api/minutes2/${equipmentCode}`;
 
     return this.http.get(apiUrl, {

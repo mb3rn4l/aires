@@ -5,6 +5,7 @@ import { AlertController } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { ReactiveStore } from 'src/app/app-store';
 import { DownloadMinuteForm } from 'src/app/share/models/downloadMinuteForm';
+import { Minute } from 'src/app/share/models/minuteData';
 
 @Component({
   selector: 'app-download-minute',
@@ -13,28 +14,57 @@ import { DownloadMinuteForm } from 'src/app/share/models/downloadMinuteForm';
 })
 export class DownloadMinutesPage {
   model: DownloadMinuteForm = {
-    minuteCode: '',
+    equipmentCode: '',
     captcha: '',
   };
+
+  minutes: Minute[] = [];
 
   siteKey = environment.firebase.recaptcha.siteKey;
 
   userData$ = this.reactiveStore.select('user');
+
+  areMinutesRequested: boolean = false;
 
   constructor(
     private reactiveStore: ReactiveStore,
     private minuteService: MinuteService,
     private loadingCtrl: LoadingController,
     private alertController: AlertController
-  ) {
-    this.siteKey;
-  }
+  ) {}
 
-  async onSubmit() {
+  onSubmit = async () => {
     let loading = await this.loadingCtrl.create();
     loading.present();
 
-    this.minuteService.requestMinutePDF(this.model.minuteCode).subscribe({
+    this.minuteService
+      .requestLastFiveMinutes(this.model.equipmentCode)
+      .subscribe({
+        next: async (minutes) => {
+          this.areMinutesRequested = true;
+          this.minutes = minutes;
+          await loading.dismiss();
+        },
+        error: async (error) => {
+          await loading.dismiss();
+        },
+      });
+  };
+
+  onRequestAgain() {
+    this.areMinutesRequested = false;
+    this.minutes = [];
+    this.model = {
+      equipmentCode: '',
+      captcha: '',
+    };
+  }
+
+  async onDownloadPDF(minuteId: string) {
+    let loading = await this.loadingCtrl.create();
+    loading.present();
+
+    this.minuteService.requestMinutePDF(minuteId).subscribe({
       next: (data) => {
         if (data) {
           loading.dismiss();

@@ -5,13 +5,13 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard {
+export class LoginGuard {
   constructor(private authService: AuthService) {}
 
   canActivate(
@@ -22,7 +22,7 @@ export class AuthGuard {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authService.userCanNavigate();
+    return this.authService.userCanLogin();
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
@@ -32,6 +32,6 @@ export class AuthGuard {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.authService.userCanNavigate();
+    return this.authService.userCanLogin();
   }
 }

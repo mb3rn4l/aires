@@ -8,12 +8,13 @@
           id="container-infoE"
           style="
             padding: 5px;
-            border: 1px solid #000000;
+            border: 1px solid #ccc;
             font-family: 'Calibri Light', sans-serif;
             font-size: 13px;
             color: #000000;
             display: flex;
             align-items: center;
+            justify-content: center;
           "
         >
           <div class="image-container">
@@ -25,8 +26,9 @@
           <div class="text-container" style="margin-top: 10px">
             <p>
               <strong>
-                CALI-AIRES S.A.S <br />NIT. 901 055 034 - 5 <br />INFORME
-                TECNICO</strong
+                CALI-AIRES S.A.S <br />
+                NIT. 901 055 034 - 5 <br />
+                INFORME TECNICO</strong
               >
             </p>
           </div>
@@ -39,18 +41,21 @@
           id="container-Code"
           style="
             padding: 5px;
-            border: 1px solid #000000;
+            border: 1px solid #ccc;
             font-family: 'Calibri Light', sans-serif;
             font-size: 13px;
             color: #000000;
-
+            display: flex;
+            justify-content: center;
             align-items: center;
+            text-align: center;
           "
         >
-          <p>
-            <span> <strong>CODIGO DE EQUIPO N°.</strong></span>
-            <span> </span>
-          </p>
+          <span>
+            <span> <strong>CODIGO DE EQUIPO N°</strong></span
+            ><br />
+            <span> 4343</span>
+          </span>
         </div>
       </div>
     </div>
@@ -124,19 +129,28 @@
             font-family: 'Calibri Light', sans-serif;
             font-size: 13px;
             color: #000000;
-
             align-items: center;
           "
         >
-          <table class="table table-bordered border-primary table-sm">
+          <table
+            class="table table-bordered table-sm"
+            style="border-color: #ccc !important"
+          >
             <tr>
-              <th colspan="3">DATOS TECNICOS Y MEDICONES</th>
+              <th colspan="3" style="text-align: center">
+                DATOS TECNICOS Y MEDICONES
+              </th>
             </tr>
             <tr>
-              <th colspan="3">UNIDAD MANEJADORA</th>
+              <th colspan="3" style="text-align: center">UNIDAD MANEJADORA</th>
             </tr>
             <tr>
-              <th rowspan="4">MOTOR DATOS DE PLACA</th>
+              <th
+                rowspan="4"
+                style="text-align: center; vertical-align: middle"
+              >
+                MOTOR DATOS DE PLACA
+              </th>
               <th>W</th>
               <td>
                 {{
@@ -169,7 +183,12 @@
               </td>
             </tr>
             <tr>
-              <th rowspan="3">MEDICIONES VOLTAJE</th>
+              <th
+                rowspan="3"
+                style="text-align: center; vertical-align: middle"
+              >
+                MEDICIONES VOLTAJE
+              </th>
               <th>&nbsp;</th>
               <td>
                 {{
@@ -194,7 +213,12 @@
               </td>
             </tr>
             <tr>
-              <th rowspan="3">AMPERAJE</th>
+              <th
+                rowspan="3"
+                style="text-align: center; vertical-align: middle"
+              >
+                AMPERAJE
+              </th>
               <th>L1</th>
               <td>
                 {{
@@ -235,10 +259,12 @@
         >
           <table class="table table-bordered table-sm">
             <tr>
-              <th colspan="8">LABORES Y REVISIONES REALIZADAS</th>
+              <th colspan="8" style="text-align: center">
+                LABORES Y REVISIONES REALIZADAS
+              </th>
             </tr>
             <tr>
-              <th colspan="8">UNIDAD DE MANEJO</th>
+              <th colspan="8" style="text-align: center">UNIDAD DE MANEJO</th>
             </tr>
             <tr>
               <th></th>
@@ -575,7 +601,7 @@
         >
           <table class="table table-bordered table-sm">
             <tr>
-              <th colspan="4">UNIDAD COMPRESORA</th>
+              <th colspan="4" style="text-align: center">UNIDAD COMPRESORA</th>
             </tr>
             <tr>
               <th colspan="2"></th>
@@ -583,7 +609,12 @@
               <th>2</th>
             </tr>
             <tr>
-              <th rowspan="4">DATOS DE PLACA</th>
+              <th
+                rowspan="4"
+                style="text-align: center; vertical-align: middle"
+              >
+                DATOS DE PLACA
+              </th>
               <th>HP</th>
               <td>
                 {{
@@ -618,7 +649,12 @@
             </tr>
             <tr></tr>
             <tr>
-              <th rowspan="3">MEDICIONES VOLTAJE</th>
+              <th
+                rowspan="3"
+                style="text-align: center; vertical-align: middle"
+              >
+                MEDICIONES VOLTAJE
+              </th>
               <th>VL1-L2</th>
               <td>
                 {{
@@ -652,7 +688,12 @@
               </td>
             </tr>
             <tr>
-              <th rowspan="3">AMPERAJE</th>
+              <th
+                rowspan="3"
+                style="text-align: center; vertical-align: middle"
+              >
+                AMPERAJE
+              </th>
               <th>L1</th>
               <td>
                 {{
@@ -686,7 +727,12 @@
               </td>
             </tr>
             <tr>
-              <th rowspan="2">PRESIONES (ESTADOS)</th>
+              <th
+                rowspan="2"
+                style="text-align: center; vertical-align: middle"
+              >
+                PRESIONES (ESTADOS)
+              </th>
               <th>ALTA</th>
               <td>
                 {{
@@ -727,7 +773,9 @@
             >
               <table class="table table-bordered table-sm">
                 <tr>
-                  <th colspan="8">UNIDAD CONDENSADORA</th>
+                  <th colspan="8" style="text-align: center">
+                    UNIDAD CONDENSADORA
+                  </th>
                 </tr>
                 <tr>
                   <th></th>
@@ -916,7 +964,9 @@
             >
               <table class="table table-bordered table-sm">
                 <tr>
-                  <th colspan="8">SISTEMA DE DISTRIBUCION DE AIRE</th>
+                  <th colspan="8" style="text-align: center">
+                    SISTEMA DE DISTRIBUCION DE AIRE
+                  </th>
                 </tr>
                 <tr>
                   <th></th>
@@ -1020,7 +1070,7 @@
         >
           <table class="table table-bordered table-sm">
             <tr>
-              <th colspan="4">MOTOR CONDENSADORA</th>
+              <th colspan="4" style="text-align: center">MOTOR CONDENSADORA</th>
             </tr>
             <tr>
               <th colspan="2"></th>
@@ -1028,7 +1078,12 @@
               <th>2</th>
             </tr>
             <tr>
-              <th rowspan="4">DATOS DE PLACA</th>
+              <th
+                rowspan="4"
+                style="text-align: center; vertical-align: middle"
+              >
+                DATOS DE PLACA
+              </th>
               <th>HP</th>
               <td>
                 {{
@@ -1073,7 +1128,12 @@
               </td>
             </tr>
             <tr>
-              <th rowspan="3">MEDICIONES VOLTAJE</th>
+              <th
+                rowspan="3"
+                style="text-align: center; vertical-align: middle"
+              >
+                MEDICIONES VOLTAJE
+              </th>
               <th>VL1-L2</th>
               <td>
                 {{
@@ -1107,7 +1167,12 @@
               </td>
             </tr>
             <tr>
-              <th rowspan="3">AMPERAJE</th>
+              <th
+                rowspan="3"
+                style="text-align: center; vertical-align: middle"
+              >
+                AMPERAJE
+              </th>
               <th>L1</th>
               <td>
                 {{
@@ -1374,9 +1439,17 @@
         align-items: center;
       "
     >
-      <div class="col"><strong>FIRMA EJECUTOR</strong></div>
-      <div class="col"><strong>FIRMA RECIBE</strong></div>
-      <div class="col"><strong>SELLO</strong></div>
+      <div class="col">
+        <span style="border-bottom: 1px solid #ccc">miguel angel bernal</span>
+        <br />
+        <strong>EJECUTOR</strong>
+      </div>
+      <div class="col">
+        <span style="border-bottom: 1px solid #ccc">miguel angel bernal</span>
+        <br />
+        <strong>PERSONA QUE RECIBE</strong>
+      </div>
+      <div class="col"></div>
     </div>
   </div>
   <button>Generar PDF</button>
