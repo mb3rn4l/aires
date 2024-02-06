@@ -195,9 +195,17 @@ export interface AirOutletDampers {
 }
 
 export interface PressureUmaPreMtto {
-  parameter: string;
+  parameter: {
+    _35: string;
+    _65: string;
+    _95: string;
+  };
 }
 
 export interface PressureUmaPosMtto {
-  parameter: string;
+  parameter: {
+    _35: string;
+    _65: string;
+    _95: string;
+  };
 }

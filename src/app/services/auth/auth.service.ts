@@ -43,7 +43,7 @@ export class AuthService {
     private angularFireAuth: AngularFireAuth,
     private saveInfoUser: UserService
   ) {
-    this.authState$.subscribe();
+    // this.authState$.subscribe();
   }
 
   signIn(loginForm: LoginForm): Promise<any> {
@@ -85,8 +85,9 @@ export class AuthService {
       map((user) => {
         if (!user) {
           this.router.navigateByUrl('/login');
+          return false;
         }
-        return !!user;
+        return true;
       })
     );
   }
@@ -96,8 +97,9 @@ export class AuthService {
       map((user) => {
         if (user) {
           this.router.navigateByUrl('/home');
+          return false;
         }
-        return !!user;
+        return true;
       })
     );
   }

@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MinuteService } from 'src/app/services/minute/minute.service';
 import { IonContent } from '@ionic/angular';
 import { IonicSlides } from '@ionic/angular';
-import { map, of, switchMap } from 'rxjs';
+import { map, of, switchMap, tap } from 'rxjs';
 import { ReactiveStore } from 'src/app/app-store';
 
 @Component({
@@ -16,7 +16,7 @@ import { ReactiveStore } from 'src/app/app-store';
   styleUrls: ['./create-report.page.scss'],
 })
 export class CreateReportPage implements OnInit {
-  minute: Minute = data;
+  minute: Minute;
 
   swiperModules = [IonicSlides];
 
@@ -41,6 +41,14 @@ export class CreateReportPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.minute = { ...data };
+
+    this.reactiveStore.select('user').subscribe((userData: any) => {
+      if (userData) {
+        this.minute.user = userData.name;
+      }
+    });
+
     this.route.paramMap
       .pipe(
         switchMap((paramMap) => {
@@ -57,12 +65,11 @@ export class CreateReportPage implements OnInit {
             this.isSavedLocally = true;
             this.minute = storedMinute;
           } else {
-            this.minute.user = this.reactiveStore.value.user!.name;
             this.minute.date = new Date().toISOString().split('T')[0];
           }
         })
       )
-      .subscribe();
+      .subscribe(() => {});
   }
 
   onClickNext() {
@@ -81,13 +88,12 @@ export class CreateReportPage implements OnInit {
 
     if (this.generalDataForm.valid) {
       try {
-        loading.present();
+        await loading.present();
 
         this.minutesService.saveLocally(this.minute);
         this.isSavedLocally = true;
-
-        loading.dismiss();
       } catch (error) {
+      } finally {
         loading.dismiss();
       }
     } else {
@@ -111,11 +117,11 @@ export class CreateReportPage implements OnInit {
       this.checkDataForm.valid
     ) {
       try {
-        loading.present();
+        await loading.present();
         this.minutesService.saveMinuteInCloud(this.minute);
         this.router.navigate(['/home']);
-        loading.dismiss();
       } catch (error) {
+      } finally {
         loading.dismiss();
       }
     } else {

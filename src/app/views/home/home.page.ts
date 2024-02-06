@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
-import { Subscription, catchError, of } from 'rxjs';
+import { Subscription, catchError, of, tap } from 'rxjs';
 
 import { ReactiveStore } from 'src/app/app-store';
 
@@ -11,7 +11,7 @@ import { ReactiveStore } from 'src/app/app-store';
 })
 export class HomePage {
   isAdmin: boolean;
-  loading: HTMLIonLoadingElement;
+  // loading: HTMLIonLoadingElement;
 
   userSubsc: Subscription;
 
@@ -29,16 +29,11 @@ export class HomePage {
   }
 
   private async initialize() {
-    this.loading = await this.loadingCtrl.create();
-    this.loading.present();
-
     this.userSubsc = this.reactiveStore
       .select('user')
       .pipe(catchError(() => of(undefined)))
       .subscribe((user: any) => {
         this.isAdmin = user ? user.isAdmin : false;
-        console.log('isAdmin', this.isAdmin);
-        this.loading.dismiss();
       });
   }
 }

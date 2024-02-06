@@ -24,7 +24,7 @@ export class ListMinutePage implements OnInit {
 
   async onDiscard(equipmentCode: string) {
     let loading = await this.loadingCtrl.create();
-    loading.present();
+    await loading.present();
 
     this.minutesService.discardMinute(equipmentCode);
 

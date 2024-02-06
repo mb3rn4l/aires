@@ -172,7 +172,7 @@
                         >
                         </ion-input>
                         <br />
-                        <ion-input
+                        <!-- <ion-input
                           type="text"
                           fill="outline"
                           label="Quien Recibe"
@@ -180,7 +180,43 @@
                           name="Observaciones"
                           [(ngModel)]="minute.client_witness"
                         >
+                        </ion-input> 
+                      [min]="iso_start_date"
+                          [max]="iso_end_date"
+                      -->
+
+                        <ion-input
+                          type="date"
+                          fill="outline"
+                          label="Fecha"
+                          labelPlacement="floating"
+                          name="date"
+                          [(ngModel)]="minute.date"
+                        >
                         </ion-input>
+
+                        <!-- <ion-label>Fecha</ion-label> -->
+                        <!-- <ion-datetime
+                          name="date"
+                          displayFormat="MMM DD YYYY"
+                          [(ngModel)]="minute.date"
+                          cancelText="Cancelar"
+                          doneText="Asignar"
+                        >
+                        </ion-datetime> -->
+                        <!-- <ion-datetime-button
+                          datetime="datetime"
+                        ></ion-datetime-button>
+
+                        <ion-modal [keepContentsMounted]="true">
+                          <ng-template>
+                            <ion-datetime
+                              id="datetime"
+                              presentation="date"
+                              displayFormat="MMM DD YYYY"
+                            ></ion-datetime>
+                          </ng-template>
+                        </ion-modal> -->
                         <br />
                       </ion-col>
 
@@ -1027,607 +1063,962 @@
                     <ion-label>Labores y Revisiones Realizadas</ion-label>
                   </ion-item>
                   <ion-card-content>
-                    <table>
-                      <tr>
-                        <th>UNIDAD DE MANEJO</th>
-                      </tr>
-                    </table>
-
                     <ion-row>
-                      <ion-col size="12" size-sm="4">
-                        <ion-label>LIMPIEZA INTERIOR-EXTERIOR</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.interior_exterior_cleaning"
-                          #interior_exterior_cleaning="ngModel"
-                          [ngClass]="(clickOnSend) && interior_exterior_cleaning.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                      <ion-col size="12">
+                        <table>
+                          <tr>
+                            <th>UNIDAD DE MANEJO</th>
+                          </tr>
+                        </table>
+                        <br />
+                        <ion-col size="12">
+                          <ion-row>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>LIMPIEZA INTERIOR-EXTERIOR</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.interior_exterior_cleaning"
+                                #interior_exterior_cleaning="ngModel"
+                                [ngClass]="(clickOnSend) && interior_exterior_cleaning.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                        <ion-label>AJUSTE GENERAL DE TORNILOS</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.overall_screw_adjustment"
-                          #overall_screw_adjustment="ngModel"
-                          [ngClass]="(clickOnSend) && overall_screw_adjustment.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>AJUSTE GENERAL DE TORNILOS</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.overall_screw_adjustment"
+                                #overall_screw_adjustment="ngModel"
+                                [ngClass]="(clickOnSend) && overall_screw_adjustment.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                        <ion-label>LAVADO DE SERPENTINES</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.coil_serpentines"
-                          #coil_serpentines="ngModel"
-                          [ngClass]="(clickOnSend) && coil_serpentines.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>LAVADO DE SERPENTINES</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.coil_serpentines"
+                                #coil_serpentines="ngModel"
+                                [ngClass]="(clickOnSend) && coil_serpentines.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
 
-                        <ion-label>REVISION VALVULAS DE TORNILLOS</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.revision_of_expansion_valves"
-                          #revision_of_expansion_valves="ngModel"
-                          [ngClass]="(clickOnSend) && revision_of_expansion_valves.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                        <ion-col size="12">
+                          <ion-row>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label
+                                >REVISION VALVULAS DE EXPANSION</ion-label
+                              >
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.revision_of_expansion_valves"
+                                #revision_of_expansion_valves="ngModel"
+                                [ngClass]="(clickOnSend) && revision_of_expansion_valves.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                        <ion-label>AJUSTES PRISIONEROS DE CHUMAREJAS</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.adjust_prisoners_of_chumaceras"
-                          #adjust_prisoners_of_chumaceras="ngModel"
-                          [ngClass]="(clickOnSend) && adjust_prisoners_of_chumaceras.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label
+                                >AJUSTES PRISIONEROS DE CHUMACERAS</ion-label
+                              >
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.adjust_prisoners_of_chumaceras"
+                                #adjust_prisoners_of_chumaceras="ngModel"
+                                [ngClass]="(clickOnSend) && adjust_prisoners_of_chumaceras.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                        <ion-label
-                          >REVISION ACCESORIOS ELECTRICOS Y AJUSTES DE
-                          TORNILLERIA TAB. DE CONTROL</ion-label
-                        >
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.review_electrical_accessories"
-                          #review_electrical_accessories="ngModel"
-                          [ngClass]="(clickOnSend) && review_electrical_accessories.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-                      </ion-col>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label
+                                >REVISION ACCESORIOS ELECTRICOS Y AJUSTES DE
+                                TORNILLERIA TAB. DE CONTROL</ion-label
+                              >
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.review_electrical_accessories"
+                                #review_electrical_accessories="ngModel"
+                                [ngClass]="(clickOnSend) && review_electrical_accessories.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
 
-                      <ion-col size="12" size-sm="4">
-                        <ion-label>LAVADO FILTRO DE AIRE</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.air_filter_wash"
-                          #air_filter_wash="ngModel"
-                          [ngClass]="(clickOnSend) && air_filter_wash.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                        <ion-col size="12">
+                          <ion-row>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>LAVADO FILTRO DE AIRE</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.air_filter_wash"
+                                #air_filter_wash="ngModel"
+                                [ngClass]="(clickOnSend) && air_filter_wash.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                        <ion-label>REVISION RELE BIOMETALICO</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.bimetallic_relay_revision"
-                          #bimetallic_relay_revision="ngModel"
-                          [ngClass]="(clickOnSend) && bimetallic_relay_revision.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>REVISION RELE BIOMETALICO</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.bimetallic_relay_revision"
+                                #bimetallic_relay_revision="ngModel"
+                                [ngClass]="(clickOnSend) && bimetallic_relay_revision.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                        <ion-label>TENSION DE CORREAS</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.belt_tension"
-                          #belt_tension="ngModel"
-                          [ngClass]="(clickOnSend) && belt_tension.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>TENSION DE CORREAS</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.belt_tension"
+                                #belt_tension="ngModel"
+                                [ngClass]="(clickOnSend) && belt_tension.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
 
-                        <ion-label>LIMPIEZA TABLERO ELECTRONICO</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.electronic_board_cleaning"
-                          #electronic_board_cleaning="ngModel"
-                          [ngClass]="(clickOnSend) && electronic_board_cleaning.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                        <ion-col size="12">
+                          <ion-row>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label
+                                >LIMPIEZA TABLERO ELECTRONICO</ion-label
+                              >
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.electronic_board_cleaning"
+                                #electronic_board_cleaning="ngModel"
+                                [ngClass]="(clickOnSend) && electronic_board_cleaning.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                        <ion-label>CAMBIO DE CORREAS</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.changing_straps"
-                          #changing_straps="ngModel"
-                          [ngClass]="(clickOnSend) && changing_straps.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>CAMBIO DE CORREAS</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.changing_straps"
+                                #changing_straps="ngModel"
+                                [ngClass]="(clickOnSend) && changing_straps.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                        <ion-label>REVISION TERMOSTATO</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.thermostat_check"
-                          #thermostat_check="ngModel"
-                          [ngClass]="(clickOnSend) && thermostat_check.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-                      </ion-col>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>REVISION TERMOSTATO</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.thermostat_check"
+                                #thermostat_check="ngModel"
+                                [ngClass]="(clickOnSend) && thermostat_check.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
 
-                      <ion-col size="12" size-sm="4">
-                        <ion-label>REVISION RODAMIENTOS</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.bearing_review"
-                          #bearing_review="ngModel"
-                          [ngClass]="(clickOnSend) && bearing_review.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                        <ion-col size="12">
+                          <ion-row>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>REVISION RODAMIENTOS</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.bearing_review"
+                                #bearing_review="ngModel"
+                                [ngClass]="(clickOnSend) && bearing_review.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                        <ion-label>INSPECCION MOTOR</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.engine_inspection"
-                          #engine_inspection="ngModel"
-                          [ngClass]="(clickOnSend) && engine_inspection.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>INSPECCION MOTOR</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.engine_inspection"
+                                #engine_inspection="ngModel"
+                                [ngClass]="(clickOnSend) && engine_inspection.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                        <ion-label>REVISION AISLAMIENTO INTERIOR</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.internal_insulation_review"
-                          #internal_insulation_review="ngModel"
-                          [ngClass]="(clickOnSend) && internal_insulation_review.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label
+                                >REVISION AISLAMIENTO INTERIOR</ion-label
+                              >
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.internal_insulation_review"
+                                #internal_insulation_review="ngModel"
+                                [ngClass]="(clickOnSend) && internal_insulation_review.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
 
-                        <ion-label>LIMPIEZA DE DESAGUES</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.drain_cleaning"
-                          #drain_cleaning="ngModel"
-                          [ngClass]="(clickOnSend) && drain_cleaning.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                        <ion-col size="12">
+                          <ion-row>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>LIMPIEZA DE DESAGUES</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.drain_cleaning"
+                                #drain_cleaning="ngModel"
+                                [ngClass]="(clickOnSend) && drain_cleaning.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                        <ion-label>CAMBIO FILTRO</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.Filter_change"
-                          #Filter_change="ngModel"
-                          [ngClass]="(clickOnSend) && Filter_change.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-                      </ion-col>
-                    </ion-row>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>CAMBIO FILTRO</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.drive_unit.Filter_change"
+                                #Filter_change="ngModel"
+                                [ngClass]="(clickOnSend) && Filter_change.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
 
-                    <table>
-                      <tr>
-                        <th>UNIDAD CONDENSADORA</th>
-                      </tr>
-                    </table>
-
-                    <ion-row>
-                      <ion-col size="12" size-sm="4">
-                        <ion-label>LIMPIEZA INTERIOR-EXTERIOR</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.interior_exterior_cleaning"
-                          #interior_exterior_cleaning_2="ngModel"
-                          [ngClass]="(clickOnSend) && interior_exterior_cleaning_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-
-                        <ion-label>AJUSTE GENERAL DE TORNILOS</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.overall_screw_adjustment"
-                          #overall_screw_adjustment_2="ngModel"
-                          [ngClass]="(clickOnSend) && overall_screw_adjustment_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-
-                        <ion-label>LAVADO DE SERPENTINES</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.coil_serpentines"
-                          #coil_serpentines_2="ngModel"
-                          [ngClass]="(clickOnSend) && coil_serpentines_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-                      </ion-col>
-
-                      <ion-col size="12" size-sm="4">
-                        <ion-label
-                          >REVISION ACCESORIOS ELECTRICOS Y AJUSTES DE
-                          TORNILLERIA TAB. DE CONTROL</ion-label
-                        >
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.review_electrical_accessories"
-                          #review_electrical_accessories_2="ngModel"
-                          [ngClass]="(clickOnSend) && review_electrical_accessories_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-
-                        <ion-label>RODAMIENTOS</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.bearing"
-                          #bearing_2="ngModel"
-                          [ngClass]="(clickOnSend) && bearing_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-
-                        <ion-label>REVISION RELE BIOMETALICO</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.bimetallic_relay_revision"
-                          #bimetallic_relay_revision_2="ngModel"
-                          [ngClass]="(clickOnSend) && bimetallic_relay_revision_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-                      </ion-col>
-
-                      <ion-col size="12" size-sm="4">
-                        <ion-label>REVISION DE COMPRESOR</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.compressor_overhaul"
-                          #compressor_overhaul_2="ngModel"
-                          [ngClass]="(clickOnSend) && compressor_overhaul_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-
-                        <ion-label>INSPECCION DE TUBERIA REFIGERANTE</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.refrigerant_pipe_inspection"
-                          #refrigerant_pipe_inspection_2="ngModel"
-                          [ngClass]="(clickOnSend) && refrigerant_pipe_inspection_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-
-                        <ion-label>ESTADO DE SOPORTE</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.support_status"
-                          #support_status_2="ngModel"
-                          [ngClass]="(clickOnSend) && support_status_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-                      </ion-col>
-                    </ion-row>
-
-                    <table>
-                      <tr>
-                        <th>SISTEMA DE DISTRIBUCION DE AIRE</th>
-                      </tr>
-                    </table>
-
-                    <ion-row>
-                      <ion-col size="12" size-sm="3">
-                        <ion-label>REVISION DAMPERS</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.air_distribution_system.damper_revision"
-                          #damper_revision_2="ngModel"
-                          [ngClass]="(clickOnSend) && damper_revision_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-                      </ion-col>
-
-                      <ion-col size="12" size-sm="3">
-                        <ion-label>REVISION TERMOMETRO</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.air_distribution_system.thermometer_review"
-                          #thermometer_review_2="ngModel"
-                          [ngClass]="(clickOnSend) && thermometer_review_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-                      </ion-col>
-
-                      <ion-col size="12" size-sm="3">
-                        <ion-label>INSPECCION</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.air_distribution_system.inspection"
-                          #inspection="ngModel"
-                          [ngClass]="(clickOnSend) && inspection.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
-                      </ion-col>
-
-                      <ion-col size="12" size-sm="3">
-                        <ion-label>REVISION GENERAL CONDUCTOS</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.work_and_revisions_carried_out.air_distribution_system.general_inspection_ducts"
-                          #general_inspection_ducts="ngModel"
-                          [ngClass]="(clickOnSend) && general_inspection_ducts.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                          <ion-select-option value="NA">N/A</ion-select-option>
-                        </ion-select>
+                            <ion-col size="12" size-sm="4"></ion-col>
+                          </ion-row>
+                        </ion-col>
                       </ion-col>
                     </ion-row>
 
                     <ion-row>
-                      <ion-col size="12" size-sm="3">
+                      <ion-col size="12">
+                        <table>
+                          <tr>
+                            <th>UNIDAD CONDENSADORA</th>
+                          </tr>
+                        </table>
+                        <br />
+                        <ion-col size="12">
+                          <ion-row>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>LIMPIEZA INTERIOR-EXTERIOR</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.interior_exterior_cleaning"
+                                #interior_exterior_cleaning_2="ngModel"
+                                [ngClass]="(clickOnSend) && interior_exterior_cleaning_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>AJUSTE GENERAL DE TORNILOS</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.overall_screw_adjustment"
+                                #overall_screw_adjustment_2="ngModel"
+                                [ngClass]="(clickOnSend) && overall_screw_adjustment_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>LAVADO DE SERPENTINES</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.coil_serpentines"
+                                #coil_serpentines_2="ngModel"
+                                [ngClass]="(clickOnSend) && coil_serpentines_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+
+                        <ion-col size="12">
+                          <ion-row>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label
+                                >REVISION ACCESORIOS ELECTRICOS Y AJUSTES DE
+                                TORNILLERIA TAB. DE CONTROL</ion-label
+                              >
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.review_electrical_accessories"
+                                #review_electrical_accessories_2="ngModel"
+                                [ngClass]="(clickOnSend) && review_electrical_accessories_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>RODAMIENTOS</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.bearing"
+                                #bearing_2="ngModel"
+                                [ngClass]="(clickOnSend) && bearing_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>REVISION RELE BIOMETALICO</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.bimetallic_relay_revision"
+                                #bimetallic_relay_revision_2="ngModel"
+                                [ngClass]="(clickOnSend) && bimetallic_relay_revision_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+
+                        <ion-col size="12">
+                          <ion-row>
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>REVISION DE COMPRESOR</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.compressor_overhaul"
+                                #compressor_overhaul_2="ngModel"
+                                [ngClass]="(clickOnSend) && compressor_overhaul_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+
+                            <ion-col size="12" size-sm="4">
+                              <ion-label
+                                >INSPECCION DE TUBERIA REFIGERANTE</ion-label
+                              >
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.refrigerant_pipe_inspection"
+                                #refrigerant_pipe_inspection_2="ngModel"
+                                [ngClass]="(clickOnSend) && refrigerant_pipe_inspection_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+
+                            <ion-col size="12" size-sm="4">
+                              <ion-label>ESTADO DE SOPORTE</ion-label>
+                              <ion-select
+                                fill="outline"
+                                name="interior_exterior_cleaning"
+                                interface="popover"
+                                required
+                                [(ngModel)]="minute.work_and_revisions_carried_out.condensing_unit.support_status"
+                                #support_status_2="ngModel"
+                                [ngClass]="(clickOnSend) && support_status_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                              >
+                                <ion-select-option value="EF"
+                                  >EF</ion-select-option
+                                >
+                                <ion-select-option value="COM"
+                                  >COM</ion-select-option
+                                >
+                                <ion-select-option value="NA"
+                                  >N/A</ion-select-option
+                                >
+                              </ion-select>
+                            </ion-col>
+                          </ion-row>
+                        </ion-col>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col size="12">
+                        <table>
+                          <tr>
+                            <th>SISTEMA DE DISTRIBUCION DE AIRE</th>
+                          </tr>
+                        </table>
+                        <br />
+                        <ion-row>
+                          <ion-col size="12" size-sm="3">
+                            <ion-label>REVISION DAMPERS</ion-label>
+                            <ion-select
+                              fill="outline"
+                              name="interior_exterior_cleaning"
+                              interface="popover"
+                              required
+                              [(ngModel)]="minute.work_and_revisions_carried_out.air_distribution_system.damper_revision"
+                              #damper_revision_2="ngModel"
+                              [ngClass]="(clickOnSend) && damper_revision_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                            >
+                              <ion-select-option value="EF"
+                                >EF</ion-select-option
+                              >
+                              <ion-select-option value="COM"
+                                >COM</ion-select-option
+                              >
+                              <ion-select-option value="NA"
+                                >N/A</ion-select-option
+                              >
+                            </ion-select>
+                          </ion-col>
+
+                          <ion-col size="12" size-sm="3">
+                            <ion-label>REVISION TERMOMETRO</ion-label>
+                            <ion-select
+                              fill="outline"
+                              name="interior_exterior_cleaning"
+                              interface="popover"
+                              required
+                              [(ngModel)]="minute.work_and_revisions_carried_out.air_distribution_system.thermometer_review"
+                              #thermometer_review_2="ngModel"
+                              [ngClass]="(clickOnSend) && thermometer_review_2.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                            >
+                              <ion-select-option value="EF"
+                                >EF</ion-select-option
+                              >
+                              <ion-select-option value="COM"
+                                >COM</ion-select-option
+                              >
+                              <ion-select-option value="NA"
+                                >N/A</ion-select-option
+                              >
+                            </ion-select>
+                          </ion-col>
+
+                          <ion-col size="12" size-sm="3">
+                            <ion-label>INSPECCION</ion-label>
+                            <ion-select
+                              fill="outline"
+                              name="interior_exterior_cleaning"
+                              interface="popover"
+                              required
+                              [(ngModel)]="minute.work_and_revisions_carried_out.air_distribution_system.inspection"
+                              #inspection="ngModel"
+                              [ngClass]="(clickOnSend) && inspection.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                            >
+                              <ion-select-option value="EF"
+                                >EF</ion-select-option
+                              >
+                              <ion-select-option value="COM"
+                                >COM</ion-select-option
+                              >
+                              <ion-select-option value="NA"
+                                >N/A</ion-select-option
+                              >
+                            </ion-select>
+                          </ion-col>
+
+                          <ion-col size="12" size-sm="3">
+                            <ion-label>REVISION GENERAL CONDUCTOS</ion-label>
+                            <ion-select
+                              fill="outline"
+                              name="interior_exterior_cleaning"
+                              interface="popover"
+                              required
+                              [(ngModel)]="minute.work_and_revisions_carried_out.air_distribution_system.general_inspection_ducts"
+                              #general_inspection_ducts="ngModel"
+                              [ngClass]="(clickOnSend) && general_inspection_ducts.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                            >
+                              <ion-select-option value="EF"
+                                >EF</ion-select-option
+                              >
+                              <ion-select-option value="COM"
+                                >COM</ion-select-option
+                              >
+                              <ion-select-option value="NA"
+                                >N/A</ion-select-option
+                              >
+                            </ion-select>
+                          </ion-col>
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                      <ion-col size="12">
                         <table>
                           <tr>
                             <th>DAMPERS SALIDA DE AIRE</th>
                           </tr>
                         </table>
+                        <br />
 
-                        <ion-input
-                          label="°C"
-                          labelPlacement="floating"
-                          name="c"
-                          type="text"
-                          fill="outline"
-                          [(ngModel)]="minute.air_outlet_dampers.temperature._c"
-                        >
-                        </ion-input>
+                        <ion-row>
+                          <ion-col size="12" size-sm="4">
+                            <ion-input
+                              label="°C"
+                              labelPlacement="floating"
+                              name="c"
+                              type="text"
+                              fill="outline"
+                              [(ngModel)]="minute.air_outlet_dampers.temperature._c"
+                            >
+                            </ion-input>
+                          </ion-col>
 
-                        <ion-input
-                          label="TIPO DE REFIGERANTE"
-                          labelPlacement="floating"
-                          name="c"
-                          type="text"
-                          fill="outline"
-                          [(ngModel)]="minute.air_outlet_dampers.type_of_refrigerant"
-                        >
-                        </ion-input>
+                          <ion-col size="12" size-sm="4">
+                            <ion-input
+                              label="TIPO DE REFIGERANTE"
+                              labelPlacement="floating"
+                              name="c"
+                              type="text"
+                              fill="outline"
+                              [(ngModel)]="minute.air_outlet_dampers.type_of_refrigerant"
+                            >
+                            </ion-input>
+                          </ion-col>
+                        </ion-row>
                       </ion-col>
+                    </ion-row>
 
-                      <ion-col size="12" size-sm="3">
+                    <ion-row>
+                      <ion-col size="12">
                         <table>
                           <tr>
                             <th>DIF. DE PRESION UMA PRE-MTTO</th>
                           </tr>
                         </table>
-                        <ion-label>PARAMETRO(0,2 A 1,5 INCA)</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="parameter_pre"
-                          interface="popover"
-                          [(ngModel)]="minute.pressure_uma_pre_mtto.parameter"
-                        >
-                          <ion-select-option value="35">35%</ion-select-option>
-                          <ion-select-option value="65">65%</ion-select-option>
-                          <ion-select-option value="95">95%</ion-select-option>
-                        </ion-select>
+                        <br />
+                        <ion-row>
+                          <ion-col size="12" size-sm="3">
+                            <ion-input
+                              label="35%"
+                              labelPlacement="floating"
+                              name="pressure_uma_pre_mtto_35"
+                              type="text"
+                              fill="outline"
+                              [(ngModel)]="minute.pressure_uma_pre_mtto.parameter._35"
+                            >
+                            </ion-input>
+                          </ion-col>
+                          <ion-col size="12" size-sm="3">
+                            <ion-input
+                              label="65%"
+                              labelPlacement="floating"
+                              name="pressure_uma_pre_mtto_65"
+                              type="text"
+                              fill="outline"
+                              [(ngModel)]="minute.pressure_uma_pre_mtto.parameter._65"
+                            >
+                            </ion-input>
+                          </ion-col>
+                          <ion-col size="12" size-sm="3">
+                            <ion-input
+                              label="95%"
+                              labelPlacement="floating"
+                              name="pressure_uma_pre_mtto_95"
+                              type="text"
+                              fill="outline"
+                              [(ngModel)]="minute.pressure_uma_pre_mtto.parameter._95"
+                            >
+                            </ion-input>
+                          </ion-col>
+                        </ion-row>
                       </ion-col>
+                    </ion-row>
 
-                      <ion-col size="12" size-sm="3">
+                    <ion-row>
+                      <ion-col size="12">
                         <table>
                           <tr>
                             <th>DIF. DE PRESION UMA POS-MTTO</th>
                           </tr>
                         </table>
-                        <ion-label>PARAMETRO(0,2 A 1,5 INCA)</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="parameter_pre"
-                          interface="popover"
-                          [(ngModel)]="minute.pressure_uma_pos_mtto.parameter"
-                        >
-                          <ion-select-option value="35">35%</ion-select-option>
-                          <ion-select-option value="65">65%</ion-select-option>
-                          <ion-select-option value="95">95%</ion-select-option>
-                        </ion-select>
+                        <br />
+                        <ion-row>
+                          <ion-col size="12" size-sm="3">
+                            <ion-input
+                              label="35%"
+                              labelPlacement="floating"
+                              name="pressure_uma_pos_mtto_35"
+                              type="text"
+                              fill="outline"
+                              [(ngModel)]="minute.pressure_uma_pos_mtto.parameter._35"
+                            >
+                            </ion-input>
+                          </ion-col>
+                          <ion-col size="12" size-sm="3">
+                            <ion-input
+                              label="65%"
+                              labelPlacement="floating"
+                              name="pressure_uma_pos_mtto_65"
+                              type="text"
+                              fill="outline"
+                              [(ngModel)]="minute.pressure_uma_pos_mtto.parameter._65"
+                            >
+                            </ion-input>
+                          </ion-col>
+                          <ion-col size="12" size-sm="3">
+                            <ion-input
+                              label="95%"
+                              labelPlacement="floating"
+                              name="pressure_uma_pos_mtto_95"
+                              type="text"
+                              fill="outline"
+                              [(ngModel)]="minute.pressure_uma_pos_mtto.parameter._95"
+                            >
+                            </ion-input>
+                          </ion-col>
+                        </ion-row>
                       </ion-col>
+                    </ion-row>
 
-                      <ion-col size="12" size-sm="3">
+                    <ion-row>
+                      <ion-col size="12">
                         <table>
                           <tr>
                             <th>CONDICIONES DE ENTREGA</th>
                           </tr>
                         </table>
+                        <br />
+                        <ion-row>
+                          <ion-col size="12" size-sm="3">
+                            <ion-label>CONDICIONES ENTREGA DE EQUIPO</ion-label>
+                            <ion-select
+                              fill="outline"
+                              name="interior_exterior_cleaning"
+                              interface="popover"
+                              required
+                              [(ngModel)]="minute.air_outlet_dampers.equipment_delivery_conditions"
+                              #equipment_delivery_conditions="ngModel"
+                              [ngClass]="(clickOnSend) && equipment_delivery_conditions.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                            >
+                              <ion-select-option value="EF"
+                                >EF</ion-select-option
+                              >
+                              <ion-select-option value="COM"
+                                >COM</ion-select-option
+                              >
+                            </ion-select>
+                          </ion-col>
 
-                        <ion-label>CONDICIONES ENTREGA DE EQUIPO</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.air_outlet_dampers.equipment_delivery_conditions"
-                          #equipment_delivery_conditions="ngModel"
-                          [ngClass]="(clickOnSend) && equipment_delivery_conditions.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                        </ion-select>
-
-                        <ion-label>ENTREGA DE AREA LIMPIA DE TRABAJO</ion-label>
-                        <ion-select
-                          fill="outline"
-                          name="interior_exterior_cleaning"
-                          interface="popover"
-                          required
-                          [(ngModel)]="minute.air_outlet_dampers.delivery_of_clean_work_area"
-                          #delivery_of_clean_work_area="ngModel"
-                          [ngClass]="(clickOnSend) && delivery_of_clean_work_area.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
-                        >
-                          <ion-select-option value="EF">EF</ion-select-option>
-                          <ion-select-option value="COM">COM</ion-select-option>
-                        </ion-select>
+                          <ion-col size="12" size-sm="3">
+                            <ion-label
+                              >ENTREGA DE AREA LIMPIA DE TRABAJO</ion-label
+                            >
+                            <ion-select
+                              fill="outline"
+                              name="interior_exterior_cleaning"
+                              interface="popover"
+                              required
+                              [(ngModel)]="minute.air_outlet_dampers.delivery_of_clean_work_area"
+                              #delivery_of_clean_work_area="ngModel"
+                              [ngClass]="(clickOnSend) && delivery_of_clean_work_area.errors?.['required'] ? 'ion-touched ion-invalid sc-ion-input-md-h' : 'sc-ion-input-md-h' "
+                            >
+                              <ion-select-option value="EF"
+                                >EF</ion-select-option
+                              >
+                              <ion-select-option value="COM"
+                                >COM</ion-select-option
+                              >
+                            </ion-select>
+                          </ion-col>
+                        </ion-row>
                       </ion-col>
                     </ion-row>
                   </ion-card-content>
@@ -1642,11 +2033,11 @@
         <ion-col size-md="12" size-sm="12" style="text-align: center">
           <ion-toolbar>
             <ion-buttons slot="start">
-              <ion-button (click)="onClickPrev()"> Start </ion-button>
+              <ion-button (click)="onClickPrev()"> < </ion-button>
             </ion-buttons>
             <h1>Informe Técnico</h1>
             <ion-buttons slot="end">
-              <ion-button (click)="onClickNext()"> End </ion-button>
+              <ion-button (click)="onClickNext()"> > </ion-button>
             </ion-buttons>
           </ion-toolbar>
         </ion-col>

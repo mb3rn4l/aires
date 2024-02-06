@@ -35,7 +35,7 @@ export class DownloadMinutesPage {
 
   onSubmit = async () => {
     let loading = await this.loadingCtrl.create();
-    loading.present();
+    await loading.present();
 
     this.minuteService
       .requestLastFiveMinutes(this.model.equipmentCode)
@@ -62,7 +62,7 @@ export class DownloadMinutesPage {
 
   async onDownloadPDF(minuteId: string) {
     let loading = await this.loadingCtrl.create();
-    loading.present();
+    await loading.present();
 
     this.minuteService.requestMinutePDF(minuteId).subscribe({
       next: (data) => {

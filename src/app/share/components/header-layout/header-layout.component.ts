@@ -25,6 +25,6 @@ export class HeaderLayoutComponent {
 
   onClickSignOut() {
     this.authService.signOut();
-    this.router.navigate(['/login']);
+    window.location.reload();
   }
 }

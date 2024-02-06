@@ -24,13 +24,15 @@ export class MinuteService {
   ) {}
 
   requestLastFiveMinutes(equipmentCode: string): Observable<Minute[]> {
-    const apiUrl = `http://localhost:5001/cali-aires-dev/us-central1/app/api/minutes/${equipmentCode}`;
+    const apiUrl = `https://us-central1-cali-aires-dev.cloudfunctions.net/app/api/minutes/${equipmentCode}`;
+    //const apiUrl = `http://127.0.0.1:5001/cali-aires-dev/us-central1/app/api/minutes/${equipmentCode}`;
 
     return this.http.get<Minute[]>(apiUrl);
   }
 
   requestMinutePDF(equipmentCode: string): Observable<Blob> {
-    const apiUrl = `http://localhost:5001/cali-aires-dev/us-central1/app/api/minutes2/${equipmentCode}`;
+    const apiUrl = `https://us-central1-cali-aires-dev.cloudfunctions.net/app/api/pdf/minute/${equipmentCode}`;
+    //const apiUrl = `http://127.0.0.1:5001/cali-aires-dev/us-central1/app/api/pdf/minute/${equipmentCode}`;
 
     return this.http.get(apiUrl, {
       headers: { 'Content-Type': 'text', Accept: 'application/pdf' },
@@ -45,14 +47,14 @@ export class MinuteService {
   }
 
   private saveInFirestore(minute: Minute) {
-    // return this.angularFirestore.collection('minutes').add(minute);
+    return this.angularFirestore.collection('minutes').add(minute);
 
-    const userRef: AngularFirestoreDocument<any> = this.angularFirestore.doc(
-      `minutes/${minute.equipment_code}`
-    );
-    return userRef.set(minute, {
-      merge: true,
-    });
+    // const userRef: AngularFirestoreDocument<any> = this.angularFirestore.doc(
+    //   `minutes/${minute.equipment_code}`
+    // );
+    // return userRef.set(minute, {
+    //   merge: true,
+    // });
   }
 
   private removeFromReactiveStore(equipmentCode: string) {
@@ -76,7 +78,6 @@ export class MinuteService {
 
   saveLocally(minute: Minute) {
     // save in local storage
-    console.log(minute);
     this.storage.set(`minute/${minute.equipment_code}`, minute);
     this.updateReactiveStore(minute);
   }

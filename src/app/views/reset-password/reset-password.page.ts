@@ -23,7 +23,7 @@ export class ResetPasswordPage {
 
   async onSubmit() {
     let loading = await this.loadingCtrl.create();
-    loading.present();
+    await loading.present();
     try {
       await this.authService.forgotPassword(this.model.email);
       await loading.dismiss();

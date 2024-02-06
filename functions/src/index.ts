@@ -52,7 +52,7 @@ app.get('/api/minutes/:equipment_code', async (req: any, res: any) => {
 });
 
 // Descarga el pdf segun el identificador del acta
-app.get('/api/minutes2/:id', async (req: any, res: any) => {
+app.get('/api/pdf/minute/:id', async (req: any, res: any) => {
   try {
     const id = req.params.id;
 
@@ -84,7 +84,7 @@ app.get('/api/minutes2/:id', async (req: any, res: any) => {
     const pdf = await page.pdf({
       format: 'A4',
       printBackground: true,
-      scale: 0.9,
+      scale: 0.8,
     });
 
     await browser.close();
@@ -331,7 +331,7 @@ function getHtmlContent(minuteData: any) {
             <td>
             ${
               minuteData?.technical_data_and_measurements?.handling_unit
-                ?.voltage_measurements?.val_1
+                ?.amperage?.l1
             }
             </td>
           </tr>
@@ -340,7 +340,7 @@ function getHtmlContent(minuteData: any) {
             <td>
             ${
               minuteData?.technical_data_and_measurements?.handling_unit
-                ?.voltage_measurements?.val_2
+                ?.amperage?.l2
             }
             </td>
           </tr>
@@ -349,7 +349,7 @@ function getHtmlContent(minuteData: any) {
             <td>
             ${
               minuteData?.technical_data_and_measurements?.handling_unit
-                ?.voltage_measurements?.val_3
+                ?.amperage?.l3
             }
             </td>
           </tr>
@@ -394,7 +394,7 @@ function getHtmlContent(minuteData: any) {
                     ?.interior_exterior_cleaning,
                   'EF'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -405,7 +405,7 @@ function getHtmlContent(minuteData: any) {
                     ?.interior_exterior_cleaning,
                   'COM'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -416,7 +416,7 @@ function getHtmlContent(minuteData: any) {
                     ?.interior_exterior_cleaning,
                   'NA'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -429,7 +429,7 @@ function getHtmlContent(minuteData: any) {
                     ?.overall_screw_adjustment,
                   'EF'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -440,7 +440,7 @@ function getHtmlContent(minuteData: any) {
                     ?.overall_screw_adjustment,
                   'COM'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -451,7 +451,7 @@ function getHtmlContent(minuteData: any) {
                   ?.overall_screw_adjustment,
                 'NA'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -465,7 +465,7 @@ function getHtmlContent(minuteData: any) {
                     ?.coil_serpentines,
                   'EF'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -476,7 +476,7 @@ function getHtmlContent(minuteData: any) {
                   ?.coil_serpentines,
                 'COM'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -487,7 +487,7 @@ function getHtmlContent(minuteData: any) {
                     ?.coil_serpentines,
                   'NA'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -503,7 +503,7 @@ function getHtmlContent(minuteData: any) {
                   ?.revision_of_expansion_valves,
                 'EF'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -514,7 +514,7 @@ function getHtmlContent(minuteData: any) {
                   ?.revision_of_expansion_valves,
                 'COM'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -525,7 +525,7 @@ function getHtmlContent(minuteData: any) {
                   ?.revision_of_expansion_valves,
                 'NA'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -539,7 +539,7 @@ function getHtmlContent(minuteData: any) {
                     ?.adjust_prisoners_of_chumaceras,
                   'EF'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -550,7 +550,7 @@ function getHtmlContent(minuteData: any) {
                     ?.adjust_prisoners_of_chumaceras,
                   'COM'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -561,7 +561,7 @@ function getHtmlContent(minuteData: any) {
                   ?.adjust_prisoners_of_chumaceras,
                 'NA'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -577,7 +577,7 @@ function getHtmlContent(minuteData: any) {
                     ?.review_electrical_accessories,
                   'EF'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </th>
@@ -588,7 +588,7 @@ function getHtmlContent(minuteData: any) {
                     ?.review_electrical_accessories,
                   'COM'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -599,7 +599,7 @@ function getHtmlContent(minuteData: any) {
                   ?.review_electrical_accessories,
                 'NA'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -613,7 +613,7 @@ function getHtmlContent(minuteData: any) {
                   ?.air_filter_wash,
                 'EF'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -624,7 +624,7 @@ function getHtmlContent(minuteData: any) {
                     ?.air_filter_wash,
                   'COM'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -635,7 +635,7 @@ function getHtmlContent(minuteData: any) {
                   ?.air_filter_wash,
                 'NA'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -648,7 +648,7 @@ function getHtmlContent(minuteData: any) {
                   ?.bimetallic_relay_revision,
                 'EF'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -659,7 +659,7 @@ function getHtmlContent(minuteData: any) {
                   ?.bimetallic_relay_revision,
                 'COM'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -670,7 +670,7 @@ function getHtmlContent(minuteData: any) {
                     ?.bimetallic_relay_revision,
                   'NA'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -684,7 +684,7 @@ function getHtmlContent(minuteData: any) {
                     ?.belt_tension,
                   'EF'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -695,7 +695,7 @@ function getHtmlContent(minuteData: any) {
                   ?.belt_tension,
                 'COM'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </th>
@@ -706,7 +706,7 @@ function getHtmlContent(minuteData: any) {
                   ?.belt_tension,
                 'NA'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -719,7 +719,7 @@ function getHtmlContent(minuteData: any) {
                   ?.electronic_board_cleaning,
                 'EF'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -730,7 +730,7 @@ function getHtmlContent(minuteData: any) {
                   ?.electronic_board_cleaning,
                 'COM'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -741,7 +741,7 @@ function getHtmlContent(minuteData: any) {
                   ?.electronic_board_cleaning,
                 'NA'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -755,7 +755,7 @@ function getHtmlContent(minuteData: any) {
                   ?.changing_straps,
                 'EF'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -766,7 +766,7 @@ function getHtmlContent(minuteData: any) {
                   ?.changing_straps,
                 'COM'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -777,7 +777,7 @@ function getHtmlContent(minuteData: any) {
                   ?.changing_straps,
                 'NA'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -790,7 +790,7 @@ function getHtmlContent(minuteData: any) {
                   ?.thermostat_check,
                 'EF'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -801,7 +801,7 @@ function getHtmlContent(minuteData: any) {
                   ?.thermostat_check,
                 'COM'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -812,7 +812,7 @@ function getHtmlContent(minuteData: any) {
                     ?.thermostat_check,
                   'NA'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -826,7 +826,7 @@ function getHtmlContent(minuteData: any) {
                   ?.bearing_review,
                 'EF'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -837,7 +837,7 @@ function getHtmlContent(minuteData: any) {
                   ?.bearing_review,
                 'COM'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -848,7 +848,7 @@ function getHtmlContent(minuteData: any) {
                   ?.bearing_review,
                 'NA'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -861,7 +861,7 @@ function getHtmlContent(minuteData: any) {
                   ?.engine_inspection,
                 'EF'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -872,7 +872,7 @@ function getHtmlContent(minuteData: any) {
                     ?.engine_inspection,
                   'COM'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </th>
@@ -883,7 +883,7 @@ function getHtmlContent(minuteData: any) {
                     ?.engine_inspection,
                   'NA'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -897,7 +897,7 @@ function getHtmlContent(minuteData: any) {
                     ?.internal_insulation_review,
                   'EF'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -908,7 +908,7 @@ function getHtmlContent(minuteData: any) {
                     ?.internal_insulation_review,
                   'COM'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -919,7 +919,7 @@ function getHtmlContent(minuteData: any) {
                     ?.internal_insulation_review,
                   'NA'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -932,7 +932,7 @@ function getHtmlContent(minuteData: any) {
                     ?.drain_cleaning,
                   'EF'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -943,7 +943,7 @@ function getHtmlContent(minuteData: any) {
                   ?.drain_cleaning,
                 'COM'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -954,7 +954,7 @@ function getHtmlContent(minuteData: any) {
                   ?.drain_cleaning,
                 'NA'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -968,7 +968,7 @@ function getHtmlContent(minuteData: any) {
                   ?.Filter_change,
                 'EF'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -979,7 +979,7 @@ function getHtmlContent(minuteData: any) {
                     ?.Filter_change,
                   'COM'
                 )
-                  ? '✓'
+                  ? '<i class="bi bi-check2"></i>'
                   : ''
               }
             </td>
@@ -990,7 +990,7 @@ function getHtmlContent(minuteData: any) {
                   ?.Filter_change,
                 'NA'
               )
-                ? '✓'
+                ? '<i class="bi bi-check2"></i>'
                 : ''
             }
             </td>
@@ -1233,7 +1233,7 @@ function getHtmlContent(minuteData: any) {
                       ?.interior_exterior_cleaning,
                     'EF'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1244,7 +1244,7 @@ function getHtmlContent(minuteData: any) {
                       ?.interior_exterior_cleaning,
                     'COM'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1255,7 +1255,7 @@ function getHtmlContent(minuteData: any) {
                       ?.interior_exterior_cleaning,
                     'NA'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1268,7 +1268,7 @@ function getHtmlContent(minuteData: any) {
                         ?.condensing_unit?.overall_screw_adjustment,
                       'EF'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1279,7 +1279,7 @@ function getHtmlContent(minuteData: any) {
                       ?.overall_screw_adjustment,
                     'COM'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1290,7 +1290,7 @@ function getHtmlContent(minuteData: any) {
                         ?.condensing_unit?.overall_screw_adjustment,
                       'NA'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1304,7 +1304,7 @@ function getHtmlContent(minuteData: any) {
                         ?.condensing_unit?.coil_serpentines,
                       'EF'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1315,7 +1315,7 @@ function getHtmlContent(minuteData: any) {
                         ?.condensing_unit?.coil_serpentines,
                       'COM'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1326,7 +1326,7 @@ function getHtmlContent(minuteData: any) {
                       ?.coil_serpentines,
                     'NA'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1342,7 +1342,7 @@ function getHtmlContent(minuteData: any) {
                       ?.review_electrical_accessories,
                     'EF'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1353,7 +1353,7 @@ function getHtmlContent(minuteData: any) {
                       ?.review_electrical_accessories,
                     'COM'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1364,7 +1364,7 @@ function getHtmlContent(minuteData: any) {
                       ?.review_electrical_accessories,
                     'NA'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1375,10 +1375,10 @@ function getHtmlContent(minuteData: any) {
                 ${
                   shouldMark(
                     minuteData?.work_and_revisions_carried_out?.condensing_unit
-                      ?.bearings,
+                      ?.bearing,
                     'EF'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1389,7 +1389,7 @@ function getHtmlContent(minuteData: any) {
                         ?.condensing_unit?.bearing,
                       'COM'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1400,7 +1400,7 @@ function getHtmlContent(minuteData: any) {
                       ?.bearing,
                     'NA'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1413,7 +1413,7 @@ function getHtmlContent(minuteData: any) {
                         ?.condensing_unit?.bimetallic_relay_revision,
                       'EF'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1424,7 +1424,7 @@ function getHtmlContent(minuteData: any) {
                       ?.bimetallic_relay_revision,
                     'COM'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1435,7 +1435,7 @@ function getHtmlContent(minuteData: any) {
                       ?.bimetallic_relay_revision,
                     'NA'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1449,7 +1449,7 @@ function getHtmlContent(minuteData: any) {
                         ?.condensing_unit?.compressor_overhaul,
                       'EF'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1460,7 +1460,7 @@ function getHtmlContent(minuteData: any) {
                         ?.condensing_unit?.compressor_overhaul,
                       'COM'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1471,7 +1471,7 @@ function getHtmlContent(minuteData: any) {
                       ?.compressor_overhaul,
                     'NA'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1484,7 +1484,7 @@ function getHtmlContent(minuteData: any) {
                       ?.refrigerant_pipe_inspection,
                     'EF'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1495,7 +1495,7 @@ function getHtmlContent(minuteData: any) {
                       ?.refrigerant_pipe_inspection,
                     'COM'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1506,7 +1506,7 @@ function getHtmlContent(minuteData: any) {
                       ?.refrigerant_pipe_inspection,
                     'NA'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1520,7 +1520,7 @@ function getHtmlContent(minuteData: any) {
                         ?.condensing_unit?.support_status,
                       'EF'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1531,7 +1531,7 @@ function getHtmlContent(minuteData: any) {
                       ?.support_status,
                     'COM'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1542,7 +1542,7 @@ function getHtmlContent(minuteData: any) {
                         ?.condensing_unit?.support_status,
                       'NA'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1584,7 +1584,7 @@ function getHtmlContent(minuteData: any) {
                       ?.air_distribution_system?.damper_revision,
                     'EF'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1595,7 +1595,7 @@ function getHtmlContent(minuteData: any) {
                       ?.air_distribution_system?.damper_revision,
                     'COM'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1606,7 +1606,7 @@ function getHtmlContent(minuteData: any) {
                         ?.air_distribution_system?.damper_revision,
                       'NA'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1619,7 +1619,7 @@ function getHtmlContent(minuteData: any) {
                       ?.air_distribution_system?.thermometer_review,
                     'EF'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1630,7 +1630,7 @@ function getHtmlContent(minuteData: any) {
                         ?.air_distribution_system?.thermometer_review,
                       'COM'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1641,7 +1641,7 @@ function getHtmlContent(minuteData: any) {
                       ?.air_distribution_system?.thermometer_review,
                     'NA'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1655,7 +1655,7 @@ function getHtmlContent(minuteData: any) {
                         ?.air_distribution_system?.inspection,
                       'EF'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1666,7 +1666,7 @@ function getHtmlContent(minuteData: any) {
                       ?.air_distribution_system?.inspection,
                     'COM'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1677,7 +1677,7 @@ function getHtmlContent(minuteData: any) {
                         ?.air_distribution_system?.inspection,
                       'NA'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -1690,7 +1690,7 @@ function getHtmlContent(minuteData: any) {
                       ?.air_distribution_system?.general_inspection_ducts,
                     'EF'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1701,7 +1701,7 @@ function getHtmlContent(minuteData: any) {
                       ?.air_distribution_system?.general_inspection_ducts,
                     'COM'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -1712,7 +1712,7 @@ function getHtmlContent(minuteData: any) {
                       ?.air_distribution_system?.general_inspection_ducts,
                     'NA'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </th>
@@ -1965,28 +1965,13 @@ function getHtmlContent(minuteData: any) {
               <tr>
                 <th>PARAMETRO(0,2 A 1,5 INCA)</th>
                 <td>
-                ${
-                  shouldMark(minuteData?.pressure_uma_pre_mtto.parameter, '35')
-                    ? '✓'
-                    : ''
-                }
+                ${minuteData?.pressure_uma_pre_mtto.parameter._35}
                 </td>
                 <td>
-                ${
-                  shouldMark(minuteData?.pressure_uma_pre_mtto.parameter, '65')
-                    ? '✓'
-                    : ''
-                }
+                ${minuteData?.pressure_uma_pre_mtto.parameter._65}
                 </td>
                 <td>
-                  ${
-                    shouldMark(
-                      minuteData?.pressure_uma_pre_mtto.parameter,
-                      '95'
-                    )
-                      ? '✓'
-                      : ''
-                  }
+                  ${minuteData?.pressure_uma_pre_mtto.parameter._95}
                 </td>
               </tr>
             </table>
@@ -2046,7 +2031,7 @@ function getHtmlContent(minuteData: any) {
                         ?.equipment_delivery_conditions,
                       'EF'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -2057,7 +2042,7 @@ function getHtmlContent(minuteData: any) {
                         ?.equipment_delivery_conditions,
                       'COM'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -2070,7 +2055,7 @@ function getHtmlContent(minuteData: any) {
                     minuteData?.air_outlet_dampers?.delivery_of_clean_work_area,
                     'EF'
                   )
-                    ? '✓'
+                    ? '<i class="bi bi-check2"></i>'
                     : ''
                 }
                 </td>
@@ -2081,7 +2066,7 @@ function getHtmlContent(minuteData: any) {
                         ?.delivery_of_clean_work_area,
                       'COM'
                     )
-                      ? '✓'
+                      ? '<i class="bi bi-check2"></i>'
                       : ''
                   }
                 </td>
@@ -2112,25 +2097,13 @@ function getHtmlContent(minuteData: any) {
               <tr>
                 <th>PARAMETRO(0,2 A 1,5 INCA)</th>
                 <td>
-                ${
-                  shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '35')
-                    ? '✓'
-                    : ''
-                }
+                ${minuteData?.pressure_uma_pos_mtto.parameter._35}
                 </td>
                 <td>
-                ${
-                  shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '65')
-                    ? '✓'
-                    : ''
-                }
+                ${minuteData?.pressure_uma_pos_mtto.parameter._65}
                 </td>
                 <td>
-                ${
-                  shouldMark(minuteData?.pressure_uma_pos_mtto.parameter, '95')
-                    ? '✓'
-                    : ''
-                }
+                ${minuteData?.pressure_uma_pos_mtto.parameter._95}
                 </td>
               </tr>
             </table>
@@ -2186,13 +2159,7 @@ function getHtmlContent(minuteData: any) {
       <br />
       <strong>EJECUTOR</strong>
     </div>
-    <div class="col">
-      <span style="border-bottom: 1px solid #ccc">
-        ${minuteData?.client_witness}
-      </span>
-      <br />
-      <strong>PERSONA QUE RECIBE</strong>
-    </div>
+    <div class="col"></div>
     <div class="col"></div>
   </div>
 </div>
@@ -2223,10 +2190,16 @@ opper.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.
 min.js"></script>
-
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 `;
 
   return html;
 }
 
-exports.app = functions.https.onRequest(app);
+exports.app = functions
+  .runWith({
+    timeoutSeconds: 300,
+    memory: '512MB',
+  })
+  .https.onRequest(app);

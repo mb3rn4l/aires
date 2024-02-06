@@ -172,9 +172,17 @@ export const data: Minute = {
     delivery_of_clean_work_area: '',
   },
   pressure_uma_pre_mtto: {
-    parameter: '',
+    parameter: {
+      _35: '',
+      _65: '',
+      _95: '',
+    },
   },
   pressure_uma_pos_mtto: {
-    parameter: '',
+    parameter: {
+      _35: '',
+      _65: '',
+      _95: '',
+    },
   },
 };
